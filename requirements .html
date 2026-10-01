@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Требования | Эсагила-Договоръ</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --clay: #d4a574; --clay-dark: #8b6f47; --clay-light: #f4e4bc; --basalt: #2c1810; --basalt-light: #5d4037; --gold: #c9a961; --gold-bright: #e8c872; --papyrus: #faf3e0; --red-clay: #a0522d; --shadow: rgba(44, 24, 16, 0.3); }
+    body { font-family: 'Georgia', serif; background: var(--papyrus); color: var(--basalt); line-height: 1.7; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.1) 0%, transparent 50%); pointer-events: none; z-index: -1; }
+    nav { position: fixed; top: 0; left: 0; right: 0; background: linear-gradient(180deg, var(--basalt) 0%, var(--basalt-light) 100%); color: var(--clay-light); padding: 15px 30px; z-index: 1000; box-shadow: 0 4px 20px var(--shadow); border-bottom: 3px solid var(--gold); }
+    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+    .logo { font-size: 1.4em; font-weight: bold; color: var(--gold-bright); letter-spacing: 2px; }
+    .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .nav-links a { color: var(--clay-light); text-decoration: none; font-size: 0.95em; transition: all 0.3s; padding: 5px 10px; border-radius: 4px; }
+    .nav-links a:hover { color: var(--gold-bright); background: rgba(201, 169, 97, 0.15); }
+    .page-header { background: linear-gradient(135deg, var(--basalt) 0%, var(--clay-dark) 100%); color: var(--clay-light); padding: 120px 20px 60px; text-align: center; }
+    .page-header h1 { font-size: 3em; color: var(--gold-bright); text-shadow: 3px 3px 6px rgba(0,0,0,0.7); margin-bottom: 15px; }
+    .page-header p { font-size: 1.2em; font-style: italic; max-width: 700px; margin: 0 auto; }
+    section { max-width: 1200px; margin: 0 auto; padding: 60px 30px; }
+    .section-intro { text-align: center; font-size: 1.15em; max-width: 800px; margin: 0 auto 50px; color: var(--basalt-light); font-style: italic; }
+    
+    .tablet-structure { background: linear-gradient(145deg, var(--clay) 0%, var(--clay-dark) 100%); border: 4px solid var(--basalt); border-radius: 15px; padding: 40px; margin: 40px auto; max-width: 700px; box-shadow: 0 10px 30px var(--shadow), inset 0 0 30px rgba(0,0,0,0.2); color: var(--basalt); position: relative; }
+    .tablet-structure::before { content: '📜'; position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 3em; background: var(--papyrus); padding: 0 15px; border-radius: 50%; }
+    .tablet-part { background: rgba(250, 243, 224, 0.9); padding: 15px 20px; margin: 15px 0; border-left: 5px solid var(--gold); border-radius: 5px; }
+    .tablet-part h4 { color: var(--red-clay); margin-bottom: 8px; font-size: 1.2em; }
+    
+    .law-block { background: var(--papyrus); border-left: 6px solid var(--red-clay); padding: 20px 25px; margin: 20px 0; border-radius: 0 8px 8px 0; box-shadow: 0 3px 10px rgba(0,0,0,0.1); font-style: italic; }
+    .law-block .law-number { display: inline-block; background: var(--red-clay); color: var(--papyrus); padding: 3px 12px; border-radius: 20px; font-size: 0.9em; font-weight: bold; margin-bottom: 10px; font-style: normal; }
+    
+    footer { background: linear-gradient(180deg, var(--basalt-light) 0%, var(--basalt) 100%); color: var(--clay-light); padding: 50px 30px 30px; margin-top: 60px; text-align: center; border-top: 4px solid var(--gold); }
+    .footer-signature { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--gold); font-style: italic; color: var(--gold); }
+    @media (max-width: 768px) { .page-header h1 { font-size: 2em; } nav { padding: 10px 15px; } .nav-links { gap: 10px; } .nav-links a { font-size: 0.85em; padding: 3px 6px; } }
+</style>
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <div class="logo">🏛️ ЭСАГИЛА-ДОГОВОРЪ</div>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="contracts.html">Виды сделок</a>
+            <a href="requirements.html">Требования</a>
+            <a href="witnesses.html">Свидетели</a>
+            <a href="expenses.html">Издержки</a>
+            <a href="risks.html">Судебные риски</a>
+            <a href="security.html">Обеспечение</a>
+            <a href="comparison.html">Сравнение</a>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>📋 Требования к договорам</h1>
+    <p>Глиняная табличка имела строгую структуру. Её нарушение означало юридическую ничтожность.</p>
+</div>
+
+<section>
+    <p class="section-intro">Вавилонское право было крайне формалистичным. Отсутствие даже одного элемента делало сделку недействительной.</p>
+    
+    <div class="tablet-structure">
+        <div class="tablet-part">
+            <h4>📋 Протокол (интиттуляция)</h4>
+            <p>Имена сторон, их титулы, имя царя (для датировки по годам его правления), место составления.</p>
+        </div>
+        <div class="tablet-part">
+            <h4>📝 Текст (диспозиция)</h4>
+            <p>Предмет сделки, цена, условия передачи, обязательства сторон, гарантии от эвикции.</p>
+        </div>
+        <div class="tablet-part">
+            <h4>🔏 Эсхатокол (заключение)</h4>
+            <p>Имена свидетелей с оттисками их <strong>цилиндрических печатей</strong>, имя писца (тупшаррума), дата, место.</p>
+        </div>
+    </div>
+    
+    <div class="law-block">
+        <span class="law-number">Статья 7 ЗХ</span>
+        <p>«Если человек купил из рук сына человека или раба человека либо серебро, либо золото... <strong>без свидетелей или договора</strong>... то этот человек — вор, он должен быть убит».</p>
+    </div>
+    
+    <div class="law-block">
+        <span class="law-number">Статья 36–37 ЗХ</span>
+        <p>«Поле, дом и сад, принадлежащие редуму, баируму или несущему подать, <strong>не могут быть проданы за серебро</strong>. Если человек купил... то его документ должен быть разбит, а свое серебро он теряет».</p>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-signature">
+        <p>© 1755 г. до н.э. Канцелярия царя Хаммурапи</p>
+        <p>Подготовлено студентами 1 курса юридического факультета • пятница, 2 октября 2026 года</p>
+    </div>
+</footer>
+</body>
+</html>
