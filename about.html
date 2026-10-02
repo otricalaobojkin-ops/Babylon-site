@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>О проекте | Эсагила-Договоръ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+        --clay: #c9a961;
+        --clay-dark: #8b7355;
+        --clay-light: #f0e6d2;
+        --basalt: #1a1a1a;
+        --basalt-light: #2d2d2d;
+        --gold: #d4af37;
+        --gold-bright: #f4d03f;
+        --gold-deep: #b8941f;
+        --papyrus: #ede4d3;
+        --papyrus-light: #f5edd8;
+        --red-clay: #b85450;
+        --shadow: rgba(139, 115, 85, 0.15);
+        --shadow-deep: rgba(139, 115, 85, 0.25);
+        --glass: rgba(245, 237, 216, 0.85);
+        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .dark-mode {
+        --clay-light: #2d2d2d;
+        --basalt: #f5f0e1;
+        --papyrus: #1a1a1a;
+        --papyrus-light: #2d2d2d;
+        --glass: rgba(30, 30, 30, 0.9);
+        --shadow: rgba(0, 0, 0, 0.4);
+        --shadow-deep: rgba(0, 0, 0, 0.6);
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+        font-family: 'Cormorant Garamond', serif;
+        background: var(--papyrus);
+        color: var(--basalt);
+        line-height: 1.8;
+        overflow-x: hidden;
+        transition: var(--transition);
+        background-image: 
+            radial-gradient(ellipse at top, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+            radial-gradient(ellipse at bottom, rgba(139, 115, 85, 0.03) 0%, transparent 50%);
+    }
+
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+    
+    .logo i {
+        color: var(--gold-bright);
+        margin-right: 12px;
+        font-size: 1.1em;
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    }
+
+    /* Navigation */
+    nav {
+        position: fixed; top: 0; left: 0; right: 0;
+        background: rgba(26, 26, 26, 0.98);
+        backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+        color: var(--clay-light); padding: 22px 50px;
+        z-index: 1000; 
+        box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2);
+        border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+        transition: var(--transition);
+    }
+    
+    .nav-container {
+        max-width: 1500px; margin: 0 auto;
+        display: flex; justify-content: space-between; align-items: center;
+        flex-wrap: wrap; gap: 25px;
+    }
+    
+    .logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.7em; font-weight: 700;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 50%, var(--gold) 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        background-clip: text; letter-spacing: 4px;
+        text-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
+        display: flex; align-items: center;
+    }
+    
+    .nav-links { display: flex; gap: 30px; flex-wrap: wrap; align-items: center; }
+    
+    .nav-links a {
+        color: var(--clay-light); text-decoration: none;
+        font-size: 1em; font-weight: 500;
+        transition: var(--transition); padding: 10px 18px;
+        border-radius: 10px; position: relative; overflow: hidden;
+        letter-spacing: 0.5px;
+    }
+    
+    .nav-links a::before {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 0; height: 2px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+        transition: width 0.4s;
+    }
+    
+    .nav-links a:hover::before { width: 70%; }
+    .nav-links a:hover { 
+        color: var(--gold-bright); 
+        transform: translateY(-3px);
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    }
+    
+    .theme-toggle {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+        border: 2px solid var(--gold);
+        color: var(--gold); padding: 10px 18px; border-radius: 25px;
+        cursor: pointer; font-size: 1.2em; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+    .theme-toggle:hover { 
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.4), rgba(212, 175, 55, 0.2));
+        transform: scale(1.1) rotate(15deg);
+        box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Page Header */
+    .page-header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 30%, #3d2817 70%, #1a1a1a 100%);
+        color: var(--clay-light); padding: 180px 40px 100px;
+        text-align: center; position: relative; overflow: hidden;
+    }
+    
+    .page-header::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    
+    .page-header h1 {
+        font-family: 'Playfair Display', serif; font-size: 4.5em;
+        color: var(--gold-bright); text-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+        margin-bottom: 20px; position: relative; z-index: 1;
+        letter-spacing: 3px; font-weight: 900;
+    }
+    
+    .page-header p {
+        font-size: 1.5em; font-style: italic; max-width: 800px;
+        margin: 0 auto; opacity: 0.9; position: relative; z-index: 1;
+        font-weight: 300; letter-spacing: 0.5px;
+    }
+
+    /* Sections */
+    section { max-width: 1500px; margin: 0 auto; padding: 120px 50px; }
+    
+    .section-title {
+        font-family: 'Playfair Display', serif; font-size: 3.5em;
+        color: var(--basalt); text-align: center; margin-bottom: 30px;
+        position: relative; padding-bottom: 30px;
+        font-weight: 700; letter-spacing: 2px;
+    }
+    .section-title::after {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 150px; height: 4px;
+        background: linear-gradient(90deg, transparent, var(--gold), var(--gold-bright), var(--gold), transparent);
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    }
+    
+    .section-intro {
+        text-align: center; font-size: 1.4em; max-width: 1000px;
+        margin: 0 auto 70px; color: var(--basalt); font-style: italic; opacity: 0.85;
+        font-weight: 300; letter-spacing: 0.5px;
+    }
+
+    /* Key Points Cards */
+    .key-points-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 35px; margin-top: 60px;
+    }
+    
+    .key-point-card {
+        background: var(--glass); backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 2px solid rgba(212, 175, 55, 0.25); border-radius: 24px;
+        padding: 40px 35px; 
+        box-shadow: 0 10px 40px var(--shadow), 0 0 0 1px rgba(212, 175, 55, 0.1);
+        transition: var(--transition); position: relative; overflow: hidden;
+    }
+    
+    .key-point-card::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+        background: linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-bright), var(--gold), var(--gold-deep));
+        transform: scaleX(0); transform-origin: left; transition: transform 0.5s;
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    }
+    .key-point-card:hover::before { transform: scaleX(1); }
+    .key-point-card:hover {
+        transform: translateY(-10px); 
+        box-shadow: 0 25px 70px var(--shadow-deep), 0 0 0 1px rgba(212, 175, 55, 0.3);
+        border-color: rgba(212, 175, 55, 0.5);
+    }
+    
+    .key-point-card h3 {
+        font-family: 'Playfair Display', serif; color: var(--basalt);
+        font-size: 1.8em; margin-bottom: 20px; display: flex; align-items: center; gap: 15px;
+        font-weight: 700; letter-spacing: 0.5px;
+    }
+    
+    .key-point-icon {
+        color: var(--gold); font-size: 1.4em;
+        filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.3));
+    }
+    
+    .key-point-card p { 
+        color: var(--basalt); line-height: 1.8; font-size: 1.1em; opacity: 0.9;
+        font-weight: 400;
+    }
+
+    /* Hierarchy Scheme */
+    .hierarchy-section {
+        background: var(--glass); backdrop-filter: blur(25px);
+        border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 24px;
+        padding: 50px; max-width: 1000px; margin: 80px auto 0;
+        box-shadow: 0 15px 50px var(--shadow), 0 0 0 1px rgba(212, 175, 55, 0.1);
+    }
+    
+    .hierarchy-title {
+        font-family: 'Playfair Display', serif; font-size: 2.2em;
+        text-align: center; margin-bottom: 40px; color: var(--basalt);
+        font-weight: 700;
+    }
+    
+    .hierarchy-level {
+        display: flex; align-items: center; gap: 25px;
+        padding: 25px 30px; margin-bottom: 20px;
+        background: rgba(212, 175, 55, 0.08);
+        border: 2px solid rgba(212, 175, 55, 0.3);
+        border-radius: 16px; transition: var(--transition);
+    }
+    .hierarchy-level:last-child { margin-bottom: 0; }
+    .hierarchy-level:hover {
+        background: rgba(212, 175, 55, 0.15);
+        border-color: var(--gold);
+        transform: translateX(10px);
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+    }
+    
+    .hierarchy-rank {
+        font-family: 'Playfair Display', serif; font-size: 2em;
+        color: var(--gold); font-weight: 900; min-width: 60px;
+        text-align: center;
+    }
+    
+    .hierarchy-info h4 {
+        font-family: 'Playfair Display', serif; font-size: 1.4em;
+        color: var(--basalt); margin-bottom: 8px; font-weight: 700;
+    }
+    
+    .hierarchy-info p {
+        color: var(--basalt); font-size: 1.05em; opacity: 0.9;
+        line-height: 1.6;
+    }
+
+    /* Formalism Comparison */
+    .formalism-comparison {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        margin-top: 80px; max-width: 1200px; margin-left: auto; margin-right: auto;
+    }
+    
+    .formalism-col {
+        background: var(--glass); backdrop-filter: blur(25px);
+        border: 2px solid rgba(212, 175, 55, 0.25); border-radius: 24px;
+        padding: 40px; box-shadow: 0 10px 40px var(--shadow);
+        transition: var(--transition);
+    }
+    .formalism-col:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px var(--shadow-deep);
+        border-color: rgba(212, 175, 55, 0.5);
+    }
+    
+    .formalism-col h3 {
+        font-family: 'Playfair Display', serif; font-size: 1.8em;
+        text-align: center; margin-bottom: 25px; color: var(--basalt);
+        font-weight: 700; padding-bottom: 20px;
+        border-bottom: 3px solid var(--gold);
+    }
+    
+    .formalism-col ul { list-style: none; }
+    
+    .formalism-col li {
+        padding: 12px 0; padding-left: 30px; position: relative;
+        font-size: 1.1em; line-height: 1.6; color: var(--basalt);
+    }
+    
+    .formalism-col.babylon li::before {
+        content: '\f71b'; font-family: "Font Awesome 6 Free"; font-weight: 900;
+        position: absolute; left: 0; color: var(--gold); font-size: 1.2em;
+    }
+    
+    .formalism-col.modern li::before {
+        content: '\f0c3'; font-family: "Font Awesome 6 Free"; font-weight: 900;
+        position: absolute; left: 0; color: var(--gold-deep); font-size: 1.2em;
+    }
+
+    /* Footer */
+    footer {
+        background: linear-gradient(180deg, var(--basalt-light) 0%, var(--basalt) 100%);
+        color: var(--clay-light); padding: 80px 50px 50px;
+        margin-top: 120px; text-align: center;
+        border-top: 4px solid rgba(212, 175, 55, 0.5);
+        box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
+    }
+    .footer-signature {
+        margin-top: 50px; padding-top: 40px;
+        border-top: 2px solid rgba(212, 175, 55, 0.4);
+        font-style: italic; color: var(--gold); font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .fade-in-section { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .page-header h1 { font-size: 2.8em; }
+        .page-header p { font-size: 1.2em; }
+        .section-title { font-size: 2.2em; }
+        .key-points-grid { grid-template-columns: 1fr; gap: 25px; }
+        .formalism-comparison { grid-template-columns: 1fr; gap: 25px; }
+        nav { padding: 18px 25px; }
+        .nav-links { gap: 15px; }
+        .nav-links a { font-size: 0.9em; padding: 8px 14px; }
+        section { padding: 80px 30px; }
+        .hierarchy-section, .formalism-col { padding: 30px 25px; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo"><i class="fa-solid fa-landmark"></i> ЭСАГИЛА-ДОГОВОРЪ</div>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="contracts.html">Виды сделок</a>
+            <a href="requirements.html">Требования</a>
+            <a href="witnesses.html">Свидетели</a>
+            <a href="expenses.html">Издержки</a>
+            <a href="risks.html">Риски</a>
+            <a href="security.html">Обеспечение</a>
+            <a href="comparison.html">Сравнение</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Переключить тему"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1><i class="fa-solid fa-scroll" style="margin-right: 20px;"></i>Исторический контекст</h1>
+    <p>Законы Хаммурапи как фундамент правовой культуры и правоотношений Древнего Вавилона</p>
+</div>
+
+<section class="fade-in-section">
+    <h2 class="section-title">Ключевые аспекты вавилонского права</h2>
+    <p class="section-intro">Для защиты работы необходимо выжать суть: от юридического формализма до генезиса доказательственного права</p>
+    
+    <div class="key-points-grid">
+        <div class="key-point-card">
+            <h3><span class="key-point-icon"><i class="fa-solid fa-gavel"></i></span> Юридический формализм</h3>
+            <p>Форма сделки важнее содержания воли сторон. Отсутствие цилиндрической печати или свидетеля делало сделку юридически ничтожной, независимо от реального намерения участников. Это прообраз современного требования письменной формы по ст. 162 ГК РФ.</p>
+        </div>
+        
+        <div class="key-point-card">
+            <h3><span class="key-point-icon"><i class="fa-solid fa-users-viewfinder"></i></span> Генезис доказательственного права</h3>
+            <p>Свидетели — живые носители доказательства. Письменный документ без свидетельских показаний не имел силы в суде. Клятва богу = современная присяга. Ложные показания карались по принципу талиона (ст. 3–4 ЗХ).</p>
+        </div>
+        
+        <div class="key-point-card">
+            <h3><span class="key-point-icon"><i class="fa-solid fa-shield-halved"></i></span> Публично-правовые ограничения</h3>
+            <p>Запрет на продажу военных наделов «илку» (ст. 36–38 ЗХ) — приоритет государственных интересов над частным оборотом. Аналог: запрет отчуждения служебного жилья военнослужащих (ФЗ «О статусе военнослужащих»).</p>
+        </div>
+        
+        <div class="key-point-card">
+            <h3><span class="key-point-icon"><i class="fa-solid fa-cloud-sun-rain"></i></span> Древнейший форс-мажор</h3>
+            <p>Статья 48 ЗХ: при неурожае должник освобождается от уплаты процентов и «смачивает табличку». Первый в истории институт освобождения от обязательств вследствие непреодолимой силы (ст. 401, 417 ГК РФ).</p>
+        </div>
+        
+        <div class="key-point-card">
+            <h3><span class="key-point-icon"><i class="fa-solid fa-skull-crossbones"></i></span> Уголовные санкции за нарушение формы</h3>
+            <p>Сделка без свидетелей = кража = смертная казнь (ст. 7 ЗХ). Жёсткая уголовная ответственность обеспечивала соблюдение процессуальной формы, заменяя современные гражданско-правовые последствия несоблюдения формы.</p>
+        </div>
+        
+        <div class="key-point-card">
+            <h3><span class="key-point-icon"><i class="fa-solid fa-scale-balanced"></i></span> Прецедентное право</h3>
+            <p>Законы Хаммурапи — не кодекс в современном смысле, а сборник судебных прецедентов и царских указов. Это ранняя форма common law: норма выводилась из конкретного спора, а не абстрактного правила.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ИЕРАРХИЯ СУБЪЕКТОВ -->
+<section class="fade-in-section">
+    <div class="hierarchy-section">
+        <h2 class="hierarchy-title"><i class="fa-solid fa-layer-group" style="color: var(--gold); margin-right: 15px;"></i>Иерархия субъектов права</h2>
+        <p class="section-intro" style="margin-bottom: 40px;">Правоспособность зависела от социального статуса. Кто мог быть стороной сделки, а кто — только объектом?</p>
+        
+        <div class="hierarchy-level">
+            <div class="hierarchy-rank">I</div>
+            <div class="hierarchy-info">
+                <h4>Авилум (свободный человек)</h4>
+                <p>Полная правоспособность. Мог быть стороной любой сделки, выступать свидетелем, владеть имуществом. Субъект всех правоотношений.</p>
+            </div>
+        </div>
+        
+        <div class="hierarchy-level">
+            <div class="hierarchy-rank">II</div>
+            <div class="hierarchy-info">
+                <h4>Мушкенум (полусвободный)</h4>
+                <p>Ограниченная правоспособность. Зависел от дворца, не мог свободно распоряжаться имуществом. Сделки требовали согласия господина. Объект повышенного внимания государства.</p>
+            </div>
+        </div>
+        
+        <div class="hierarchy-level">
+            <div class="hierarchy-rank">III</div>
+            <div class="hierarchy-info">
+                <h4>Вардум (раб)</h4>
+                <p>Практически отсутствующая правоспособность. Объект права, а не субъект. Мог совершать мелкие сделки только с разрешения хозяина. Не мог быть свидетелем.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ФОРМАЛИЗМ: ДРЕВНОСТЬ VS СОВРЕМЕННОСТЬ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Эволюция формализма</h2>
+    <p class="section-intro">Как изменилось отношение к форме сделки за 3800 лет</p>
+    
+    <div class="formalism-comparison">
+        <div class="formalism-col babylon">
+            <h3><i class="fa-solid fa-landmark" style="color: var(--gold); margin-right: 10px;"></i>Древний Вавилон</h3>
+            <ul>
+                <li>Форма важнее воли сторон</li>
+                <li>Нет печати = сделка ничтожна</li>
+                <li>Уголовная ответственность за нарушение формы</li>
+                <li>Свидетель = гарант действительности</li>
+                <li>Документ без свидетелей = бумага</li>
+                <li>Жёсткий ритуал совершения сделки</li>
+            </ul>
+        </div>
+        <div class="formalism-col modern">
+            <h3><i class="fa-solid fa-file-contract" style="color: var(--gold-deep); margin-right: 10px;"></i>ГК РФ (2026)</h3>
+            <ul>
+                <li>Воля сторон важнее формы (ст. 431 ГК РФ)</li>
+                <li>Несоблюдение формы = лишение права ссылаться на свидетельские показания (ст. 162)</li>
+                <li>Гражданско-правовые последствия</li>
+                <li>Свидетель = средство доказывания</li>
+                <li>Письменная форма подтверждает факт</li>
+                <li>Консенсуализм: согласие достаточно</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-signature">
+        <p>© 1755 г. до н.э. Канцелярия царя Хаммурапи</p>
+        <p>Подготовлено студентами 1 курса юридического факультета • 2026</p>
+    </div>
+</footer>
+
+<script>
+    // === ТЕМА ===
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+    
+    // === АНИМАЦИЯ ПОЯВЛЕНИЯ СЕКЦИЙ ===
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
