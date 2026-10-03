@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Эсагила-Договоръ | Портал сделок Древнего Вавилона</title>
+
+<!-- ✅ ОФИЦИАЛЬНЫЙ CDN PARATYPE ДЛЯ SOYUZ GROTESK -->
+<link rel="stylesheet" href="https://cdn.paratype.ru/soyuz-grotesk/soyuz-grotesk.css">
+
+<!-- Основной текст Lora из Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+        --clay: #c9a961;
+        --clay-dark: #8b7355;
+        --clay-light: #f0e6d2;
+        --basalt: #1a1a1a;
+        --basalt-light: #2d2d2d;
+        --gold: #d4af37;
+        --gold-bright: #f4d03f;
+        --gold-deep: #b8941f;
+        --papyrus: #ede4d3;
+        --papyrus-light: #f5edd8;
+        --red-clay: #b85450;
+        --shadow: rgba(139, 115, 85, 0.15);
+        --shadow-deep: rgba(139, 115, 85, 0.25);
+        --glass: rgba(245, 237, 216, 0.85);
+        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .dark-mode {
+        --clay-light: #2d2d2d;
+        --basalt: #f5f0e1;
+        --papyrus: #1a1a1a;
+        --papyrus-light: #2d2d2d;
+        --glass: rgba(30, 30, 30, 0.9);
+        --shadow: rgba(0, 0, 0, 0.4);
+        --shadow-deep: rgba(0, 0, 0, 0.6);
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+        font-family: 'Lora', serif;
+        background: var(--papyrus);
+        color: var(--basalt);
+        line-height: 1.8;
+        overflow-x: hidden;
+        transition: var(--transition);
+        background-image: 
+            radial-gradient(ellipse at top, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+            radial-gradient(ellipse at bottom, rgba(139, 115, 85, 0.03) 0%, transparent 50%);
+    }
+
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+    
+    .logo i {
+        color: var(--gold-bright);
+        margin-right: 12px;
+        font-size: 1.1em;
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    }
+    
+    .preview-icon i {
+        color: var(--gold);
+        font-size: 1.3em;
+        transition: var(--transition);
+        filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.3));
+    }
+    
+    .preview-card:hover .preview-icon i {
+        color: var(--gold-bright);
+        transform: scale(1.15) rotate(5deg);
+        filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.5));
+    }
+    
+    .progress-bar {
+        position: fixed; top: 0; left: 0; height: 4px;
+        background: linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-bright), var(--gold));
+        z-index: 9999; transition: width 0.3s;
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    }nav {
+        position: fixed; top: 0; left: 0; right: 0;
+        background: rgba(26, 26, 26, 0.98);
+        backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+        color: var(--clay-light); padding: 22px 50px;
+        z-index: 1000; 
+        box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2);
+        border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+        transition: var(--transition);
+    }
+    
+    .nav-container {
+        max-width: 1500px; margin: 0 auto;
+        display: flex; justify-content: space-between; align-items: center;
+        flex-wrap: wrap; gap: 25px;
+    }
+    
+    /* ✅ SOYUZ GROTESK */
+    .logo {
+        font-family: 'Soyuz Grotesk', sans-serif;
+        font-size: 1.7em; font-weight: 700;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 50%, var(--gold) 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        background-clip: text; letter-spacing: 1px;
+        text-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav-links { display: flex; gap: 30px; flex-wrap: wrap; align-items: center; }
+    
+    .nav-links a {
+        color: var(--clay-light); text-decoration: none;
+        font-size: 1em; font-weight: 500;
+        transition: var(--transition); padding: 10px 18px;
+        border-radius: 10px; position: relative; overflow: hidden;
+        letter-spacing: 0.5px;
+    }
+    
+    .nav-links a::before {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 0; height: 2px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+        transition: width 0.4s;
+    }
+    
+    .nav-links a:hover::before { width: 70%; }
+    .nav-links a:hover { 
+        color: var(--gold-bright); 
+        transform: translateY(-3px);
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    }
+    
+    .theme-toggle {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+        border: 2px solid var(--gold);
+        color: var(--gold); padding: 10px 18px; border-radius: 25px;
+        cursor: pointer; font-size: 1.2em; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+    .theme-toggle:hover { 
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.4), rgba(212, 175, 55, 0.2));
+        transform: scale(1.1) rotate(15deg);
+        box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+    }
+    
+    .hero {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 30%, #3d2817 70%, #1a1a1a 100%);
+        color: var(--clay-light); display: flex; flex-direction: column;
+        justify-content: center; align-items: center; text-align: center;
+        padding: 160px 40px 100px; position: relative; overflow: hidden;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    
+    /* ✅ SOYUZ GROTESK */
+    .hero h1 {
+        font-family: 'Soyuz Grotesk', sans-serif; font-size: 5em;
+        margin-bottom: 30px;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 30%, var(--gold) 60%, var(--gold-bright) 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        background-clip: text; 
+        text-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+        letter-spacing: 2px; 
+        animation: fadeInDown 1.8s ease; 
+        line-height: 1.1;
+        font-weight: 700;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .typewriter {
+        font-size: 1.6em; font-style: italic; margin-bottom: 50px;
+        max-width: 900px; opacity: 0.95; font-weight: 400;
+        min-height: 2em;
+        position: relative;
+        z-index: 1;
+        letter-spacing: 1px;
+    }
+    
+    .cursor {
+        display: inline-block; width: 3px; height: 1.3em;
+        background: var(--gold-bright); vertical-align: middle;
+        animation: blink 1s infinite; margin-left: 3px;
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    }
+    
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    
+    .hero .quote {
+        font-size: 1.4em; max-width: 800px; padding: 40px 50px;
+        border: 3px solid rgba(212, 175, 55, 0.5); border-radius: 20px;
+        background: rgba(212, 175, 55, 0.12); backdrop-filter: blur(15px);
+        animation: fadeInUp 1.8s ease 0.6s both; position: relative;
+        font-style: italic;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 0 30px rgba(212, 175, 55, 0.1);
+        z-index: 1;
+    }
+    
+    /* ✅ SOYUZ GROTESK */
+    .hero .quote::before { 
+        content: '\201C'; color: var(--gold-bright); font-size: 3em;
+        position: absolute; top: -15px; left: 30px;
+        background: var(--papyrus); padding: 0 15px;
+        font-family: 'Soyuz Grotesk', sans-serif;
+        text-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+    }
+    .hero .quote::after { 
+        content: '\201D'; color: var(--gold-bright); font-size: 3em;
+        position: absolute; bottom: -20px; right: 30px;
+        background: var(--papyrus); padding: 0 15px;
+        font-family: 'Soyuz Grotesk', sans-serif;
+        text-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+    }
+    
+    .scroll-hint {
+        position: absolute; bottom: 50px; font-size: 2.5em;
+        animation: bounce 2.5s infinite; color: var(--gold); opacity: 0.8;
+        z-index: 1;
+        filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+    }section { max-width: 1500px; margin: 0 auto; padding: 120px 50px; }
+    
+    /* ✅ SOYUZ GROTESK */
+    .section-title {
+        font-family: 'Soyuz Grotesk', sans-serif; font-size: 3.5em;
+        color: var(--basalt); text-align: center; margin-bottom: 30px;
+        position: relative; padding-bottom: 30px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .section-title::after {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 150px; height: 4px;
+        background: linear-gradient(90deg, transparent, var(--gold), var(--gold-bright), var(--gold), transparent);
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    }
+    
+    .section-intro {
+        text-align: center; font-size: 1.4em; max-width: 1000px;
+        margin: 0 auto 70px; color: var(--basalt); font-style: italic; opacity: 0.85;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+    
+    .previews-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 40px; margin-top: 60px;
+    }
+    
+    .preview-card {
+        background: var(--glass); backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 2px solid rgba(212, 175, 55, 0.25); border-radius: 24px;
+        padding: 45px 40px; 
+        box-shadow: 0 10px 40px var(--shadow), 0 0 0 1px rgba(212, 175, 55, 0.1);
+        transition: var(--transition); position: relative; overflow: hidden;
+        cursor: pointer;
+    }
+    
+    .preview-card::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+        background: linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-bright), var(--gold), var(--gold-deep));
+        transform: scaleX(0); transform-origin: left; transition: transform 0.5s;
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    }
+    .preview-card:hover::before { transform: scaleX(1); }
+    .preview-card:hover {
+        transform: translateY(-12px); 
+        box-shadow: 0 25px 70px var(--shadow-deep), 0 0 0 1px rgba(212, 175, 55, 0.3);
+        border-color: rgba(212, 175, 55, 0.5);
+    }
+    
+    /* ✅ SOYUZ GROTESK */
+    .preview-card h3 {
+        font-family: 'Soyuz Grotesk', sans-serif; color: var(--basalt);
+        font-size: 2em; margin-bottom: 25px; display: flex; align-items: center; gap: 15px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    .preview-icon { font-size: 1.6em; display: flex; align-items: center; }
+    .preview-card p { 
+        margin-bottom: 30px; 
+        color: var(--basalt); 
+        line-height: 1.8; 
+        font-size: 1.15em; 
+        opacity: 0.9;
+        font-weight: 500;
+    }
+    
+    .preview-link {
+        display: inline-flex; align-items: center; gap: 12px;
+        background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 50%, var(--gold-bright) 100%);
+        color: var(--basalt); padding: 14px 32px; border-radius: 30px;
+        text-decoration: none; font-weight: 700; transition: var(--transition);
+        font-family: 'Lora', serif; font-size: 1.1em;
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        letter-spacing: 0.5px;
+    }
+    .preview-link:hover { 
+        transform: translateX(8px); 
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+    }
+
+    .principles-section {
+        background: var(--glass); backdrop-filter: blur(25px);
+        border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 24px;
+        padding: 60px; max-width: 1200px; margin: 80px auto 0;
+        box-shadow: 0 15px 50px var(--shadow), 0 0 0 1px rgba(212, 175, 55, 0.1);
+    }
+
+    /* ✅ SOYUZ GROTESK */
+    .principles-title {
+        font-family: 'Soyuz Grotesk', sans-serif; font-size: 2.5em;
+        text-align: center; margin-bottom: 50px; color: var(--basalt);
+        font-weight: 700; letter-spacing: 1px;
+    }
+
+    .principles-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .principle-item {
+        padding: 30px;
+        background: rgba(212, 175, 55, 0.06);
+        border-left: 4px solid var(--gold);
+        border-radius: 0 16px 16px 0;
+        transition: var(--transition);
+    }
+
+    .principle-item:hover {
+        background: rgba(212, 175, 55, 0.12);
+        transform: translateX(8px);
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
+    }
+
+    /* ✅ SOYUZ GROTESK */
+    .principle-item h4 {
+        font-family: 'Soyuz Grotesk', sans-serif; font-size: 1.4em;
+        color: var(--basalt); margin-bottom: 12px; font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    .principle-item p {
+        color: var(--basalt); font-size: 1.05em; line-height: 1.7; opacity: 0.9;
+        font-weight: 500;
+    }
+    
+    .gallery-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px; margin-top: 60px;
+    }
+    
+    .gallery-item {
+        position: relative; border-radius: 20px; overflow: hidden;
+        aspect-ratio: 4/3; cursor: pointer; 
+        box-shadow: 0 10px 35px var(--shadow);
+        transition: var(--transition);
+        border: 3px solid rgba(212, 175, 55, 0.2);
+    }
+    .gallery-item:hover { 
+        transform: scale(1.04); 
+        box-shadow: 0 20px 50px var(--shadow-deep);
+        border-color: rgba(212, 175, 55, 0.5);
+    }
+    
+    .gallery-item img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.8s;
+    }
+    .gallery-item:hover img { transform: scale(1.15); }
+    
+    .gallery-overlay {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        background: linear-gradient(to top, rgba(26, 26, 26, 0.95), transparent);
+        padding: 30px 25px 25px; color: white;
+        transform: translateY(100%); transition: transform 0.5s;
+    }
+    .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+    /* ✅ SOYUZ GROTESK */
+    .gallery-overlay h4 { 
+        font-family: 'Soyuz Grotesk', sans-serif; 
+        font-size: 1.5em; 
+        margin-bottom: 8px;
+        color: var(--gold-bright);
+        letter-spacing: 0.5px;
+    }
+    .gallery-overlay p { font-size: 1em; opacity: 0.95; }
+    
+    .modal {
+        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.95); z-index: 10000;
+        justify-content: center; align-items: center; padding: 30px;
+    }
+    .modal.active { display: flex; animation: fadeIn 0.4s; }
+    .modal-content {
+        max-width: 90vw; max-height: 90vh; position: relative;
+        border-radius: 16px; overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        border: 3px solid rgba(212, 175, 55, 0.3);
+    }
+    .modal-content img { max-width: 100%; max-height: 85vh; display: block; }
+    .modal-close {
+        position: absolute; top: 25px; right: 25px;
+        background: rgba(212, 175, 55, 0.3); border: 2px solid var(--gold); color: var(--gold-bright);
+        width: 50px; height: 50px; border-radius: 50%; font-size: 1.3em;
+        cursor: pointer; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+        backdrop-filter: blur(10px);
+    }
+    .modal-close:hover { 
+        background: rgba(212, 175, 55, 0.5); 
+        transform: rotate(90deg) scale(1.1);
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    }
+    .modal-caption {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        background: rgba(26, 26, 26, 0.9); color: var(--gold-bright); 
+        padding: 25px; text-align: center; 
+        font-family: 'Lora', serif;
+        font-size: 1.1em;
+        backdrop-filter: blur(10px);
+    }.quiz-container {
+        background: var(--glass); backdrop-filter: blur(25px);
+        border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 24px;
+        padding: 50px; max-width: 900px; margin: 60px auto 0;
+        box-shadow: 0 15px 50px var(--shadow), 0 0 0 1px rgba(212, 175, 55, 0.1);
+    }
+    
+    /* ✅ SOYUZ GROTESK */
+    .quiz-question { 
+        font-family: 'Soyuz Grotesk', sans-serif; 
+        font-size: 1.8em; 
+        margin-bottom: 30px; 
+        text-align: center;
+        font-weight: 700;
+        color: var(--basalt);
+        letter-spacing: 0.5px;
+    }
+    
+    .quiz-options { display: grid; gap: 18px; }
+    
+    .quiz-option {
+        background: rgba(212, 175, 55, 0.08); 
+        border: 2px solid rgba(212, 175, 55, 0.3);
+        border-radius: 14px; padding: 22px 30px; cursor: pointer;
+        transition: var(--transition); font-size: 1.15em; text-align: left;
+        font-weight: 500;
+    }
+    .quiz-option:hover { 
+        background: rgba(212, 175, 55, 0.15); 
+        border-color: var(--gold); 
+        transform: translateX(8px);
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+    }
+    .quiz-option.correct { 
+        background: rgba(76, 175, 80, 0.15); 
+        border-color: #4caf50;
+        box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+    }
+    .quiz-option.wrong { 
+        background: rgba(244, 67, 54, 0.15); 
+        border-color: #f44336;
+        box-shadow: 0 0 20px rgba(244, 67, 54, 0.3);
+    }
+    
+    .quiz-result { 
+        text-align: center; 
+        margin-top: 30px; 
+        font-size: 1.4em; 
+        font-style: italic;
+        font-weight: 600;
+    }
+    .quiz-next {
+        display: none; margin: 30px auto 0; 
+        background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 50%, var(--gold-bright) 100%);
+        color: var(--basalt); border: none; padding: 16px 40px; border-radius: 30px;
+        font-family: 'Lora', serif; font-size: 1.2em; font-weight: 700;
+        cursor: pointer; transition: var(--transition);
+        box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        letter-spacing: 1px;
+    }
+    .quiz-next:hover { 
+        transform: scale(1.08); 
+        box-shadow: 0 10px 35px rgba(212, 175, 55, 0.6);
+    }
+    
+    .dictionary-list { max-width: 900px; margin: 60px auto 0; }
+    
+    .dict-item {
+        background: var(--glass); 
+        border: 2px solid rgba(212, 175, 55, 0.25);
+        border-radius: 16px; margin-bottom: 18px; overflow: hidden;
+        transition: var(--transition);
+        box-shadow: 0 5px 20px var(--shadow);
+    }
+    
+    /* ✅ SOYUZ GROTESK */
+    .dict-term {
+        padding: 25px 30px; cursor: pointer; display: flex;
+        justify-content: space-between; align-items: center;
+        font-family: 'Soyuz Grotesk', sans-serif; font-size: 1.4em;
+        transition: var(--transition);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    .dict-term:hover { 
+        background: rgba(212, 175, 55, 0.1);
+        padding-left: 35px;
+    }
+    .dict-arrow { transition: transform 0.4s; font-size: 0.9em; color: var(--gold); }
+    .dict-item.open .dict-arrow { transform: rotate(180deg); }
+    
+    .dict-def {
+        max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.5s;
+        padding: 0 30px; font-size: 1.15em; line-height: 1.8; opacity: 0.9;
+        font-weight: 500;
+    }
+    .dict-item.open .dict-def { max-height: 400px; padding: 0 30px 25px; }
+    
+    .quote-generator {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.06));
+        border: 3px solid rgba(212, 175, 55, 0.4); border-radius: 24px;
+        padding: 50px; max-width: 900px; margin: 60px auto 0;
+        text-align: center; position: relative;
+        box-shadow: 0 15px 50px var(--shadow), inset 0 0 40px rgba(212, 175, 55, 0.05);
+    }
+    
+    /* ✅ SOYUZ GROTESK */
+    .quote-gen-text {
+        font-family: 'Soyuz Grotesk', sans-serif; font-size: 1.7em;
+        font-style: italic; margin-bottom: 25px; min-height: 100px;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+    }
+    .quote-gen-ref { 
+        font-size: 1.1em; 
+        opacity: 0.85; 
+        margin-bottom: 30px;
+        font-weight: 500;
+    }
+    
+    .quote-gen-btn {
+        background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 50%, var(--gold-bright) 100%);
+        color: var(--basalt); border: none; padding: 16px 40px;
+        border-radius: 30px;
+        font-family: 'Lora', serif;
+        font-size: 1.2em; font-weight: 700; cursor: pointer;
+        transition: var(--transition); 
+        box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        letter-spacing: 1px;
+    }
+    .quote-gen-btn:hover { 
+        transform: scale(1.08); 
+        box-shadow: 0 10px 35px rgba(212, 175, 55, 0.6);
+    }
+    
+    footer {
+        background: linear-gradient(180deg, var(--basalt-light) 0%, var(--basalt) 100%);
+        color: var(--clay-light); padding: 80px 50px 50px;
+        margin-top: 120px; text-align: center;
+        border-top: 4px solid rgba(212, 175, 55, 0.5);
+        box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
+    }
+    .footer-signature {
+        margin-top: 50px; padding-top: 40px;
+        border-top: 2px solid rgba(212, 175, 55, 0.4);
+        font-style: italic; color: var(--gold); font-size: 1em;
+        letter-spacing: 1px;
+    }
+    
+    .back-to-top {
+        position: fixed; bottom: 40px; right: 40px;
+        width: 60px; height: 60px;
+        background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 50%, var(--gold-bright) 100%);
+        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        cursor: pointer; opacity: 0; visibility: hidden;
+        transition: var(--transition); 
+        box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+        z-index: 999; font-size: 1.3em;
+        border: 3px solid rgba(255,255,255,0.2);
+    }
+    .back-to-top.visible { opacity: 1; visibility: visible; }
+    .back-to-top:hover { 
+        transform: translateY(-8px) scale(1.1); 
+        box-shadow: 0 12px 40px rgba(212, 175, 55, 0.7);
+    }
+    
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-25px); } 60% { transform: translateY(-12px); } }
+    
+    .fade-in-section { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+    
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 2.8em; letter-spacing: 1px; }
+        .typewriter { font-size: 1.3em; }
+        .section-title { font-size: 2.2em; }
+        .previews-grid { grid-template-columns: 1fr; gap: 30px; }
+        .gallery-grid { grid-template-columns: 1fr; }
+        nav { padding: 18px 25px; }
+        .nav-links { gap: 15px; }
+        .nav-links a { font-size: 0.9em; padding: 8px 14px; }
+        .preview-card, .quiz-container, .quote-generator, .principles-section { padding: 30px 25px; }
+        .quiz-question { font-size: 1.5em; }
+        .quote-gen-text { font-size: 1.3em; }
+        section { padding: 80px 30px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo"><i class="fa-solid fa-landmark"></i> ЭСАГИЛА-ДОГОВОРЪ</div>
+        <div class="nav-links">
+            <a href="about.html">О проекте</a>
+            <a href="contracts.html">Виды сделок</a>
+            <a href="requirements.html">Требования</a>
+            <a href="witnesses.html">Свидетели</a>
+            <a href="expenses.html">Издержки</a>
+            <a href="risks.html">Риски</a>
+            <a href="security.html">Обеспечение</a>
+            <a href="comparison.html">Сравнение</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Переключить тему"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>ЭСАГИЛА-ДОГОВОРЪ</h1>
+    <div class="typewriter"><span id="typewriterText"></span><span class="cursor"></span></div>
+    <div class="quote">Чтобы сильный не притеснял слабого, чтобы в стране воцарилась справедливость</div>
+    <div class="scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
+</section>
+
+<section class="fade-in-section">
+    <h2 class="section-title">Разделы портала</h2>
+    <p class="section-intro">Изучение правоотношений Древнего Вавилона через призму современной юридической науки</p>
+    
+    <div class="previews-grid">
+        <div class="preview-card" onclick="location.href='about.html'">
+            <h3><span class="preview-icon"><i class="fa-solid fa-scroll"></i></span> Исторический контекст</h3>
+            <p>Законы Хаммурапи как сборник прецедентов. Иерархия субъектов права (авилум, мушкенум, вардум) и публично-правовые ограничения частного оборота.</p>
+            <a href="about.html" class="preview-link">Читать далее <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+        
+        <div class="preview-card" onclick="location.href='contracts.html'">
+            <h3><span class="preview-icon"><i class="fa-solid fa-file-contract"></i></span> Виды сделок</h3>
+            <p>Классификация обязательственных правоотношений. Элементы состава сделки, существенные условия и аналогия с нормами ГК РФ 2026 года.</p>
+            <a href="contracts.html" class="preview-link">Читать далее <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+        
+        <div class="preview-card" onclick="location.href='requirements.html'">
+            <h3><span class="preview-icon"><i class="fa-solid fa-clipboard-check"></i></span> Требования к договорам</h3>
+            <p>Юридический формализм как элемент действительности. Пороки сделки, доказательственная сила глиняной таблички и сравнение со ст. 162 ГК РФ.</p>
+            <a href="requirements.html" class="preview-link">Читать далее <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+        
+        <div class="preview-card" onclick="location.href='witnesses.html'">
+            <h3><span class="preview-icon"><i class="fa-solid fa-eye"></i></span> Роль свидетелей</h3>
+            <p>Свидетель как участник правоотношения и гарант исполнения. Цилиндрическая печать как прообраз квалифицированной электронной подписи.</p>
+            <a href="witnesses.html" class="preview-link">Читать далее <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+        
+        <div class="preview-card" onclick="location.href='expenses.html'">
+            <h3><span class="preview-icon"><i class="fa-solid fa-coins"></i></span> Издержки и калькулятор</h3>
+            <p>Транзакционные издержки и теория Коуза. Калькулятор полной стоимости займа с учётом антиростовщических ограничений (ст. 89–90 ЗХ).</p>
+            <a href="expenses.html" class="preview-link">Читать далее <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+        
+        <div class="preview-card" onclick="location.href='risks.html'">
+            <h3><span class="preview-icon"><i class="fa-solid fa-gavel"></i></span> Судебные риски</h3>
+            <p>Презумпция невиновности vs ордалия. Злоупотребление правом (ст. 1–3 ЗХ) и первый в истории институт ответственности судьи за ошибку (ст. 5 ЗХ).</p>
+            <a href="risks.html" class="preview-link">Читать далее <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+        
+        <div class="preview-card" onclick="location.href='security.html'">
+            <h3><span class="preview-icon"><i class="fa-solid fa-lock"></i></span> Обеспечение обязательств</h3>
+            <p>Залог, поручительство и долговая кабала. Публично-правовой запрет залога илку и гуманизация личной ответственности должника (ст. 117 ЗХ).</p>
+            <a href="security.html" class="preview-link">Читать далее <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+        
+        <div class="preview-card" onclick="location.href='comparison.html'">
+            <h3><span class="preview-icon"><i class="fa-solid fa-scale-balanced"></i></span> Сравнение с современным правом</h3>
+            <p>Эволюция правовых норм за 3800 лет. Универсальные принципы: pacta sunt servanda, добросовестность и запрет злоупотребления правом.</p>
+            <a href="comparison.html" class="preview-link">Читать далее <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+    </div>
+
+    <div class="principles-section">
+        <h2 class="principles-title"><i class="fa-solid fa-scale-unbalanced-flip" style="color: var(--gold); margin-right: 15px;"></i>Правовые принципы сквозь века</h2>
+        <div class="principles-grid">
+            <div class="principle-item">
+                <h4>Pacta Sunt Servanda</h4>
+                <p>«Договоры должны исполняться». Фундаментальный принцип, зародившийся в Вавилоне и ставший основой современного международного и гражданского права.</p>
+            </div>
+            <div class="principle-item">
+                <h4>Добросовестность сторон</h4>
+                <p>Запрет на обман при заключении сделок и гарантия от эвикции. Прообраз ст. 10 и ст. 434 ГК РФ, защищающей слабую сторону правоотношения.</p>
+            </div>
+            <div class="principle-item">
+                <h4>Запрет злоупотребления правом</h4>
+                <p>Принцип талиона в процессе (ст. 1–3 ЗХ): подавший необоснованный иск несёт то же наказание, которое требовал для ответчика. Аналог ст. 10 ГК РФ.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="fade-in-section">
+    <h2 class="section-title">Галерея артефактов</h2>
+    <p class="section-intro">Материальные носители древних правоотношений</p>
+    
+    <div class="gallery-grid">
+        <div class="gallery-item" onclick="openModal(this)" data-caption="Стела Законов Хаммурапи. Лувр, Париж. Базальт, ок. 1755 г. до н.э.">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Code_of_Hammurabi_Louvre_Sb8_full.jpg/800px-Code_of_Hammurabi_Louvre_Sb8_full.jpg" alt="Стела Хаммурапи" loading="lazy">
+            <div class="gallery-overlay">
+                <h4>Стела Законов Хаммурапи</h4>
+                <p>Базальт, Лувр, Париж</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item" onclick="openModal(this)" data-caption="Верхняя часть стелы: Хаммурапи получает законы от бога Шамаша">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Hammurabi_stele_top.jpg/800px-Hammurabi_stele_top.jpg" alt="Хаммурапи и Шамаш" loading="lazy">
+            <div class="gallery-overlay">
+                <h4>Хаммурапи и Шамаш</h4>
+                <p>Барельеф на вершине стелы</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item" onclick="openModal(this)" data-caption="Глиняная табличка с договором купли-продажи дома. Ок. 1700 г. до н.э.">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Babylonian_contract_tablet.jpg/800px-Babylonian_contract_tablet.jpg" alt="Договор купли-продажи" loading="lazy">
+            <div class="gallery-overlay">
+                <h4>Договор купли-продажи</h4>
+                <p>Глиняная табличка, ок. 1700 г. до н.э.</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item" onclick="openModal(this)" data-caption="Цилиндрическая печать. Использовалась для заверения документов оттиском на глине">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Cylinder_seal_BM_89769.jpg/800px-Cylinder_seal_BM_89769.jpg" alt="Цилиндрическая печать" loading="lazy">
+            <div class="gallery-overlay">
+                <h4>Цилиндрическая печать</h4>
+                <p>Инструмент заверения сделок</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal" id="galleryModal" onclick="closeModal(event)">
+    <button class="modal-close" onclick="closeModalBtn()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+</div>
+
+<section class="fade-in-section">
+    <h2 class="section-title">Викторина: Знаешь ли ты Законы Хаммурапи?</h2>
+    <p class="section-intro">Проверь свои знания вавилонского права</p>
+    
+    <div class="quiz-container">
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-result" id="quizResult"></div>
+        <button class="quiz-next" id="quizNext" onclick="nextQuestion()">Следующий вопрос <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+</section>
+
+<section class="fade-in-section">
+    <h2 class="section-title">Словарь терминов</h2>
+    <p class="section-intro">Ключевые понятия вавилонского права</p>
+    
+    <div class="dictionary-list">
+        <div class="dict-item" onclick="toggleDict(this)">
+            <div class="dict-term">
+                <span>Илку</span>
+                <span class="dict-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="dict-def">Военный надел, предоставляемый государством воину (редуму или баируму). Запрещался к продаже и залогу (ст. 36–38 ЗХ), так как был необходим для обеспечения обороноспособности государства.</div>
+        </div>
+        
+        <div class="dict-item" onclick="toggleDict(this)">
+            <div class="dict-term">
+                <span>Тамкар</span>
+                <span class="dict-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="dict-def">Крупный купец-предприниматель, который предоставлял капитал шамаллуму (агенту) для торговых операций. Выступал кредитором и работодателем одновременно (ст. 100–107 ЗХ).</div>
+        </div>
+        
+        <div class="dict-item" onclick="toggleDict(this)">
+            <div class="dict-term">
+                <span>Шамаллум</span>
+                <span class="dict-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="dict-def">Торговый агент, получавший капитал от тамкара для ведения торговых операций. Нес полную материальную ответственность за утрату имущества по своей вине, но освобождался от неё при форс-мажоре (нападение разбойников) после принесения клятвы богу.</div>
+        </div>
+        
+        <div class="dict-item" onclick="toggleDict(this)">
+            <div class="dict-term">
+                <span>Эвикция</span>
+                <span class="dict-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="dict-def">Юридическое понятие, означающее отчуждение вещи у покупателя третьим лицом, имеющим на неё лучшее право. Продавец обязан был гарантировать покупателя от эвикции. При её наступлении покупатель мог взыскать стоимость вещи, а если продавец умер — пятикратную сумму с наследников (ст. 9–12 ЗХ).</div>
+        </div>
+        
+        <div class="dict-item" onclick="toggleDict(this)">
+            <div class="dict-term">
+                <span>Ордалия</span>
+                <span class="dict-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="dict-def">«Божий суд» — испытание водой. Обвиняемого погружали в реку: если он тонул — считалось, что боги признали его виновным, и имущество переходило истцу. Если выживал — обвинитель казнился за ложное обвинение (ст. 2, 132 ЗХ).</div>
+        </div>
+        
+        <div class="dict-item" onclick="toggleDict(this)">
+            <div class="dict-term">
+                <span>Тупшаррум</span>
+                <span class="dict-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="dict-def">Писец — профессиональный составитель юридических документов. Его услуги оплачивались отдельно (1–2 сикля серебра). Без подписи писца документ не имел юридической силы.</div>
+        </div>
+        
+        <div class="dict-item" onclick="toggleDict(this)">
+            <div class="dict-term">
+                <span>Эсхатокол</span>
+                <span class="dict-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="dict-def">Заключительная часть глиняной таблички, содержащая имена свидетелей с оттисками их цилиндрических печатей, имя писца, дату и место составления документа. Отсутствие эсхатокола делало сделку юридически ничтожной.</div>
+        </div>
+    </div>
+</section>
+
+<section class="fade-in-section">
+    <h2 class="section-title">Цитатник Законов Хаммурапи</h2>
+    <p class="section-intro">Мудрость древнего права в одном клике</p>
+    
+    <div class="quote-generator">
+        <div class="quote-gen-text" id="quoteGenText"></div>
+        <div class="quote-gen-ref" id="quoteGenRef"></div>
+        <button class="quote-gen-btn" onclick="newQuote()"><i class="fa-solid fa-shuffle"></i> Новая цитата</button>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-signature">
+        <p>© 1755 г. до н.э. Канцелярия царя Хаммурапи</p>
+        <p>Подготовлено студентами 1 курса юридического факультета • 2026</p>
+    </div>
+</footer>
+
+<div class="back-to-top" id="backToTop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></div>
+
+<script>
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+        
+        if (winScroll > 500) {
+            document.getElementById("backToTop").classList.add('visible');
+        } else {
+            document.getElementById("backToTop").classList.remove('visible');
+        }
+    };
+    
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+    
+    const typewriterPhrases = [
+        "Официальный портал заключения сделок Древнего Вавилона",
+        "При покровительстве бога Шамаша • ок. 1755 г. до н.э.",
+        "Чтобы сильный не притеснял слабого",
+        "Первый свод писаного права в истории человечества"
+    ];
+    let phraseIndex = 0, charIndex = 0, isDeleting = false;
+    const typewriterEl = document.getElementById('typewriterText');
+    
+    function typeWriter() {
+        const currentPhrase = typewriterPhrases[phraseIndex];
+        
+        if (isDeleting) {
+            typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+        }
+        
+        let speed = isDeleting ? 30 : 60;
+        
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            speed = 2000;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
+            speed = 500;
+        }
+        
+        setTimeout(typeWriter, speed);
+    }
+    typeWriter();
+    
+    function openModal(item) {
+        const modal = document.getElementById('galleryModal');
+        const img = item.querySelector('img');
+        const caption = item.getAttribute('data-caption');
+        document.getElementById('modalImage').src = img.src;
+        document.getElementById('modalCaption').textContent = caption;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(e) {
+        if (e.target === document.getElementById('galleryModal')) {
+            closeModalBtn();
+        }
+    }
+    
+    function closeModalBtn() {
+        document.getElementById('galleryModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    const quizData = [
+        { q: "Какое наказание грозило человеку, совершившему сделку без свидетелей?", options: ["Штраф в 10 сиклей", "Смертная казнь", "Изгнание из города", "Конфискация имущества"], correct: 1 },
+        { q: "Какова максимальная процентная ставка по денежному займу?", options: ["10% годовых", "20% годовых", "33,3% годовых", "50% годовых"], correct: 1 },
+        { q: "Сколько лет могла длиться долговая кабала по Законам Хаммурапи?", options: ["1 год", "3 года", "5 лет", "До полного погашения долга"], correct: 1 },
+        { q: "Что происходило с должником при неурожае (форс-мажор)?", options: ["Он удваивал долг", "Проценты аннулировались, табличка «смачивалась»", "Он лишался земли", "Ничего, долг оставался прежним"], correct: 1 },
+        { q: "Кто такой «тамкар»?", options: ["Судья", "Крупный купец-кредитор", "Воин-землевладелец", "Жрец храма"], correct: 1 }
+    ];
+    
+    let currentQ = 0, score = 0, answered = false;
+    
+    function loadQuestion() {
+        answered = false;
+        const q = quizData[currentQ];
+        document.getElementById('quizQuestion').textContent = `${currentQ + 1}. ${q.q}`;
+        const optsDiv = document.getElementById('quizOptions');
+        optsDiv.innerHTML = '';
+        document.getElementById('quizResult').textContent = '';
+        document.getElementById('quizNext').style.display = 'none';
+        
+        q.options.forEach((opt, i) => {
+            const btn = document.createElement('div');
+            btn.className = 'quiz-option';
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(i, btn);
+            optsDiv.appendChild(btn);
+        });
+    }
+    
+    function checkAnswer(selected, btn) {
+        if (answered) return;
+        answered = true;
+        const correct = quizData[currentQ].correct;
+        const options = document.querySelectorAll('.quiz-option');
+        
+        if (selected === correct) {
+            btn.classList.add('correct');
+            score++;
+            document.getElementById('quizResult').innerHTML = '<i class="fa-solid fa-check" style="color:#4caf50"></i> Верно!';
+        } else {
+            btn.classList.add('wrong');
+            options[correct].classList.add('correct');
+            document.getElementById('quizResult').innerHTML = '<i class="fa-solid fa-xmark" style="color:#f44336"></i> Неверно. Правильный ответ выделен зелёным.';
+        }
+        
+        document.getElementById('quizNext').style.display = 'block';
+        document.getElementById('quizNext').innerHTML = currentQ < quizData.length - 1 ? 'Следующий вопрос <i class="fa-solid fa-arrow-right"></i>' : 'Показать результат';
+    }
+    
+    function nextQuestion() {
+        currentQ++;
+        if (currentQ < quizData.length) {
+            loadQuestion();
+        } else {
+            showFinalResult();
+        }
+    }
+    
+    function showFinalResult() {
+        const container = document.querySelector('.quiz-container');
+        let msg = '';
+        if (score === quizData.length) msg = '<i class="fa-solid fa-trophy" style="color:var(--gold)"></i> Великолепно! Ты настоящий знаток Законов Хаммурапи!';
+        else if (score >= 3) msg = '<i class="fa-solid fa-thumbs-up" style="color:var(--gold)"></i> Хороший результат! Но есть куда расти.';
+        else msg = '<i class="fa-solid fa-book-open" style="color:var(--gold)"></i> Стоит перечитать разделы сайта и попробовать снова.';
+        
+        container.innerHTML = `
+            <div class="quiz-question">Результат: ${score} из ${quizData.length}</div>
+            <div class="quiz-result" style="font-size:1.4em; margin:20px 0;">${msg}</div>
+            <button class="quiz-next" style="display:block;" onclick="restartQuiz()">Пройти ещё раз <i class="fa-solid fa-rotate-right"></i></button>
+        `;
+    }
+    
+    function restartQuiz() {
+        currentQ = 0; score = 0;
+        document.querySelector('.quiz-container').innerHTML = `
+            <div class="quiz-question" id="quizQuestion"></div>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div class="quiz-result" id="quizResult"></div>
+            <button class="quiz-next" id="quizNext" onclick="nextQuestion()">Следующий вопрос <i class="fa-solid fa-arrow-right"></i></button>
+        `;
+        loadQuestion();
+    }
+    
+    loadQuestion();
+    
+    function toggleDict(item) {
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.dict-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+    }
+    
+    const quotes = [
+        { text: "Если человек купил из рук сына человека или раба человека либо серебро, либо золото... без свидетелей или договора... то этот человек — вор, он должен быть убит.", ref: "Статья 7 ЗХ" },
+        { text: "Если на человека легла долговая кабала, и он отдаст за серебро свою жену, своего сына или свою дочь, то они должны служить три года; на четвёртый год они должны быть отпущены на свободу.", ref: "Статья 117 ЗХ" },
+        { text: "Если судья постановил решение, вынес приговор и скрепил его своей печатью, а затем изменил своё решение, то этого судью следует подвергнуть штрафу в двенадцатикратном размере иска.", ref: "Статья 5 ЗХ" },
+        { text: "Если человек дал серебро или золото на хранение другому человеку, он должен показать всё свидетелям и заключить договор. Если он отдал без свидетелей и договора — требование не действительно.", ref: "Статья 122–123 ЗХ" },
+        { text: "Поле, дом и сад, принадлежащие редуму, баируму или несущему подать, не могут быть проданы за серебро.", ref: "Статья 36–37 ЗХ" },
+        { text: "Если вол был бодлив, и владелец знал об этом, но не обломал ему рога и не держал его на привязи, и вол забодал свободного человека насмерть — владелец должен заплатить полмины серебра.", ref: "Статья 251 ЗХ" },
+        { text: "Если врач сделал человеку тяжёлую операцию бронзовым ножом и причинил смерть, или же вскрыл опухоль и повредил глаз — ему должны отрубить кисть руки.", ref: "Статья 218 ЗХ" }
+    ];
+    
+    function newQuote() {
+        const q = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById('quoteGenText').textContent = `"${q.text}"`;
+        document.getElementById('quoteGenRef').textContent = `— ${q.ref}`;
+    }
+    newQuote();
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
