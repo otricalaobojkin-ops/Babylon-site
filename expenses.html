@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Издержки и калькулятор | Эсагила-Договоръ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+        --bg-sand: #E6DCC8;
+        --card-white: #F9F7F2;
+        --brown-dark: #4A3B2A;
+        --black-text: #1A1A1A;
+        --gold-antique: #C5A059;
+        --gold-hover: #d4af37;
+        --shadow: rgba(74, 59, 42, 0.1);
+        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .dark-mode {
+        --bg-sand: #1a1a1a;
+        --card-white: #2d2d2d;
+        --brown-dark: #e6dcc8;
+        --black-text: #f5f0e1;
+        --gold-antique: #c5a059;
+        --gold-hover: #d4af37;
+        --shadow: rgba(0, 0, 0, 0.4);
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+        font-family: 'Lora', serif;
+        background: var(--bg-sand);
+        color: var(--black-text);
+        line-height: 1.8;
+        overflow-x: hidden;
+        transition: var(--transition);
+    }
+
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+
+    nav {
+        position: fixed; top: 0; left: 0; right: 0;
+        background: var(--brown-dark);
+        backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+        color: var(--card-white); padding: 22px 50px;
+        z-index: 1000; 
+        box-shadow: 0 4px 40px rgba(74, 59, 42, 0.3);
+        border-bottom: 2px solid var(--gold-antique);
+        transition: var(--transition);
+    }
+    
+    .nav-container {
+        max-width: 1500px; margin: 0 auto;
+        display: flex; justify-content: space-between; align-items: center;
+        flex-wrap: wrap; gap: 25px;
+    }
+    
+    .logo {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.5em; font-weight: 700;
+        color: var(--gold-antique);
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .logo i {
+        color: var(--gold-antique);
+        margin-right: 12px;
+        font-size: 1.1em;
+    }
+    
+    .nav-links { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; }
+    
+    .nav-links a {
+        color: var(--card-white); text-decoration: none;
+        font-size: 0.95em; font-weight: 500;
+        transition: var(--transition); padding: 8px 14px;
+        border-radius: 8px; position: relative;
+        letter-spacing: 0.5px;
+    }
+    
+    .nav-links a::before {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 0; height: 2px;
+        background: var(--gold-antique);
+        transition: width 0.4s;
+    }
+    
+    .nav-links a:hover::before { width: 70%; }
+    .nav-links a:hover { color: var(--gold-antique); transform: translateY(-2px); }
+    
+    .theme-toggle {
+        background: rgba(197, 160, 89, 0.15);
+        border: 2px solid var(--gold-antique);
+        color: var(--gold-antique); padding: 8px 14px; border-radius: 20px;
+        cursor: pointer; font-size: 1.1em; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .theme-toggle:hover { background: rgba(197, 160, 89, 0.3); transform: scale(1.1); }/* ✅ ИСПРАВЛЕННЫЙ ОТСТУП HERO */
+    .page-header {
+        background: linear-gradient(135deg, var(--brown-dark) 0%, #3a2e20 50%, var(--brown-dark) 100%);
+        color: var(--card-white); padding: 240px 40px 100px;
+        text-align: center; position: relative; overflow: hidden;
+    }
+    
+    .page-header::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(197, 160, 89, 0.05) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    
+    .page-header h1 {
+        font-family: 'Unbounded', sans-serif; font-size: 3.5em;
+        color: var(--gold-antique); text-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
+        margin-bottom: 20px; position: relative; z-index: 1;
+        letter-spacing: 2px; font-weight: 700;
+    }
+    
+    .page-header p {
+        font-size: 1.3em; font-style: italic; max-width: 800px;
+        margin: 0 auto; opacity: 0.9; position: relative; z-index: 1;
+        font-weight: 400; letter-spacing: 0.5px;
+    }
+
+    section { max-width: 1500px; margin: 0 auto; padding: 100px 50px; }
+    
+    .section-title {
+        font-family: 'Unbounded', sans-serif; font-size: 2.8em;
+        color: var(--brown-dark); text-align: center; margin-bottom: 25px;
+        position: relative; padding-bottom: 25px;
+        font-weight: 700; letter-spacing: 1px;
+    }
+    .section-title::after {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 120px; height: 4px;
+        background: linear-gradient(90deg, transparent, var(--gold-antique), transparent);
+    }
+    
+    .section-intro {
+        text-align: center; font-size: 1.3em; max-width: 900px;
+        margin: 0 auto 60px; color: var(--brown-dark); font-style: italic; opacity: 0.85;
+        font-weight: 500; letter-spacing: 0.5px;
+    }
+
+    /* === КАЛЬКУЛЯТОР ЗАЙМА === */
+    .calculator-wrapper {
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        padding: 50px;
+        margin: 60px 0;
+        box-shadow: 0 15px 50px var(--shadow);
+    }
+
+    .calc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: start;
+    }
+
+    .calc-inputs label {
+        display: block;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.9em;
+        color: var(--brown-dark);
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .calc-inputs input[type="number"],
+    .calc-inputs select {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid var(--brown-dark);
+        border-radius: 8px;
+        font-family: 'Lora', serif;
+        font-size: 1.1em;
+        background: var(--bg-sand);
+        color: var(--black-text);
+        margin-bottom: 25px;
+        transition: var(--transition);
+    }
+
+    .calc-inputs input:focus,
+    .calc-inputs select:focus {
+        outline: none;
+        border-color: var(--gold-antique);
+        box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+    }
+
+    .calc-slider-container {
+        margin-bottom: 25px;
+    }
+
+    .calc-slider-label {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.85em;
+        color: var(--brown-dark);
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .calc-slider-value {
+        color: var(--gold-antique);
+        font-weight: 700;
+    }
+
+    input[type="range"] {
+        width: 100%;
+        height: 8px;
+        border-radius: 4px;
+        background: var(--bg-sand);
+        outline: none;
+        -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--gold-antique);
+        cursor: pointer;
+        border: 3px solid var(--card-white);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        transition: var(--transition);
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+        background: var(--gold-hover);
+        transform: scale(1.2);
+    }
+
+    .calc-results {
+        background: var(--brown-dark);
+        color: var(--card-white);
+        border-radius: 12px;
+        padding: 40px;
+    }
+
+    .calc-results h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.4em;
+        color: var(--gold-antique);
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .result-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(245, 240, 225, 0.15);
+        font-size: 1.05em;
+    }
+
+    .result-row:last-child {
+        border-bottom: none;
+        margin-top: 15px;
+        padding-top: 20px;
+        border-top: 2px solid var(--gold-antique);
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.3em;
+        color: var(--gold-antique);
+        font-weight: 700;
+    }
+
+    .result-label { opacity: 0.8; }
+    .result-value { font-weight: 600; }
+
+    .calc-note {
+        margin-top: 25px;
+        padding: 15px;
+        background: rgba(197, 160, 89, 0.1);
+        border-left: 3px solid var(--gold-antique);
+        border-radius: 0 8px 8px 0;
+        font-size: 0.9em;
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    /* === ТАБЛИЦА ИЗДЕРЖЕК === */
+    .expenses-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 40px 0;
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px var(--shadow);
+    }
+    
+    .expenses-table th {
+        background: var(--brown-dark);
+        color: var(--gold-antique);
+        padding: 20px;
+        text-align: left;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.1em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    
+    .expenses-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(74, 59, 42, 0.1);
+        font-size: 1.05em;
+        color: var(--black-text);
+        line-height: 1.6;
+        vertical-align: top;
+    }
+    
+    .expenses-table tr:last-child td { border-bottom: none; }
+    .expenses-table tr:hover td { background: var(--bg-sand); }
+
+    /* === БЛОК ТЕОРИИ КОУЗА === */
+    .coase-block {
+        background: linear-gradient(135deg, var(--gold-antique), var(--gold-hover));
+        color: var(--brown-dark);
+        padding: 50px;
+        border-radius: 12px;
+        margin: 60px 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        box-shadow: 0 15px 40px rgba(197, 160, 89, 0.3);
+    }
+    
+    .coase-icon {
+        font-size: 3em;
+        flex-shrink: 0;
+    }
+    
+    .coase-block h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        font-weight: 800;
+    }
+    
+    .coase-block p {
+        font-size: 1.1em;
+        line-height: 1.7;
+        font-weight: 500;
+    }
+
+    /* === СРАВНЕНИЕ СТАВОК === */
+    .rates-comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 60px 0;
+    }
+
+    .rate-card {
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        padding: 40px;
+        text-align: center;
+        transition: var(--transition);
+    }
+
+    .rate-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px var(--shadow);
+        border-color: var(--gold-antique);
+    }
+
+    .rate-icon {
+        font-size: 2.5em;
+        color: var(--gold-antique);
+        margin-bottom: 20px;
+    }
+
+    .rate-card h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.4em;
+        color: var(--brown-dark);
+        margin-bottom: 15px;
+    }
+
+    .rate-value {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 3em;
+        font-weight: 900;
+        color: var(--gold-antique);
+        margin-bottom: 10px;
+    }
+
+    .rate-desc {
+        font-size: 1em;
+        color: var(--black-text);
+        opacity: 0.85;
+        line-height: 1.6;
+    }
+
+    .rate-article {
+        display: inline-block;
+        background: var(--brown-dark);
+        color: var(--card-white);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: 600;
+        margin-top: 20px;
+        font-family: 'Unbounded', sans-serif;
+    }footer {
+        background: var(--brown-dark);
+        color: var(--card-white); padding: 70px 50px 40px;
+        margin-top: 100px; text-align: center;
+        border-top: 4px solid var(--gold-antique);
+    }
+    .footer-signature {
+        margin-top: 40px; padding-top: 30px;
+        border-top: 2px solid rgba(197, 160, 89, 0.4);
+        font-style: italic; color: var(--gold-antique); font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .fade-in-section { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+        .page-header { padding: 200px 25px 80px; }
+        .page-header h1 { font-size: 2.2em; letter-spacing: 1px; }
+        .page-header p { font-size: 1.1em; }
+        .section-title { font-size: 1.8em; }
+        .calc-grid { grid-template-columns: 1fr; gap: 30px; }
+        .calculator-wrapper { padding: 30px 25px; }
+        .rates-comparison { grid-template-columns: 1fr; gap: 20px; }
+        .coase-block { flex-direction: column; padding: 35px 30px; }
+        nav { padding: 18px 25px; }
+        .nav-links { gap: 12px; }
+        .nav-links a { font-size: 0.85em; padding: 6px 10px; }
+        section { padding: 70px 25px; }
+        .expenses-table { font-size: 0.9em; display: block; overflow-x: auto; }
+        .expenses-table th, .expenses-table td { padding: 12px 15px; white-space: nowrap; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><i class="fa-solid fa-landmark"></i> ЭСАГИЛА-ДОГОВОРЪ</a>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="contracts.html">Виды сделок</a>
+            <a href="requirements.html">Требования</a>
+            <a href="witnesses.html">Свидетели</a>
+            <a href="expenses.html">Издержки</a>
+            <a href="risks.html">Риски</a>
+            <a href="security.html">Обеспечение</a>
+            <a href="comparison.html">Сравнение</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Переключить тему"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1><i class="fa-solid fa-coins" style="margin-right: 20px;"></i>Издержки и калькулятор</h1>
+    <p>Транзакционные издержки, теория Коуза и интерактивный расчёт полной стоимости вавилонского займа</p>
+</div><!-- ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР -->
+<section class="fade-in-section">
+    <h2 class="section-title">Калькулятор полной стоимости займа</h2>
+    <p class="section-intro">Рассчитайте реальную стоимость кредита с учётом процентов, платы писцу и религиозных расходов</p>
+    
+    <div class="calculator-wrapper">
+        <div class="calc-grid">
+            <div class="calc-inputs">
+                <label for="loanAmount">Сумма займа (сикли серебра)</label>
+                <input type="number" id="loanAmount" value="10" min="1" max="1000" step="1">
+                
+                <label for="loanTerm">Срок займа (месяцев)</label>
+                <input type="number" id="loanTerm" value="12" min="1" max="60" step="1">
+                
+                <div class="calc-slider-container">
+                    <div class="calc-slider-label">
+                        <span>Процентная ставка</span>
+                        <span class="calc-slider-value" id="rateValue">20%</span>
+                    </div>
+                    <input type="range" id="interestRate" min="0" max="33.3" step="0.1" value="20">
+                </div>
+                
+                <label for="currencyType">Валюта займа</label>
+                <select id="currencyType">
+                    <option value="silver">Серебро (20% годовых)</option>
+                    <option value="grain">Зерно/ячмень (33,3% годовых)</option>
+                </select>
+            </div>
+            
+            <div class="calc-results">
+                <h3><i class="fa-solid fa-receipt"></i> Расчёт сделки</h3>
+                
+                <div class="result-row">
+                    <span class="result-label">Сумма займа:</span>
+                    <span class="result-value" id="resPrincipal">10 сиклей</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Проценты за срок:</span>
+                    <span class="result-value" id="resInterest">2.00 сикля</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Плата писцу (тупшарруму):</span>
+                    <span class="result-value" id="resScribe">1.50 сикля</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">Религиозные расходы (жертва Шамашу):</span>
+                    <span class="result-value" id="resRitual">0.50 сикля</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">ИТОГО к возврату:</span>
+                    <span class="result-value" id="resTotal">14.00 сиклей</span>
+                </div>
+                
+                <div class="calc-note">
+                    <i class="fa-solid fa-circle-info"></i> При неурожае (форс-мажор) проценты аннулируются, а табличка «смачивается» водой (ст. 48 ЗХ). Плата писцу и ритуальные расходы невозвратны.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ТАБЛИЦА ТРАНЗАКЦИОННЫХ ИЗДЕРЖЕК -->
+<section class="fade-in-section">
+    <h2 class="section-title">Структура транзакционных издержек</h2>
+    <p class="section-intro">Из чего складывалась полная стоимость заключения сделки</p>
+    
+    <table class="expenses-table">
+        <thead>
+            <tr>
+                <th>Вид издержек</th>
+                <th>Размер / Условия</th>
+                <th>Экономическая функция</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Плата писцу (тупшарруму)</strong></td>
+                <td>1–2 сикля серебра за табличку. Фиксированная ставка, не зависит от суммы сделки.</td>
+                <td>Оплата профессионального составления документа. Без подписи писца сделка ничтожна. Аналог: нотариальный тариф.</td>
+            </tr>
+            <tr>
+                <td><strong>Вознаграждение свидетелям</strong></td>
+                <td>Пища, пиво или мелкая монета каждому свидетелю. Обычно 2–8 человек.</td>
+                <td>Компенсация за время и риск поручительства. Стимул для честных показаний в будущем.</td>
+            </tr>
+            <tr>
+                <td><strong>Религиозные расходы</strong></td>
+                <td>Жертвоприношение богу Шамашу (покровителю справедливости). 0.5–1 сикль.</td>
+                <td>Придание сделке сакрального статуса. Нарушение клятвы = грех против бога = автоматическое наказание.</td>
+            </tr>
+            <tr>
+                <td><strong>Изготовление печати</strong></td>
+                <td>Стоимость камня (лазурит, сердолик) и работы резчика. Единовременно, на всю жизнь.</td>
+                <td>Инвестиция в личный идентификатор. Аналог: изготовление квалифицированной электронной подписи.</td>
+            </tr>
+            <tr>
+                <td><strong>Проценты по займу</strong></td>
+                <td>20% годовых (серебро), 33,3% годовых (зерно). Максимум установлен государством.</td>
+                <td>Плата за риск и альтернативную стоимость капитала. Государственное ограничение = первый антиростовщический закон.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- ТЕОРИЯ КОУЗА В ВАВИЛОНЕ -->
+<section class="fade-in-section">
+    <div class="coase-block">
+        <div class="coase-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+        <div>
+            <h3>Теория Коуза в Древнем Вавилоне</h3>
+            <p>Зачем вавилоняне платили писцу, свидетелям и приносили жертвы? Согласно теории Рональда Коуза (Нобелевская премия 1991), транзакционные издержки возникают для снижения риска оппортунистического поведения контрагента. В условиях отсутствия государственного реестра договоров и полиции, затраты на формализацию сделки (печати, свидетели, храм) были дешевле, чем потери от мошенничества. Чем выше были издержки заключения сделки, тем ниже были издержки её исполнения и разрешения споров.</p>
+        </div>
+    </div>
+</section>
+
+<!-- СРАВНЕНИЕ ПРОЦЕНТНЫХ СТАВОК -->
+<section class="fade-in-section">
+    <h2 class="section-title">Максимальные процентные ставки</h2>
+    <p class="section-intro">Государственное регулирование ростовщичества по Законам Хаммурапи</p>
+    
+    <div class="rates-comparison">
+        <div class="rate-card">
+            <div class="rate-icon"><i class="fa-solid fa-coins"></i></div>
+            <h3>Серебро</h3>
+            <div class="rate-value">20%</div>
+            <p class="rate-desc">Годовая ставка по денежным займам. Серебро было основной расчётной единицей. Ставка фиксирована государством для предотвращения социального напряжения.</p>
+            <span class="rate-article">Ст. 89 ЗХ</span>
+        </div>
+        
+        <div class="rate-card">
+            <div class="rate-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+            <h3>Зерно / Ячмень</h3>
+            <div class="rate-value">33,3%</div>
+            <p class="rate-desc">Годовая ставка по натуральным займам. Более высокая ставка объясняется риском порчи зерна, сезонностью и меньшей ликвидностью по сравнению с серебром.</p>
+            <span class="rate-article">Ст. 90 ЗХ</span>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer-signature">
+        <p>© 1755 г. до н.э. Канцелярия царя Хаммурапи</p>
+        <p>Подготовлено студентами 1 курса юридического факультета • 2026</p>
+    </div>
+</footer>
+
+<script>
+    // === КАЛЬКУЛЯТОР ЗАЙМА ===
+    const loanAmountInput = document.getElementById('loanAmount');
+    const loanTermInput = document.getElementById('loanTerm');
+    const interestRateSlider = document.getElementById('interestRate');
+    const rateValueDisplay = document.getElementById('rateValue');
+    const currencySelect = document.getElementById('currencyType');
+    
+    const resPrincipal = document.getElementById('resPrincipal');
+    const resInterest = document.getElementById('resInterest');
+    const resScribe = document.getElementById('resScribe');
+    const resRitual = document.getElementById('resRitual');
+    const resTotal = document.getElementById('resTotal');
+    
+    function calculateLoan() {
+        const principal = parseFloat(loanAmountInput.value) || 0;
+        const months = parseInt(loanTermInput.value) || 0;
+        const annualRate = parseFloat(interestRateSlider.value) || 0;
+        const years = months / 12;
+        
+        // Проценты: простые, пропорционально сроку
+        const interest = principal * (annualRate / 100) * years;
+        
+        // Плата писцу: 1.5 сикля (среднее между 1 и 2)
+        const scribeFee = 1.5;
+        
+        // Ритуальные расходы: 0.5 сикля
+        const ritualCost = 0.5;
+        
+        const total = principal + interest + scribeFee + ritualCost;
+        
+        resPrincipal.textContent = principal.toFixed(2) + ' сиклей';
+        resInterest.textContent = interest.toFixed(2) + ' сикля';
+        resScribe.textContent = scribeFee.toFixed(2) + ' сикля';
+        resRitual.textContent = ritualCost.toFixed(2) + ' сикля';
+        resTotal.textContent = total.toFixed(2) + ' сиклей';
+    }
+    
+    // Обновление отображения ставки при движении ползунка
+    interestRateSlider.addEventListener('input', function() {
+        rateValueDisplay.textContent = this.value + '%';
+        calculateLoan();
+    });
+    
+    // Автоматическая установка ставки при смене валюты
+    currencySelect.addEventListener('change', function() {
+        if (this.value === 'silver') {
+            interestRateSlider.value = 20;
+            rateValueDisplay.textContent = '20%';
+        } else {
+            interestRateSlider.value = 33.3;
+            rateValueDisplay.textContent = '33.3%';
+        }
+        calculateLoan();
+    });
+    
+    // Пересчёт при изменении любого поля
+    loanAmountInput.addEventListener('input', calculateLoan);
+    loanTermInput.addEventListener('input', calculateLoan);
+    
+    // Инициализация
+    calculateLoan();
+
+    // === ТЕМА ===
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+    
+    // === АНИМАЦИЯ ПОЯВЛЕНИЯ СЕКЦИЙ ===
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
