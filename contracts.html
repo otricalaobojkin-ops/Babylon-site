@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Виды сделок | Эсагила-Договоръ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+        --bg-sand: #E6DCC8;
+        --card-white: #F9F7F2;
+        --brown-dark: #4A3B2A;
+        --black-text: #1A1A1A;
+        --gold-antique: #C5A059;
+        --gold-hover: #d4af37;
+        --shadow: rgba(74, 59, 42, 0.1);
+        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .dark-mode {
+        --bg-sand: #1a1a1a;
+        --card-white: #2d2d2d;
+        --brown-dark: #e6dcc8;
+        --black-text: #f5f0e1;
+        --gold-antique: #c5a059;
+        --gold-hover: #d4af37;
+        --shadow: rgba(0, 0, 0, 0.4);
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+        font-family: 'Lora', serif;
+        background: var(--bg-sand);
+        color: var(--black-text);
+        line-height: 1.8;
+        overflow-x: hidden;
+        transition: var(--transition);
+    }
+
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+
+    /* === НАВИГАЦИЯ === */
+    nav {
+        position: fixed; top: 0; left: 0; right: 0;
+        background: var(--brown-dark);
+        backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+        color: var(--card-white); padding: 22px 50px;
+        z-index: 1000; 
+        box-shadow: 0 4px 40px rgba(74, 59, 42, 0.3);
+        border-bottom: 2px solid var(--gold-antique);
+        transition: var(--transition);
+    }
+    
+    .nav-container {
+        max-width: 1500px; margin: 0 auto;
+        display: flex; justify-content: space-between; align-items: center;
+        flex-wrap: wrap; gap: 25px;
+    }
+    
+    .logo {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.5em; font-weight: 700;
+        color: var(--gold-antique);
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .logo i {
+        color: var(--gold-antique);
+        margin-right: 12px;
+        font-size: 1.1em;
+    }
+    
+    .nav-links { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; }
+    
+    .nav-links a {
+        color: var(--card-white); text-decoration: none;
+        font-size: 0.95em; font-weight: 500;
+        transition: var(--transition); padding: 8px 14px;
+        border-radius: 8px; position: relative;
+        letter-spacing: 0.5px;
+    }
+    
+    .nav-links a::before {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 0; height: 2px;
+        background: var(--gold-antique);
+        transition: width 0.4s;
+    }
+    
+    .nav-links a:hover::before { width: 70%; }
+    .nav-links a:hover { color: var(--gold-antique); transform: translateY(-2px); }
+    
+    .theme-toggle {
+        background: rgba(197, 160, 89, 0.15);
+        border: 2px solid var(--gold-antique);
+        color: var(--gold-antique); padding: 8px 14px; border-radius: 20px;
+        cursor: pointer; font-size: 1.1em; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .theme-toggle:hover { background: rgba(197, 160, 89, 0.3); transform: scale(1.1); }/* === HERO РАЗДЕЛА === */
+    /* ✅ ИСПРАВЛЕННЫЙ ОТСТУП: 240px сверху */
+    .page-header {
+        background: linear-gradient(135deg, var(--brown-dark) 0%, #3a2e20 50%, var(--brown-dark) 100%);
+        color: var(--card-white); padding: 240px 40px 100px;
+        text-align: center; position: relative; overflow: hidden;
+    }
+    
+    .page-header::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(197, 160, 89, 0.05) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    
+    .page-header h1 {
+        font-family: 'Unbounded', sans-serif; font-size: 3.5em;
+        color: var(--gold-antique); text-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
+        margin-bottom: 20px; position: relative; z-index: 1;
+        letter-spacing: 2px; font-weight: 700;
+    }
+    
+    .page-header p {
+        font-size: 1.3em; font-style: italic; max-width: 800px;
+        margin: 0 auto; opacity: 0.9; position: relative; z-index: 1;
+        font-weight: 400; letter-spacing: 0.5px;
+    }
+
+    /* === ОБЩИЕ СЕКЦИИ === */
+    section { max-width: 1500px; margin: 0 auto; padding: 100px 50px; }
+    
+    .section-title {
+        font-family: 'Unbounded', sans-serif; font-size: 2.8em;
+        color: var(--brown-dark); text-align: center; margin-bottom: 25px;
+        position: relative; padding-bottom: 25px;
+        font-weight: 700; letter-spacing: 1px;
+    }
+    .section-title::after {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 120px; height: 4px;
+        background: linear-gradient(90deg, transparent, var(--gold-antique), transparent);
+    }
+    
+    .section-intro {
+        text-align: center; font-size: 1.3em; max-width: 900px;
+        margin: 0 auto 60px; color: var(--brown-dark); font-style: italic; opacity: 0.85;
+        font-weight: 500; letter-spacing: 0.5px;
+    }
+
+    /* === КАРТОЧКИ ВИДОВ СДЕЛОК === */
+    .contracts-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 35px; margin-top: 50px;
+    }
+    
+    .contract-card {
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        padding: 40px 35px; 
+        box-shadow: 0 8px 30px var(--shadow);
+        transition: var(--transition); position: relative; overflow: hidden;
+    }
+    
+    .contract-card::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+        background: linear-gradient(90deg, var(--gold-antique), var(--gold-hover), var(--gold-antique));
+        transform: scaleX(0); transform-origin: left; transition: transform 0.5s;
+    }
+    .contract-card:hover::before { transform: scaleX(1); }
+    .contract-card:hover {
+        transform: translateY(-10px); 
+        box-shadow: 0 20px 50px var(--shadow);
+        border-color: var(--gold-antique);
+    }
+    
+    .contract-card h3 {
+        font-family: 'Unbounded', sans-serif; color: var(--brown-dark);
+        font-size: 1.6em; margin-bottom: 15px; display: flex; align-items: center; gap: 15px;
+        font-weight: 700; letter-spacing: 0.5px;
+    }
+    
+    .contract-icon {
+        color: var(--gold-antique); font-size: 1.4em;
+    }
+    
+    .contract-type {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.8em; font-weight: 600;
+        color: var(--gold-antique); letter-spacing: 1px;
+        text-transform: uppercase; margin-bottom: 15px;
+        display: block;
+    }
+    
+    .contract-card p { 
+        color: var(--black-text); line-height: 1.8; font-size: 1.05em; opacity: 0.9;
+        font-weight: 500; margin-bottom: 15px;
+    }
+    
+    .contract-details {
+        background: var(--bg-sand);
+        border-left: 3px solid var(--gold-antique);
+        padding: 15px 20px;
+        border-radius: 0 8px 8px 0;
+        margin-top: 20px;
+    }
+    
+    .contract-details h4 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.9em; color: var(--brown-dark);
+        margin-bottom: 8px; font-weight: 700;
+    }
+    
+    .contract-details ul {
+        list-style: none; padding: 0;
+    }
+    
+    .contract-details li {
+        font-size: 0.95em; color: var(--black-text);
+        padding: 4px 0; padding-left: 20px; position: relative;
+        opacity: 0.85;
+    }
+    
+    .contract-details li::before {
+        content: '•'; color: var(--gold-antique);
+        position: absolute; left: 0; font-weight: bold;
+    }
+    
+    .article-ref {
+        display: inline-block;
+        background: var(--brown-dark);
+        color: var(--card-white);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: 600;
+        margin-top: 10px;
+        font-family: 'Unbounded', sans-serif;
+    }/* === ТАБЛИЦА ЭЛЕМЕНТОВ СОСТАВА СДЕЛКИ === */
+    .elements-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 40px 0;
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px var(--shadow);
+    }
+    
+    .elements-table th {
+        background: var(--brown-dark);
+        color: var(--gold-antique);
+        padding: 20px;
+        text-align: left;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.1em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    
+    .elements-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(74, 59, 42, 0.1);
+        font-size: 1.05em;
+        color: var(--black-text);
+        line-height: 1.6;
+    }
+    
+    .elements-table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .elements-table tr:hover td {
+        background: var(--bg-sand);
+    }
+
+    /* === ГОРИЗОНТАЛЬНАЯ ГАЛЕРЕЯ === */
+    .gallery-horizontal {
+        display: flex;
+        gap: 30px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 40px 50px 60px;
+        margin: 60px 0;
+        scrollbar-width: thin;
+        scrollbar-color: var(--gold-antique) var(--bg-sand);
+    }
+
+    .gallery-horizontal::-webkit-scrollbar { height: 6px; }
+    .gallery-horizontal::-webkit-scrollbar-track { background: var(--bg-sand); border-radius: 3px; }
+    .gallery-horizontal::-webkit-scrollbar-thumb { background: var(--gold-antique); border-radius: 3px; }
+
+    .gallery-h-item {
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        position: relative;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .gallery-h-item img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+        border: 2px solid var(--brown-dark);
+    }
+
+    .gallery-h-item:hover img {
+        transform: scale(1.03);
+        border-color: var(--gold-antique);
+    }
+
+    .gallery-h-item.small { width: 280px; height: 350px; }
+    .gallery-h-item.medium { width: 380px; height: 420px; }
+    .gallery-h-item.large { width: 520px; height: 580px; }
+
+    .gallery-h-meta {
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .gallery-h-number {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.9em; font-weight: 700;
+        color: var(--gold-antique); letter-spacing: 1px;
+    }
+
+    .gallery-h-category {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.7em; font-weight: 500;
+        color: var(--brown-dark); letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+
+    .gallery-h-title {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.1em; font-weight: 700;
+        color: var(--brown-dark); margin-top: 10px;
+        letter-spacing: 0.5px;
+    }
+
+    .gallery-h-subtitle {
+        font-family: 'Lora', serif;
+        font-size: 0.9em;
+        color: var(--black-text); opacity: 0.7;
+        margin-top: 4px; font-style: italic;
+    }
+
+    .gallery-mega-title {
+        font-family: 'Unbounded', sans-serif;
+        font-size: clamp(3em, 10vw, 8em);
+        font-weight: 900;
+        color: var(--brown-dark);
+        text-align: center;
+        margin: 40px 0 20px;
+        letter-spacing: -2px;
+        line-height: 0.9;
+    }
+
+    .gallery-mega-title span {
+        font-style: italic;
+        font-weight: 400;
+        color: var(--gold-antique);
+    }
+
+    .gallery-counter {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.85em;
+        color: var(--brown-dark);
+        opacity: 0.6;
+        letter-spacing: 2px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* === МОДАЛЬНОЕ ОКНО === */
+    .modal {
+        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(74, 59, 42, 0.95); z-index: 10000;
+        justify-content: center; align-items: center; padding: 30px;
+    }
+    .modal.active { display: flex; animation: fadeIn 0.4s; }
+    .modal-content {
+        max-width: 90vw; max-height: 90vh; position: relative;
+        border-radius: 12px; overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        border: 3px solid var(--gold-antique);
+    }
+    .modal-content img { max-width: 100%; max-height: 85vh; display: block; }
+    .modal-close {
+        position: absolute; top: 25px; right: 25px;
+        background: var(--gold-antique); border: 2px solid var(--brown-dark); color: var(--brown-dark);
+        width: 50px; height: 50px; border-radius: 50%; font-size: 1.3em;
+        cursor: pointer; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .modal-close:hover { background: var(--gold-hover); transform: rotate(90deg) scale(1.1); }
+    .modal-caption {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        background: rgba(74, 59, 42, 0.9); color: var(--gold-antique); 
+        padding: 25px; text-align: center; 
+        font-family: 'Lora', serif; font-size: 1.1em;
+    }
+
+    /* === ФУТЕР === */
+    footer {
+        background: var(--brown-dark);
+        color: var(--card-white); padding: 70px 50px 40px;
+        margin-top: 100px; text-align: center;
+        border-top: 4px solid var(--gold-antique);
+    }
+    .footer-signature {
+        margin-top: 40px; padding-top: 30px;
+        border-top: 2px solid rgba(197, 160, 89, 0.4);
+        font-style: italic; color: var(--gold-antique); font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    /* === АНИМАЦИИ === */
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .fade-in-section { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    /* === АДАПТИВНОСТЬ === */
+    @media (max-width: 768px) {
+        .page-header { padding: 200px 25px 80px; }
+        .page-header h1 { font-size: 2.2em; letter-spacing: 1px; }
+        .page-header p { font-size: 1.1em; }
+        .section-title { font-size: 1.8em; }
+        .contracts-grid { grid-template-columns: 1fr; gap: 25px; }
+        nav { padding: 18px 25px; }
+        .nav-links { gap: 12px; }
+        .nav-links a { font-size: 0.85em; padding: 6px 10px; }
+        section { padding: 70px 25px; }
+        .contract-card { padding: 30px 25px; }
+        .gallery-horizontal { padding: 30px 20px 40px; gap: 20px; }
+        .gallery-h-item.small { width: 240px; height: 300px; }
+        .gallery-h-item.medium { width: 300px; height: 360px; }
+        .gallery-h-item.large { width: 400px; height: 480px; }
+        .gallery-mega-title { font-size: clamp(2em, 12vw, 4em); }
+        .elements-table { font-size: 0.9em; }
+        .elements-table th, .elements-table td { padding: 12px 15px; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><i class="fa-solid fa-landmark"></i> ЭСАГИЛА-ДОГОВОРЪ</a>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="contracts.html">Виды сделок</a>
+            <a href="requirements.html">Требования</a>
+            <a href="witnesses.html">Свидетели</a>
+            <a href="expenses.html">Издержки</a>
+            <a href="risks.html">Риски</a>
+            <a href="security.html">Обеспечение</a>
+            <a href="comparison.html">Сравнение</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Переключить тему"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1><i class="fa-solid fa-file-contract" style="margin-right: 20px;"></i>Виды сделок</h1>
+    <p>Классификация обязательственных правоотношений по Законам Хаммурапи с аналогиями в современном гражданском праве</p>
+</div><section class="fade-in-section">
+    <h2 class="section-title">Классификация договоров</h2>
+    <p class="section-intro">Вавилонское право выделяло пять основных типов консенсуальных и реальных договоров, каждый со своей системой санкций</p>
+    
+    <div class="contracts-grid">
+        
+        <!-- КУПЛЯ-ПРОДАЖА -->
+        <div class="contract-card">
+            <span class="contract-type">[КУПЛЯ-ПРОДАЖА]</span>
+            <h3><span class="contract-icon"><i class="fa-solid fa-handshake"></i></span> Манахту</h3>
+            <p>Переход права собственности на вещь за цену, выраженную в серебре или зерне. Продавец обязан гарантировать покупателя от эвикции — отчуждения вещи третьим лицом, имеющим лучшее титульное право.</p>
+            
+            <div class="contract-details">
+                <h4>Элементы состава:</h4>
+                <ul>
+                    <li>Субъекты: авилум (полная правоспособность)</li>
+                    <li>Объект: движимое/недвижимое имущество</li>
+                    <li>Цена: серебро (сикли) или зерно (гуры)</li>
+                    <li>Форма: письменная + свидетели + печать</li>
+                    <li>Санкция за эвикцию: пятикратный штраф с наследников (ст. 9–12 ЗХ)</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 7, 9–12, 279–280 ЗХ ↔ Ст. 454–491 ГК РФ</span>
+        </div>
+        
+        <!-- ЗАЕМ -->
+        <div class="contract-card">
+            <span class="contract-type">[ЗАЕМ]</span>
+            <h3><span class="contract-icon"><i class="fa-solid fa-coins"></i></span>_hubутум</h3>
+            <p>Передача родовых вещей (серебра или зерна) с обязанностью возврата того же рода и качества. Реальный договор: возникал только с момента передачи вещи. Процентная ставка ограничена государством.</p>
+            
+            <div class="contract-details">
+                <h4>Элементы состава:</h4>
+                <ul>
+                    <li>Субъекты: тамкар (кредитор) и должник</li>
+                    <li>Объект: родовые вещи (argentum / hordeum)</li>
+                    <li>Проценты: 20% годовых (серебро), 33,3% (зерно)</li>
+                    <li>Форс-мажор: неурожай = аннулирование процентов (ст. 48 ЗХ)</li>
+                    <li>Обеспечение: залог, поручительство, долговая кабала (макс. 3 года)</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 89–96, 100–107 ЗХ ↔ Ст. 807–818 ГК РФ</span>
+        </div>
+        
+        <!-- АРЕНДА -->
+        <div class="contract-card">
+            <span class="contract-type">[АРЕНДА]</span>
+            <h3><span class="contract-icon"><i class="fa-solid fa-house-chimney"></i></span>Награду</h3>
+            <p>Предоставление имущества во временное владение и пользование за плату. Арендатор (арендатор поля) нёс риск случайной гибели урожая, но освобождался при форс-мажоре (наводнение, засуха).</p>
+            
+            <div class="contract-details">
+                <h4>Элементы состава:</h4>
+                <ul>
+                    <li>Субъекты: собственник и арендатор</li>
+                    <li>Объект: поле, дом, сад, рабочий скот</li>
+                    <li>Плата: фиксированная доля урожая или деньги</li>
+                    <li>Ответственность: арендатор отвечает за удержание плодородия</li>
+                    <li>Расторжение: при невозможности использования (ст. 42–47 ЗХ)</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 42–47, 249–277 ЗХ ↔ Ст. 606–625 ГК РФ</span>
+        </div>
+        
+        <!-- ХРАНЕНИЕ -->
+        <div class="contract-card">
+            <span class="contract-type">[ХРАНЕНИЕ]</span>
+            <h3><span class="contract-icon"><i class="fa-solid fa-vault"></i></span>Наширу</h3>
+            <p>Принятие вещи на хранение безвозмездно или за вознаграждение. Хранитель отвечал за утрату только при наличии вины (dolus/culpa). Обязательное условие: передача вещи свидетелям и составление договора.</p>
+            
+            <div class="contract-details">
+                <h4>Элементы состава:</h4>
+                <ul>
+                    <li>Субъекты: поклажедатель и хранитель</li>
+                    <li>Объект: движимая вещь</li>
+                    <li>Основание: договор + свидетели (ст. 122–123 ЗХ)</li>
+                    <li>Ответственность: только за умысел или грубую неосторожность</li>
+                    <li>Без witnesses = требование недействительно</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 120–126 ЗХ ↔ Ст. 886–926 ГК РФ</span>
+        </div>
+        
+        <!-- ПОРУЧЕНИЕ / ТОРГОВАЯ КОМИССИЯ -->
+        <div class="contract-card">
+            <span class="contract-type">[ТОРГОВАЯ КОМИССИЯ]</span>
+            <h3><span class="contract-icon"><i class="fa-solid fa-briefcase"></i></span>Тамкар-шамаллум</h3>
+            <p>Поручение торговому агенту (шамаллуму) совершить сделку за счёт principals (тамкара). Агент получал капитал и возвращал прибыль минус расходы. Ответственность за утрату капитала — полная, кроме форс-мажора.</p>
+            
+            <div class="contract-details">
+                <h4>Элементы состава:</h4>
+                <ul>
+                    <li>Субъекты: тамкар (доверитель) и шамаллум (поверенный)</li>
+                    <li>Объект: торговая операция</li>
+                    <li>Капитал: серебро для закупки товаров</li>
+                    <li>Прибыль: делится между сторонами</li>
+                    <li>Форс-мажор: нападение разбойников = освобождение от ответственности (ст. 102–103 ЗХ)</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 100–107 ЗХ ↔ Ст. 971–1003 ГК РФ (комиссия)</span>
+        </div>
+        
+        <!-- БРАЧНЫЙ ДОГОВОР -->
+        <div class="contract-card">
+            <span class="contract-type">[БРАЧНЫЙ ДОГОВОР]</span>
+            <h3><span class="contract-icon"><i class="fa-solid fa-ring"></i></span>Риксату</h3>
+            <p>Соглашение о имущественных последствиях брака. Жених выплачивал выкуп (тирхату) семье невесты. Невеста приносила приданое (шерикту), которое оставалось её собственностью и возвращалось при расторжении брака.</p>
+            
+            <div class="contract-details">
+                <h4>Элементы состава:</h4>
+                <ul>
+                    <li>Субъекты: жених, невеста, их семьи</li>
+                    <li>Выкуп (тирхату): платится семье невесты</li>
+                    <li>Приданое (шерикту): собственность жены</li>
+                    <li>Расторжение: возврат приданого жене</li>
+                    <li>Прелюбодеяние: смертная казнь (ст. 129 ЗХ)</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 128–141, 159–164 ЗХ ↔ Ст. 40–44 СК РФ</span>
+        </div>
+        
+    </div>
+</section>
+
+<!-- ТАБЛИЦА ЭЛЕМЕНТОВ СОСТАВА СДЕЛКИ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Элементы состава сделки</h2>
+    <p class="section-intro">Без наличия всех четырёх элементов сделка признавалась юридически ничтожной</p>
+    
+    <table class="elements-table">
+        <thead>
+            <tr>
+                <th>Элемент</th>
+                <th>Содержание</th>
+                <th>Последствия отсутствия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Субъекты</strong></td>
+                <td>Дееспособные лица (авилумы). Мушкенумы — с ограничениями. Вардумы — не могли быть стороной.</td>
+                <td>Сделка ничтожна. Участие недееспособного = уголовная ответственность.</td>
+            </tr>
+            <tr>
+                <td><strong>Объект</strong></td>
+                <td>Вещь, право или действие, не запрещённые законом (илку нельзя продать).</td>
+                <td>Ничтожность. Продажа запретного объекта = конфискация + штраф.</td>
+            </tr>
+            <tr>
+                <td><strong>Содержание</strong></td>
+                <td>Взаимные права и обязанности сторон, цена, сроки, условия.</td>
+                <td>Неопределённость содержания = ничтожность. Цена должна быть определена.</td>
+            </tr>
+            <tr>
+                <td><strong>Форма</strong></td>
+                <td>Письменная (глиняная табличка) + свидетели + цилиндрические печати + эсхатокол.</td>
+                <td>Смертная казнь (ст. 7 ЗХ). Форма важнее воли сторон.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<!-- ГОРИЗОНТАЛЬНАЯ ГАЛЕРЕЯ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Инструменты торговли</h2>
+    <p class="section-intro">Как обеспечивалась честность и исполнимость сделок</p>
+    
+    <div class="gallery-counter">03 АРТЕФАКТА</div>
+    <div class="gallery-mega-title">COMMERCIUM<span>·</span>FIDES</div>
+    
+    <div class="gallery-horizontal">
+        
+        <div class="gallery-h-item small" onclick="openModal(this)" data-caption="Глиняная бирка-конверт (bulla). Внутри хранилась табличка с условиями сделки, защищённая от подделки.">
+            <div class="gallery-h-meta">
+                <span class="gallery-h-number">I.</span>
+                <span class="gallery-h-category">[ЗАЩИТА]</span>
+            </div>
+            <img src="images/bulla-envelope.jpg" alt="Bulla" loading="lazy">
+            <div class="gallery-h-title">Bulla</div>
+            <div class="gallery-h-subtitle">Глиняный конверт</div>
+        </div>
+        
+        <div class="gallery-h-item medium" onclick="openModal(this)" data-caption="Бронзовые весы для взвешивания серебра. Точность измерения — основа справедливого обмена.">
+            <div class="gallery-h-meta">
+                <span class="gallery-h-number">II.</span>
+                <span class="gallery-h-category">[МЕРИЛО]</span>
+            </div>
+            <img src="images/ancient-scales.jpg" alt="Весы" loading="lazy">
+            <div class="gallery-h-title">Весы</div>
+            <div class="gallery-h-subtitle">Сикль серебра</div>
+        </div>
+        
+        <div class="gallery-h-item large" onclick="openModal(this)" data-caption="Хранилище зерна. Ячмень был основной валютой для натуральных займов и арендных платежей.">
+            <div class="gallery-h-meta">
+                <span class="gallery-h-number">III.</span>
+                <span class="gallery-h-category">[ВАЛЮТА]</span>
+            </div>
+            <img src="images/grain-storage.jpg" alt="Зернохранилище" loading="lazy">
+            <div class="gallery-h-title">Ячмень</div>
+            <div class="gallery-h-subtitle">Натуральный заем</div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- МОДАЛЬНОЕ ОКНО -->
+<div class="modal" id="galleryModal" onclick="closeModal(event)">
+    <button class="modal-close" onclick="closeModalBtn()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-signature">
+        <p>© 1755 г. до н.э. Канцелярия царя Хаммурапи</p>
+        <p>Подготовлено студентами 1 курса юридического факультета • 2026</p>
+    </div>
+</footer>
+
+<script>
+    // === ТЕМА ===
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+    
+    // === ГАЛЕРЕЯ ===
+    function openModal(item) {
+        const modal = document.getElementById('galleryModal');
+        const img = item.querySelector('img');
+        const caption = item.getAttribute('data-caption');
+        document.getElementById('modalImage').src = img.src;
+        document.getElementById('modalCaption').textContent = caption;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(e) {
+        if (e.target === document.getElementById('galleryModal')) {
+            closeModalBtn();
+        }
+    }
+    
+    function closeModalBtn() {
+        document.getElementById('galleryModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // === АНИМАЦИЯ ПОЯВЛЕНИЯ СЕКЦИЙ ===
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
