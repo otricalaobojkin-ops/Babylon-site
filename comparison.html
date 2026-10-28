@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сравнение с современным правом | Эсагила-Договоръ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+        --bg-sand: #E6DCC8;
+        --card-white: #F9F7F2;
+        --brown-dark: #4A3B2A;
+        --black-text: #1A1A1A;
+        --gold-antique: #C5A059;
+        --gold-hover: #d4af37;
+        --shadow: rgba(74, 59, 42, 0.1);
+        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .dark-mode {
+        --bg-sand: #1a1a1a;
+        --card-white: #2d2d2d;
+        --brown-dark: #e6dcc8;
+        --black-text: #f5f0e1;
+        --gold-antique: #c5a059;
+        --gold-hover: #d4af37;
+        --shadow: rgba(0, 0, 0, 0.4);
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+        font-family: 'Lora', serif;
+        background: var(--bg-sand);
+        color: var(--black-text);
+        line-height: 1.8;
+        overflow-x: hidden;
+        transition: var(--transition);
+    }
+
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+
+    nav {
+        position: fixed; top: 0; left: 0; right: 0;
+        background: var(--brown-dark);
+        backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+        color: var(--card-white); padding: 22px 50px;
+        z-index: 1000; 
+        box-shadow: 0 4px 40px rgba(74, 59, 42, 0.3);
+        border-bottom: 2px solid var(--gold-antique);
+        transition: var(--transition);
+    }
+    
+    .nav-container {
+        max-width: 1500px; margin: 0 auto;
+        display: flex; justify-content: space-between; align-items: center;
+        flex-wrap: wrap; gap: 25px;
+    }
+    
+    .logo {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.5em; font-weight: 700;
+        color: var(--gold-antique);
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .logo i {
+        color: var(--gold-antique);
+        margin-right: 12px;
+        font-size: 1.1em;
+    }
+    
+    .nav-links { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; }
+    
+    .nav-links a {
+        color: var(--card-white); text-decoration: none;
+        font-size: 0.95em; font-weight: 500;
+        transition: var(--transition); padding: 8px 14px;
+        border-radius: 8px; position: relative;
+        letter-spacing: 0.5px;
+    }
+    
+    .nav-links a::before {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 0; height: 2px;
+        background: var(--gold-antique);
+        transition: width 0.4s;
+    }
+    
+    .nav-links a:hover::before { width: 70%; }
+    .nav-links a:hover { color: var(--gold-antique); transform: translateY(-2px); }
+    
+    .theme-toggle {
+        background: rgba(197, 160, 89, 0.15);
+        border: 2px solid var(--gold-antique);
+        color: var(--gold-antique); padding: 8px 14px; border-radius: 20px;
+        cursor: pointer; font-size: 1.1em; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .theme-toggle:hover { background: rgba(197, 160, 89, 0.3); transform: scale(1.1); }/* ✅ ИСПРАВЛЕННЫЙ ОТСТУП HERO */
+    .page-header {
+        background: linear-gradient(135deg, var(--brown-dark) 0%, #3a2e20 50%, var(--brown-dark) 100%);
+        color: var(--card-white); padding: 240px 40px 100px;
+        text-align: center; position: relative; overflow: hidden;
+    }
+    
+    .page-header::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(197, 160, 89, 0.05) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    
+    .page-header h1 {
+        font-family: 'Unbounded', sans-serif; font-size: 3.5em;
+        color: var(--gold-antique); text-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
+        margin-bottom: 20px; position: relative; z-index: 1;
+        letter-spacing: 2px; font-weight: 700;
+    }
+    
+    .page-header p {
+        font-size: 1.3em; font-style: italic; max-width: 800px;
+        margin: 0 auto; opacity: 0.9; position: relative; z-index: 1;
+        font-weight: 400; letter-spacing: 0.5px;
+    }
+
+    section { max-width: 1500px; margin: 0 auto; padding: 100px 50px; }
+    
+    .section-title {
+        font-family: 'Unbounded', sans-serif; font-size: 2.8em;
+        color: var(--brown-dark); text-align: center; margin-bottom: 25px;
+        position: relative; padding-bottom: 25px;
+        font-weight: 700; letter-spacing: 1px;
+    }
+    .section-title::after {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 120px; height: 4px;
+        background: linear-gradient(90deg, transparent, var(--gold-antique), transparent);
+    }
+    
+    .section-intro {
+        text-align: center; font-size: 1.3em; max-width: 900px;
+        margin: 0 auto 60px; color: var(--brown-dark); font-style: italic; opacity: 0.85;
+        font-weight: 500; letter-spacing: 0.5px;
+    }
+
+    /* === ВРЕМЕННАЯ ШКАЛА (ИСПРАВЛЕННАЯ) === */
+    .timeline-container {
+        position: relative;
+        padding: 80px 0 40px;
+        margin: 60px 0;
+    }
+    
+    .timeline-line {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        right: 5%;
+        height: 4px;
+        background: var(--brown-dark);
+        transform: translateY(-50%);
+        border-radius: 2px;
+    }
+    
+    .timeline-points {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+        padding: 0 5%;
+    }
+    
+    .timeline-point {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: var(--transition);
+        position: relative;
+        flex: 1;
+    }
+    
+    .timeline-dot {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--card-white);
+        border: 4px solid var(--gold-antique);
+        box-shadow: 0 0 0 2px var(--brown-dark);
+        margin-bottom: 20px;
+        transition: var(--transition);
+        z-index: 2;
+    }
+    
+    .timeline-point:hover .timeline-dot,
+    .timeline-point.active .timeline-dot {
+        background: var(--gold-antique);
+        transform: scale(1.3);
+        box-shadow: 0 0 0 4px var(--gold-hover);
+    }
+    
+    .timeline-year {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1em;
+        font-weight: 700;
+        color: var(--brown-dark);
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    
+    .timeline-label {
+        font-size: 0.85em;
+        color: var(--black-text);
+        opacity: 0.8;
+        text-align: center;
+        max-width: 120px;
+        line-height: 1.3;
+    }
+    
+    /* ✅ Tooltip теперь появляется СНИЗУ и не обрезается */
+    .timeline-tooltip {
+        position: absolute;
+        top: calc(100% + 30px);
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        background: var(--card-white);
+        border: 2px solid var(--gold-antique);
+        border-radius: 12px;
+        padding: 20px;
+        width: 280px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px var(--shadow);
+        z-index: 100;
+        pointer-events: none;
+    }
+    
+    /* Показываем tooltip при клике (active) или hover на десктопе */
+    .timeline-point.active .timeline-tooltip,
+    .timeline-point:hover .timeline-tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+    
+    .tooltip-babylon {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.8em;
+        color: var(--gold-antique);
+        margin-bottom: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .tooltip-modern {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.8em;
+        color: var(--brown-dark);
+        font-weight: 700;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(74, 59, 42, 0.2);
+    }
+    
+    .tooltip-text {
+        font-size: 0.9em;
+        color: var(--black-text);
+        line-height: 1.5;
+        opacity: 0.9;
+    }
+
+    /* === КАРТОЧКИ-ЗЕРКАЛА === */
+    .mirror-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        gap: 40px;
+        margin: 60px 0;
+    }
+    
+    .mirror-card {
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition);
+        position: relative;
+    }
+    
+    .mirror-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px var(--shadow);
+        border-color: var(--gold-antique);
+    }
+    
+    .mirror-thread {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 3px;
+        background: linear-gradient(to bottom, var(--gold-antique), var(--gold-hover), var(--gold-antique));
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+    
+    .mirror-half {
+        padding: 35px 30px;
+        flex: 1;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .mirror-half.babylon {
+        background: var(--brown-dark);
+        color: var(--card-white);
+        border-bottom: 2px solid var(--gold-antique);
+    }
+    
+    .mirror-half.modern {
+        background: var(--card-white);
+        color: var(--black-text);
+    }
+    
+    .mirror-era {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.75em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .mirror-half.babylon .mirror-era { color: var(--gold-antique); }
+    .mirror-half.modern .mirror-era { color: var(--brown-dark); }
+    
+    .mirror-title {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.3em;
+        font-weight: 700;
+        margin-bottom: 15px;
+        line-height: 1.3;
+    }
+    
+    .mirror-desc {
+        font-size: 1em;
+        line-height: 1.7;
+        opacity: 0.9;
+    }
+    
+    .mirror-article {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75em;
+        font-weight: 600;
+        margin-top: 15px;
+        font-family: 'Unbounded', sans-serif;
+    }
+    
+    .mirror-half.babylon .mirror-article {
+        background: rgba(197, 160, 89, 0.2);
+        color: var(--gold-antique);
+    }
+    
+    .mirror-half.modern .mirror-article {
+        background: var(--brown-dark);
+        color: var(--card-white);
+    }/* === УНИВЕРСАЛЬНЫЕ ПРИНЦИПЫ === */
+    .principles-monument {
+        background: var(--brown-dark);
+        color: var(--card-white);
+        padding: 80px 50px;
+        border-radius: 12px;
+        margin: 80px 0;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(74, 59, 42, 0.4);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .principles-monument::before {
+        content: '\2696';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25em;
+        color: var(--gold-antique);
+        opacity: 0.03;
+    }
+    
+    .principles-monument h2 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 2.2em;
+        color: var(--gold-antique);
+        margin-bottom: 50px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .principle-pillars {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .pillar {
+        padding: 30px;
+        background: rgba(245, 240, 225, 0.05);
+        border: 1px solid rgba(197, 160, 89, 0.3);
+        border-radius: 12px;
+        transition: var(--transition);
+    }
+    
+    .pillar:hover {
+        background: rgba(245, 240, 225, 0.1);
+        border-color: var(--gold-antique);
+        transform: translateY(-5px);
+    }
+    
+    .pillar-icon {
+        font-size: 2.5em;
+        color: var(--gold-antique);
+        margin-bottom: 20px;
+    }
+    
+    .pillar h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    .pillar p {
+        font-size: 1em;
+        line-height: 1.7;
+        opacity: 0.9;
+    }
+
+    /* === ФИНАЛЬНЫЙ АККОРД === */
+    .final-chord {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin: 80px 0;
+        align-items: stretch;
+    }
+    
+    .chord-quote {
+        padding: 50px;
+        border-radius: 12px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .chord-quote.babylon {
+        background: var(--brown-dark);
+        color: var(--card-white);
+        border: 2px solid var(--gold-antique);
+    }
+    
+    .chord-quote.modern {
+        background: var(--card-white);
+        color: var(--black-text);
+        border: 2px solid var(--brown-dark);
+    }
+    
+    .chord-quote blockquote {
+        font-family: 'Lora', serif;
+        font-size: 1.5em;
+        font-style: italic;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    
+    .chord-quote cite {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.85em;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+    
+    .chord-quote.babylon cite { color: var(--gold-antique); }
+    .chord-quote.modern cite { color: var(--brown-dark); }
+
+    footer {
+        background: var(--brown-dark);
+        color: var(--card-white); padding: 70px 50px 40px;
+        margin-top: 100px; text-align: center;
+        border-top: 4px solid var(--gold-antique);
+    }
+    .footer-signature {
+        margin-top: 40px; padding-top: 30px;
+        border-top: 2px solid rgba(197, 160, 89, 0.4);
+        font-style: italic; color: var(--gold-antique); font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .fade-in-section { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+        .page-header { padding: 200px 25px 80px; }
+        .page-header h1 { font-size: 2.2em; letter-spacing: 1px; }
+        .page-header p { font-size: 1.1em; }
+        .section-title { font-size: 1.8em; }
+        
+        /* Адаптация таймлайна для мобильных */
+        .timeline-container {
+            padding: 40px 0 20px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .timeline-line { left: 20px; right: 20px; }
+        .timeline-points { padding: 0 20px; min-width: 600px; }
+        .timeline-tooltip { width: 240px; font-size: 0.9em; }
+        
+        .mirror-grid { grid-template-columns: 1fr; gap: 25px; }
+        .mirror-thread { display: none; }
+        .mirror-half.babylon { border-bottom: none; border-top: 2px solid var(--gold-antique); }
+        .final-chord { grid-template-columns: 1fr; gap: 25px; }
+        .chord-quote { padding: 35px 30px; }
+        .chord-quote blockquote { font-size: 1.2em; }
+        .principles-monument { padding: 50px 30px; }
+        .principles-monument h2 { font-size: 1.6em; }
+        nav { padding: 18px 25px; }
+        .nav-links { gap: 12px; }
+        .nav-links a { font-size: 0.85em; padding: 6px 10px; }
+        section { padding: 70px 25px; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><i class="fa-solid fa-landmark"></i> ЭСАГИЛА-ДОГОВОРЪ</a>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="contracts.html">Виды сделок</a>
+            <a href="requirements.html">Требования</a>
+            <a href="witnesses.html">Свидетели</a>
+            <a href="expenses.html">Издержки</a>
+            <a href="risks.html">Риски</a>
+            <a href="security.html">Обеспечение</a>
+            <a href="comparison.html">Сравнение</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Переключить тему"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1><i class="fa-solid fa-scale-balanced" style="margin-right: 20px;"></i>Сравнение с современным правом</h1>
+    <p>Эволюция правовых норм за 3800 лет. Универсальные принципы, связывающие Древний Вавилон и Россию XXI века</p>
+</div><!-- ВРЕМЕННАЯ ШКАЛА -->
+<section class="fade-in-section">
+    <h2 class="section-title">Портал времени</h2>
+    <p class="section-intro">Нажмите на точку, чтобы увидеть связь эпох</p>
+    
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <div class="timeline-points">
+            
+            <div class="timeline-point" onclick="toggleTimeline(this)">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">1755 до н.э.</div>
+                <div class="timeline-label">Законы Хаммурапи</div>
+                <div class="timeline-tooltip">
+                    <div class="tooltip-babylon">ЗАЛОГ ПОЛЯ</div>
+                    <p class="tooltip-text">Должник передаёт поле кредитору в обеспечение. Кредитор пользуется урожаем вместо процентов.</p>
+                    <div class="tooltip-modern">↕ Ст. 334–358 ГК РФ (Залог)</div>
+                </div>
+            </div>
+            
+            <div class="timeline-point" onclick="toggleTimeline(this)">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">450 до н.э.</div>
+                <div class="timeline-label">Законы XII таблиц</div>
+                <div class="timeline-tooltip">
+                    <div class="tooltip-babylon">НЕКСУМ</div>
+                    <p class="tooltip-text">Долговая кабала в Риме: должник становится рабом кредитора до полного погашения.</p>
+                    <div class="tooltip-modern">↕ Запрещено ст. 10 ГК РФ</div>
+                </div>
+            </div>
+            
+            <div class="timeline-point" onclick="toggleTimeline(this)">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">533 н.э.</div>
+                <div class="timeline-label">Кодекс Юстиниана</div>
+                <div class="timeline-tooltip">
+                    <div class="tooltip-babylon">СТИПУЛЯЦИЯ</div>
+                    <p class="tooltip-text">Формальный устный договор с вопросно-ответной формулой. Форма важнее воли.</p>
+                    <div class="tooltip-modern">↕ Ст. 162 ГК РФ (Письменная форма)</div>
+                </div>
+            </div>
+            
+            <div class="timeline-point" onclick="toggleTimeline(this)">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">1804</div>
+                <div class="timeline-label">Кодекс Наполеона</div>
+                <div class="timeline-tooltip">
+                    <div class="tooltip-babylon">PACTA SUNT SERVANDA</div>
+                    <p class="tooltip-text">«Договоры должны исполняться». Принцип, рождённый в Вавилоне, стал основой европейского права.</p>
+                    <div class="tooltip-modern">↕ Ст. 309 ГК РФ</div>
+                </div>
+            </div>
+            
+            <div class="timeline-point" onclick="toggleTimeline(this)">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2026</div>
+                <div class="timeline-label">ГК Российской Федерации</div>
+                <div class="timeline-tooltip">
+                    <div class="tooltip-babylon">ДОБРОВОЛЬНОСТЬ И РАВЕНСТВО</div>
+                    <p class="tooltip-text">Граждане и юрлица свободны в заключении договора. Понуждение не допускается.</p>
+                    <div class="tooltip-modern">↕ Ст. 1, 421 ГК РФ</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- ЗЕРКАЛЬНЫЕ КАРТОЧКИ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Эхо сквозь века</h2>
+    <p class="section-intro">Древние нормы и их современные воплощения</p>
+    
+    <div class="mirror-grid">
+        
+        <div class="mirror-card">
+            <div class="mirror-thread"></div>
+            <div class="mirror-half babylon">
+                <div class="mirror-era"><i class="fa-solid fa-scroll"></i> 1755 до н.э.</div>
+                <h3 class="mirror-title">Гарантия от эвикции</h3>
+                <p class="mirror-desc">Продавец обязан гарантировать покупателя от отчуждения вещи третьим лицом. При нарушении — пятикратный штраф с наследников продавца.</p>
+                <span class="mirror-article">Ст. 9–12 ЗХ</span>
+            </div>
+            <div class="mirror-half modern">
+                <div class="mirror-era"><i class="fa-solid fa-file-contract"></i> 2026</div>
+                <h3 class="mirror-title">Ответственность за eviction</h3>
+                <p class="mirror-desc">Продавец обязан передать товар свободным от прав третьих лиц. Покупатель вправе требовать убытки и расторжения договора.</p>
+                <span class="mirror-article">Ст. 460–461 ГК РФ</span>
+            </div>
+        </div>
+        
+        <div class="mirror-card">
+            <div class="mirror-thread"></div>
+            <div class="mirror-half babylon">
+                <div class="mirror-era"><i class="fa-solid fa-scroll"></i> 1755 до н.э.</div>
+                <h3 class="mirror-title">Форс-мажор (неурожай)</h3>
+                <p class="mirror-desc">При неурожае должник освобождается от уплаты процентов. Табличка «смачивается» водой — символ аннулирования долгового обязательства.</p>
+                <span class="mirror-article">Ст. 48 ЗХ</span>
+            </div>
+            <div class="mirror-half modern">
+                <div class="mirror-era"><i class="fa-solid fa-file-contract"></i> 2026</div>
+                <h3 class="mirror-title">Непреодолимая сила</h3>
+                <p class="mirror-desc">Лицо освобождается от ответственности за неисполнение обязательства, если оно вызвано чрезвычайными и непредотвратимыми обстоятельствами.</p>
+                <span class="mirror-article">Ст. 401, 417 ГК РФ</span>
+            </div>
+        </div>
+        
+        <div class="mirror-card">
+            <div class="mirror-thread"></div>
+            <div class="mirror-half babylon">
+                <div class="mirror-era"><i class="fa-solid fa-scroll"></i> 1755 до н.э.</div>
+                <h3 class="mirror-title">Злоупотребление правом на иск</h3>
+                <p class="mirror-desc">Если обвинитель не доказал своё требование, он несёт то же наказание, которое требовал для ответчика (принцип талиона в процессе).</p>
+                <span class="mirror-article">Ст. 1–3 ЗХ</span>
+            </div>
+            <div class="mirror-half modern">
+                <div class="mirror-era"><i class="fa-solid fa-file-contract"></i> 2026</div>
+                <h3 class="mirror-title">Запрет злоупотребления правом</h3>
+                <p class="mirror-desc">Не допускаются действия граждан и юрлиц, осуществляемые исключительно с намерением причинить вред другому лицу. Суд может отказать в защите права.</p>
+                <span class="mirror-article">Ст. 10 ГК РФ</span>
+            </div>
+        </div>
+        
+        <div class="mirror-card">
+            <div class="mirror-thread"></div>
+            <div class="mirror-half babylon">
+                <div class="mirror-era"><i class="fa-solid fa-scroll"></i> 1755 до н.э.</div>
+                <h3 class="mirror-title">Ограничение долговой кабалы</h3>
+                <p class="mirror-desc">Должник, отдавший себя в кабалу, служит не более 3 лет. На 4-й год он освобождается автоматически, независимо от остатка долга.</p>
+                <span class="mirror-article">Ст. 117 ЗХ</span>
+            </div>
+            <div class="mirror-half modern">
+                <div class="mirror-era"><i class="fa-solid fa-file-contract"></i> 2026</div>
+                <h3 class="mirror-title">Запрет ограничения дееспособности</h3>
+                <p class="mirror-desc">Не допускается ограничение правоспособности и дееспособности гражданина иначе как в случаях и порядке, установленных законом. Долговая кабала запрещена.</p>
+                <span class="mirror-article">Ст. 22, 10 ГК РФ</span>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- УНИВЕРСАЛЬНЫЕ ПРИНЦИПЫ -->
+<section class="fade-in-section">
+    <div class="principles-monument">
+        <h2>Три столпа, незыблемые 3800 лет</h2>
+        
+        <div class="principle-pillars">
+            <div class="pillar">
+                <div class="pillar-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>Pacta Sunt Servanda</h3>
+                <p>«Договоры должны исполняться». Фундаментальный принцип, зародившийся в Вавилоне и ставший основой международного и гражданского права всех цивилизаций.</p>
+            </div>
+            
+            <div class="pillar">
+                <div class="pillar-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                <h3>Добросовестность</h3>
+                <p>Запрет на обман при заключении и исполнении сделок. Гарантия от эвикции, ответственность за скрытые дефекты — всё это было в ЗХ и живёт в ст. 10 ГК РФ.</p>
+            </div>
+            
+            <div class="pillar">
+                <div class="pillar-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Защита слабой стороны</h3>
+                <p>Ограничение процентов, запрет вечной кабалы, освобождение при форс-мажоре. Государство всегда вмешивалось, чтобы предотвратить эксплуатацию.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ФИНАЛЬНЫЙ АККОРД -->
+<section class="fade-in-section">
+    <h2 class="section-title">Диалог через millennia</h2>
+    <p class="section-intro">Два голоса, одна идея справедливости</p>
+    
+    <div class="final-chord">
+        <div class="chord-quote babylon">
+            <blockquote>
+                «Чтобы сильный не притеснял слабого, чтобы в стране воцарилась справедливость, я, Хаммурапи, начертал эти законы на своей стеле.»
+            </blockquote>
+            <cite>— Пролог, Законы Хаммурапи, ок. 1755 г. до н.э.</cite>
+        </div>
+        
+        <div class="chord-quote modern">
+            <blockquote>
+                «Гражданское законодательство основывается на признании равенства участников регулируемых им отношений, неприкосновенности собственности, свободы договора, недопустимости произвольного вмешательства кого-либо в частные дела.»
+            </blockquote>
+            <cite>— Пункт 1 статьи 1, ГК Российской Федерации, 2026</cite>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer-signature">
+        <p>© 1755 г. до н.э. Канцелярия царя Хаммурапи</p>
+        <p>Подготовлено студентами 1 курса юридического факультета • 2026</p>
+    </div>
+</footer>
+
+<script>
+    // === ЛОГИКА ТАЙМЛАЙНА (КЛИК ВМЕСТО HOVER) ===
+    function toggleTimeline(point) {
+        // Закрываем все открытые tooltips
+        document.querySelectorAll('.timeline-point').forEach(p => {
+            if (p !== point) p.classList.remove('active');
+        });
+        
+        // Переключаем текущий
+        point.classList.toggle('active');
+    }
+
+    // Закрытие tooltip при клике вне таймлайна
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.timeline-point')) {
+            document.querySelectorAll('.timeline-point').forEach(p => {
+                p.classList.remove('active');
+            });
+        }
+    });
+
+    // === ТЕМА ===
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+    
+    // === АНИМАЦИЯ ПОЯВЛЕНИЯ СЕКЦИЙ ===
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
