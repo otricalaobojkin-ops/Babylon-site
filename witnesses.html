@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Роль свидетелей | Эсагила-Договоръ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+        --bg-sand: #E6DCC8;
+        --card-white: #F9F7F2;
+        --brown-dark: #4A3B2A;
+        --black-text: #1A1A1A;
+        --gold-antique: #C5A059;
+        --gold-hover: #d4af37;
+        --shadow: rgba(74, 59, 42, 0.1);
+        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .dark-mode {
+        --bg-sand: #1a1a1a;
+        --card-white: #2d2d2d;
+        --brown-dark: #e6dcc8;
+        --black-text: #f5f0e1;
+        --gold-antique: #c5a059;
+        --gold-hover: #d4af37;
+        --shadow: rgba(0, 0, 0, 0.4);
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+        font-family: 'Lora', serif;
+        background: var(--bg-sand);
+        color: var(--black-text);
+        line-height: 1.8;
+        overflow-x: hidden;
+        transition: var(--transition);
+    }
+
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+
+    nav {
+        position: fixed; top: 0; left: 0; right: 0;
+        background: var(--brown-dark);
+        backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+        color: var(--card-white); padding: 22px 50px;
+        z-index: 1000; 
+        box-shadow: 0 4px 40px rgba(74, 59, 42, 0.3);
+        border-bottom: 2px solid var(--gold-antique);
+        transition: var(--transition);
+    }
+    
+    .nav-container {
+        max-width: 1500px; margin: 0 auto;
+        display: flex; justify-content: space-between; align-items: center;
+        flex-wrap: wrap; gap: 25px;
+    }
+    
+    .logo {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.5em; font-weight: 700;
+        color: var(--gold-antique);
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .logo i {
+        color: var(--gold-antique);
+        margin-right: 12px;
+        font-size: 1.1em;
+    }
+    
+    .nav-links { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; }
+    
+    .nav-links a {
+        color: var(--card-white); text-decoration: none;
+        font-size: 0.95em; font-weight: 500;
+        transition: var(--transition); padding: 8px 14px;
+        border-radius: 8px; position: relative;
+        letter-spacing: 0.5px;
+    }
+    
+    .nav-links a::before {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 0; height: 2px;
+        background: var(--gold-antique);
+        transition: width 0.4s;
+    }
+    
+    .nav-links a:hover::before { width: 70%; }
+    .nav-links a:hover { color: var(--gold-antique); transform: translateY(-2px); }
+    
+    .theme-toggle {
+        background: rgba(197, 160, 89, 0.15);
+        border: 2px solid var(--gold-antique);
+        color: var(--gold-antique); padding: 8px 14px; border-radius: 20px;
+        cursor: pointer; font-size: 1.1em; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .theme-toggle:hover { background: rgba(197, 160, 89, 0.3); transform: scale(1.1); }/* ✅ ИСПРАВЛЕННЫЙ ОТСТУП HERO */
+    .page-header {
+        background: linear-gradient(135deg, var(--brown-dark) 0%, #3a2e20 50%, var(--brown-dark) 100%);
+        color: var(--card-white); padding: 240px 40px 100px;
+        text-align: center; position: relative; overflow: hidden;
+    }
+    
+    .page-header::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(197, 160, 89, 0.05) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    
+    .page-header h1 {
+        font-family: 'Unbounded', sans-serif; font-size: 3.5em;
+        color: var(--gold-antique); text-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
+        margin-bottom: 20px; position: relative; z-index: 1;
+        letter-spacing: 2px; font-weight: 700;
+    }
+    
+    .page-header p {
+        font-size: 1.3em; font-style: italic; max-width: 800px;
+        margin: 0 auto; opacity: 0.9; position: relative; z-index: 1;
+        font-weight: 400; letter-spacing: 0.5px;
+    }
+
+    section { max-width: 1500px; margin: 0 auto; padding: 100px 50px; }
+    
+    .section-title {
+        font-family: 'Unbounded', sans-serif; font-size: 2.8em;
+        color: var(--brown-dark); text-align: center; margin-bottom: 25px;
+        position: relative; padding-bottom: 25px;
+        font-weight: 700; letter-spacing: 1px;
+    }
+    .section-title::after {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 120px; height: 4px;
+        background: linear-gradient(90deg, transparent, var(--gold-antique), transparent);
+    }
+    
+    .section-intro {
+        text-align: center; font-size: 1.3em; max-width: 900px;
+        margin: 0 auto 60px; color: var(--brown-dark); font-style: italic; opacity: 0.85;
+        font-weight: 500; letter-spacing: 0.5px;
+    }
+
+    /* === ЖУРНАЛЬНЫЕ БЛОКИ === */
+    
+    /* Цитата из ЗХ */
+    .law-quote {
+        background: var(--brown-dark);
+        color: var(--card-white);
+        padding: 60px 50px;
+        border-radius: 12px;
+        margin: 60px 0;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(74, 59, 42, 0.3);
+    }
+    
+    .law-quote::before {
+        content: '\201C';
+        position: absolute;
+        top: -40px;
+        left: 30px;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 15em;
+        color: var(--gold-antique);
+        opacity: 0.15;
+        line-height: 1;
+    }
+    
+    .law-quote blockquote {
+        font-family: 'Lora', serif;
+        font-size: 1.8em;
+        font-style: italic;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .law-quote cite {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.9em;
+        color: var(--gold-antique);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: block;
+        text-align: right;
+    }
+
+    /* Инфографика-список ролей */
+    .roles-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 60px 0;
+    }
+    
+    .role-item {
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        padding: 35px 30px;
+        position: relative;
+        transition: var(--transition);
+    }
+    
+    .role-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px var(--shadow);
+        border-color: var(--gold-antique);
+    }
+    
+    .role-number {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 3em;
+        font-weight: 900;
+        color: var(--gold-antique);
+        opacity: 0.3;
+        line-height: 1;
+        margin-bottom: 15px;
+    }
+    
+    .role-item h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.4em;
+        color: var(--brown-dark);
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    .role-item p {
+        font-size: 1.05em;
+        color: var(--black-text);
+        line-height: 1.7;
+        opacity: 0.9;
+    }
+
+    /* Сравнительная таблица "Было / Стало" */
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        margin: 60px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px var(--shadow);
+    }
+    
+    .comparison-col {
+        padding: 50px 40px;
+    }
+    
+    .comparison-col.babylon {
+        background: var(--brown-dark);
+        color: var(--card-white);
+    }
+    
+    .comparison-col.modern {
+        background: var(--card-white);
+        color: var(--black-text);
+        border: 2px solid var(--brown-dark);
+        border-left: none;
+    }
+    
+    .comparison-col h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.6em;
+        margin-bottom: 30px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .comparison-col.babylon h3 { color: var(--gold-antique); }
+    .comparison-col.modern h3 { color: var(--brown-dark); }
+    
+    .comparison-col ul {
+        list-style: none;
+    }
+    
+    .comparison-col li {
+        padding: 12px 0;
+        padding-left: 25px;
+        position: relative;
+        font-size: 1.05em;
+        line-height: 1.6;
+    }
+    
+    .comparison-col li::before {
+        content: '›';
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+    
+    .comparison-col.babylon li::before { color: var(--gold-antique); }
+    .comparison-col.modern li::before { color: var(--gold-antique); }
+
+    /* Блок "Интересный факт" */
+    .fun-fact {
+        background: linear-gradient(135deg, var(--gold-antique), var(--gold-hover));
+        color: var(--brown-dark);
+        padding: 50px;
+        border-radius: 12px;
+        margin: 60px 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        box-shadow: 0 15px 40px rgba(197, 160, 89, 0.3);
+    }
+    
+    .fun-fact-icon {
+        font-size: 3em;
+        flex-shrink: 0;
+    }
+    
+    .fun-fact h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        font-weight: 800;
+    }
+    
+    .fun-fact p {
+        font-size: 1.1em;
+        line-height: 1.7;
+        font-weight: 500;
+    }/* Таблица ответственности свидетелей */
+    .responsibility-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 40px 0;
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px var(--shadow);
+    }
+    
+    .responsibility-table th {
+        background: var(--brown-dark);
+        color: var(--gold-antique);
+        padding: 20px;
+        text-align: left;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.1em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    
+    .responsibility-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(74, 59, 42, 0.1);
+        font-size: 1.05em;
+        color: var(--black-text);
+        line-height: 1.6;
+        vertical-align: top;
+    }
+    
+    .responsibility-table tr:last-child td { border-bottom: none; }
+    .responsibility-table tr:hover td { background: var(--bg-sand); }
+
+    footer {
+        background: var(--brown-dark);
+        color: var(--card-white); padding: 70px 50px 40px;
+        margin-top: 100px; text-align: center;
+        border-top: 4px solid var(--gold-antique);
+    }
+    .footer-signature {
+        margin-top: 40px; padding-top: 30px;
+        border-top: 2px solid rgba(197, 160, 89, 0.4);
+        font-style: italic; color: var(--gold-antique); font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .fade-in-section { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+        .page-header { padding: 200px 25px 80px; }
+        .page-header h1 { font-size: 2.2em; letter-spacing: 1px; }
+        .page-header p { font-size: 1.1em; }
+        .section-title { font-size: 1.8em; }
+        .law-quote { padding: 40px 30px; }
+        .law-quote blockquote { font-size: 1.3em; }
+        .roles-list { grid-template-columns: 1fr; gap: 20px; }
+        .comparison-grid { grid-template-columns: 1fr; }
+        .comparison-col.modern { border-left: 2px solid var(--brown-dark); }
+        .fun-fact { flex-direction: column; padding: 35px 30px; }
+        nav { padding: 18px 25px; }
+        .nav-links { gap: 12px; }
+        .nav-links a { font-size: 0.85em; padding: 6px 10px; }
+        section { padding: 70px 25px; }
+        .responsibility-table { font-size: 0.9em; display: block; overflow-x: auto; }
+        .responsibility-table th, .responsibility-table td { padding: 12px 15px; white-space: nowrap; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><i class="fa-solid fa-landmark"></i> ЭСАГИЛА-ДОГОВОРЪ</a>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="contracts.html">Виды сделок</a>
+            <a href="requirements.html">Требования</a>
+            <a href="witnesses.html">Свидетели</a>
+            <a href="expenses.html">Издержки</a>
+            <a href="risks.html">Риски</a>
+            <a href="security.html">Обеспечение</a>
+            <a href="comparison.html">Сравнение</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Переключить тему"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1><i class="fa-solid fa-eye" style="margin-right: 20px;"></i>Роль свидетелей</h1>
+    <p>Свидетель — не наблюдатель, а гарант сделки. Цилиндрические печати, ответственность за ложь и поручительство</p>
+</div><!-- ЦИТАТА ИЗ ЗАКОНОВ ХАММУРАПИ -->
+<section class="fade-in-section">
+    <div class="law-quote">
+        <blockquote>
+            Если человек дал серебро или золото на хранение другому человеку, он должен показать всё свидетелям и заключить договор. Если он отдал без свидетелей и договора — требование не действительно.
+        </blockquote>
+        <cite>— Статья 122, Законы Хаммурапи</cite>
+    </div>
+</section>
+
+<!-- РОЛИ СВИДЕТЕЛЯ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Четыре лица свидетеля</h2>
+    <p class="section-intro">Вавилонский свидетель выполнял функции, которые сегодня распределены между нотариусом, поручителем и экспертом</p>
+    
+    <div class="roles-list">
+        <div class="role-item">
+            <div class="role-number">01</div>
+            <h3>Гарант действительности</h3>
+            <p>Без свидетелей сделка юридически ничтожна. Их присутствие превращало частную договорённость в публично значимый акт. Это прообраз современного нотариального удостоверения.</p>
+        </div>
+        
+        <div class="role-item">
+            <div class="role-number">02</div>
+            <h3>Живое доказательство</h3>
+            <p>Письменный документ без свидетельских показаний не имел силы в суде. Свидетели были «живыми носителями» доказательства, их устные показания имели приоритет над табличкой.</p>
+        </div>
+        
+        <div class="role-item">
+            <div class="role-number">03</div>
+            <h3>Поручитель</h3>
+            <p>Свидетель нес субсидиарную ответственность по сделке. Если должник скрывался или умирал, кредитор мог обратиться к свидетелю за исполнением обязательства.</p>
+        </div>
+        
+        <div class="role-item">
+            <div class="role-number">04</div>
+            <h3>Идентификатор личности</h3>
+            <p>Цилиндрическая печать свидетеля служила аналогом современной квалифицированной электронной подписи. Уникальный узор подтверждал личность и волеизъявление.</p>
+        </div>
+    </div>
+</section>
+
+<!-- СРАВНЕНИЕ: ДРЕВНОСТЬ VS СОВРЕМЕННОСТЬ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Эволюция института свидетеля</h2>
+    <p class="section-intro">Как изменилась роль свидетеля за 3800 лет</p>
+    
+    <div class="comparison-grid">
+        <div class="comparison-col babylon">
+            <h3><i class="fa-solid fa-landmark"></i> Древний Вавилон</h3>
+            <ul>
+                <li>Свидетель = гарант + поручитель</li>
+                <li>Обязательное участие (2–8 человек)</li>
+                <li>Цилиндрическая печать = подпись</li>
+                <li>Ложные показания = смертная казнь</li>
+                <li>Устные показания важнее документа</li>
+                <li>Свидетель несёт имущественную ответственность</li>
+            </ul>
+        </div>
+        <div class="comparison-col modern">
+            <h3><i class="fa-solid fa-file-contract"></i> ГК РФ (2026)</h3>
+            <ul>
+                <li>Свидетель = средство доказывания</li>
+                <li>Факультативное участие</li>
+                <li>Собственноручная подпись / ЭЦП</li>
+                <li>Ложные показания = уголовная ответственность (ст. 307 УК РФ)</li>
+                <li>Письменная форма имеет приоритет</li>
+                <li>Свидетель не несёт имущественной ответственности</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ИНТЕРЕСНЫЙ ФАКТ -->
+<section class="fade-in-section">
+    <div class="fun-fact">
+        <div class="fun-fact-icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <div>
+            <h3>Знаете ли вы?</h3>
+            <p>Цилиндрические печати носили на шнурке вокруг шеи или запястья — как современные брелоки для ключей или смарт-часы. Потеря печати была равносильна потере паспорта и банковской карты одновременно. Археологи находят печати даже в детских захоронениях — значит, правовая культура формировалась с раннего возраста!</p>
+        </div>
+    </div>
+</section>
+
+<!-- ТАБЛИЦА ОТВЕТСТВЕННОСТИ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Ответственность свидетеля</h2>
+    <p class="section-intro">Цена ложного слова в Древнем Вавилоне</p>
+    
+    <table class="responsibility-table">
+        <thead>
+            <tr>
+                <th>Нарушение</th>
+                <th>Санкция по ЗХ</th>
+                <th>Аналог в современном праве</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Ложные показания</strong></td>
+                <td>Смертная казнь (принцип талиона: то наказание, которое требовал для ответчика)</td>
+                <td>Ст. 307 УК РФ: лишение свободы до 5 лет</td>
+            </tr>
+            <tr>
+                <td><strong>Отказ от показаний</strong></td>
+                <td>Штраф в размере цены иска + дисквалификация</td>
+                <td>Ст. 17.9 КоАП РФ: штраф за неявку</td>
+            </tr>
+            <tr>
+                <td><strong>Подделка печати</strong></td>
+                <td>Отсечение руки (ст. 5 ЗХ)</td>
+                <td>Ст. 327 УК РФ: лишение свободы до 2 лет</td>
+            </tr>
+            <tr>
+                <td><strong>Неисполнение поручительства</strong></td>
+                <td>Имущественная ответственность в полном объёме</td>
+                <td>Ст. 363 ГК РФ: субсидиарная ответственность поручителя</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<footer>
+    <div class="footer-signature">
+        <p>© 1755 г. до н.э. Канцелярия царя Хаммурапи</p>
+        <p>Подготовлено студентами 1 курса юридического факультета • 2026</p>
+    </div>
+</footer>
+
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
