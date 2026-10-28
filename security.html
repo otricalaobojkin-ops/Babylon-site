@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Обеспечение обязательств | Эсагила-Договоръ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+        --bg-sand: #E6DCC8;
+        --card-white: #F9F7F2;
+        --brown-dark: #4A3B2A;
+        --black-text: #1A1A1A;
+        --gold-antique: #C5A059;
+        --gold-hover: #d4af37;
+        --red-clay: #b85450;
+        --shadow: rgba(74, 59, 42, 0.1);
+        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .dark-mode {
+        --bg-sand: #1a1a1a;
+        --card-white: #2d2d2d;
+        --brown-dark: #e6dcc8;
+        --black-text: #f5f0e1;
+        --gold-antique: #c5a059;
+        --gold-hover: #d4af37;
+        --red-clay: #c96b67;
+        --shadow: rgba(0, 0, 0, 0.4);
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+        font-family: 'Lora', serif;
+        background: var(--bg-sand);
+        color: var(--black-text);
+        line-height: 1.8;
+        overflow-x: hidden;
+        transition: var(--transition);
+    }
+
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+
+    nav {
+        position: fixed; top: 0; left: 0; right: 0;
+        background: var(--brown-dark);
+        backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+        color: var(--card-white); padding: 22px 50px;
+        z-index: 1000; 
+        box-shadow: 0 4px 40px rgba(74, 59, 42, 0.3);
+        border-bottom: 2px solid var(--gold-antique);
+        transition: var(--transition);
+    }
+    
+    .nav-container {
+        max-width: 1500px; margin: 0 auto;
+        display: flex; justify-content: space-between; align-items: center;
+        flex-wrap: wrap; gap: 25px;
+    }
+    
+    .logo {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.5em; font-weight: 700;
+        color: var(--gold-antique);
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .logo i {
+        color: var(--gold-antique);
+        margin-right: 12px;
+        font-size: 1.1em;
+    }
+    
+    .nav-links { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; }
+    
+    .nav-links a {
+        color: var(--card-white); text-decoration: none;
+        font-size: 0.95em; font-weight: 500;
+        transition: var(--transition); padding: 8px 14px;
+        border-radius: 8px; position: relative;
+        letter-spacing: 0.5px;
+    }
+    
+    .nav-links a::before {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 0; height: 2px;
+        background: var(--gold-antique);
+        transition: width 0.4s;
+    }
+    
+    .nav-links a:hover::before { width: 70%; }
+    .nav-links a:hover { color: var(--gold-antique); transform: translateY(-2px); }
+    
+    .theme-toggle {
+        background: rgba(197, 160, 89, 0.15);
+        border: 2px solid var(--gold-antique);
+        color: var(--gold-antique); padding: 8px 14px; border-radius: 20px;
+        cursor: pointer; font-size: 1.1em; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .theme-toggle:hover { background: rgba(197, 160, 89, 0.3); transform: scale(1.1); }/* ✅ ИСПРАВЛЕННЫЙ ОТСТУП HERO */
+    .page-header {
+        background: linear-gradient(135deg, var(--brown-dark) 0%, #3a2e20 50%, var(--brown-dark) 100%);
+        color: var(--card-white); padding: 240px 40px 100px;
+        text-align: center; position: relative; overflow: hidden;
+    }
+    
+    .page-header::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(197, 160, 89, 0.05) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    
+    .page-header h1 {
+        font-family: 'Unbounded', sans-serif; font-size: 3.5em;
+        color: var(--gold-antique); text-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
+        margin-bottom: 20px; position: relative; z-index: 1;
+        letter-spacing: 2px; font-weight: 700;
+    }
+    
+    .page-header p {
+        font-size: 1.3em; font-style: italic; max-width: 800px;
+        margin: 0 auto; opacity: 0.9; position: relative; z-index: 1;
+        font-weight: 400; letter-spacing: 0.5px;
+    }
+
+    section { max-width: 1500px; margin: 0 auto; padding: 100px 50px; }
+    
+    .section-title {
+        font-family: 'Unbounded', sans-serif; font-size: 2.8em;
+        color: var(--brown-dark); text-align: center; margin-bottom: 25px;
+        position: relative; padding-bottom: 25px;
+        font-weight: 700; letter-spacing: 1px;
+    }
+    .section-title::after {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 120px; height: 4px;
+        background: linear-gradient(90deg, transparent, var(--gold-antique), transparent);
+    }
+    
+    .section-intro {
+        text-align: center; font-size: 1.3em; max-width: 900px;
+        margin: 0 auto 60px; color: var(--brown-dark); font-style: italic; opacity: 0.85;
+        font-weight: 500; letter-spacing: 0.5px;
+    }
+
+    /* === СВИТКИ-АККОРДЕОНЫ === */
+    .scrolls-container {
+        max-width: 900px;
+        margin: 60px auto;
+    }
+    
+    .scroll-item {
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: var(--transition);
+    }
+    
+    .scroll-item:hover {
+        border-color: var(--gold-antique);
+        box-shadow: 0 10px 30px var(--shadow);
+    }
+    
+    .scroll-header {
+        padding: 25px 30px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--card-white);
+        transition: var(--transition);
+    }
+    
+    .scroll-header:hover {
+        background: var(--bg-sand);
+    }
+    
+    .scroll-header h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.4em;
+        color: var(--brown-dark);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-weight: 700;
+    }
+    
+    .scroll-header h3 i {
+        color: var(--gold-antique);
+        font-size: 1.2em;
+    }
+    
+    .scroll-arrow {
+        font-size: 1.2em;
+        color: var(--gold-antique);
+        transition: transform 0.4s ease;
+    }
+    
+    .scroll-item.active .scroll-arrow {
+        transform: rotate(180deg);
+    }
+    
+    .scroll-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, padding 0.5s ease;
+        padding: 0 30px;
+    }
+    
+    .scroll-item.active .scroll-body {
+        max-height: 500px;
+        padding: 0 30px 30px;
+    }
+    
+    .scroll-body p {
+        font-size: 1.05em;
+        color: var(--black-text);
+        line-height: 1.7;
+        margin-bottom: 15px;
+        opacity: 0.9;
+    }
+    
+    .scroll-article {
+        display: inline-block;
+        background: var(--brown-dark);
+        color: var(--card-white);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: 600;
+        font-family: 'Unbounded', sans-serif;
+    }
+
+    /* === ШКАЛА ГУМАНИЗАЦИИ === */
+    .humanity-scale {
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        padding: 50px;
+        margin: 60px 0;
+        box-shadow: 0 15px 40px var(--shadow);
+    }
+    
+    .scale-title {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.6em;
+        color: var(--brown-dark);
+        text-align: center;
+        margin-bottom: 40px;
+        font-weight: 700;
+    }
+    
+    .scale-bar-container {
+        position: relative;
+        height: 60px;
+        background: var(--bg-sand);
+        border-radius: 30px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        border: 2px solid var(--brown-dark);
+    }
+    
+    .scale-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--red-clay), var(--gold-antique), #4caf50);
+        width: 65%; /* Уровень гуманизации по ЗХ */
+        border-radius: 30px 0 0 30px;
+        transition: width 1.5s ease;
+    }
+    
+    .scale-markers {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.85em;
+        color: var(--brown-dark);
+        font-weight: 600;
+    }
+    
+    .scale-marker {
+        text-align: center;
+        position: relative;
+    }
+    
+    .scale-marker::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 40px;
+        background: var(--brown-dark);
+        opacity: 0.3;
+    }
+    
+    .scale-marker.active::before {
+        background: var(--gold-antique);
+        opacity: 1;
+        height: 45px;
+    }
+    
+    .scale-marker.active {
+        color: var(--gold-antique);
+        font-weight: 800;
+    }
+
+    /* === ЗАПРЕЩЁННЫЕ АКТИВЫ === */
+    .forbidden-assets {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin: 60px 0;
+    }
+    
+    .forbidden-card {
+        background: var(--card-white);
+        border: 2px solid var(--red-clay);
+        border-radius: 12px;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+    }
+    
+    .forbidden-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(184, 84, 80, 0.2);
+    }
+    
+    .forbidden-stamp {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--red-clay);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 4px;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.7em;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transform: rotate(12deg);
+        opacity: 0.9;
+    }
+    
+    .forbidden-card h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.3em;
+        color: var(--red-clay);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .forbidden-card p {
+        font-size: 1em;
+        color: var(--black-text);
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+    
+    .forbidden-article {
+        display: inline-block;
+        background: var(--red-clay);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75em;
+        font-weight: 600;
+        margin-top: 15px;
+        font-family: 'Unbounded', sans-serif;
+    }/* === ТАБЛИЦА ДОЛЖНИК VS КРЕДИТОР === */
+    .balance-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 40px 0;
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px var(--shadow);
+    }
+    
+    .balance-table th {
+        background: var(--brown-dark);
+        color: var(--gold-antique);
+        padding: 20px;
+        text-align: left;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.1em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    
+    .balance-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(74, 59, 42, 0.1);
+        font-size: 1.05em;
+        color: var(--black-text);
+        line-height: 1.6;
+        vertical-align: top;
+    }
+    
+    .balance-table tr:last-child td { border-bottom: none; }
+    .balance-table tr:hover td { background: var(--bg-sand); }
+
+    footer {
+        background: var(--brown-dark);
+        color: var(--card-white); padding: 70px 50px 40px;
+        margin-top: 100px; text-align: center;
+        border-top: 4px solid var(--gold-antique);
+    }
+    .footer-signature {
+        margin-top: 40px; padding-top: 30px;
+        border-top: 2px solid rgba(197, 160, 89, 0.4);
+        font-style: italic; color: var(--gold-antique); font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .fade-in-section { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+        .page-header { padding: 200px 25px 80px; }
+        .page-header h1 { font-size: 2.2em; letter-spacing: 1px; }
+        .page-header p { font-size: 1.1em; }
+        .section-title { font-size: 1.8em; }
+        .humanity-scale { padding: 30px 25px; }
+        .scale-markers { font-size: 0.7em; }
+        .forbidden-assets { grid-template-columns: 1fr; gap: 20px; }
+        nav { padding: 18px 25px; }
+        .nav-links { gap: 12px; }
+        .nav-links a { font-size: 0.85em; padding: 6px 10px; }
+        section { padding: 70px 25px; }
+        .scroll-header { padding: 20px 25px; }
+        .scroll-header h3 { font-size: 1.2em; }
+        .scroll-body { padding: 0 25px; }
+        .scroll-item.active .scroll-body { padding: 0 25px 25px; }
+        .balance-table { font-size: 0.9em; display: block; overflow-x: auto; }
+        .balance-table th, .balance-table td { padding: 12px 15px; white-space: nowrap; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><i class="fa-solid fa-landmark"></i> ЭСАГИЛА-ДОГОВОРЪ</a>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="contracts.html">Виды сделок</a>
+            <a href="requirements.html">Требования</a>
+            <a href="witnesses.html">Свидетели</a>
+            <a href="expenses.html">Издержки</a>
+            <a href="risks.html">Риски</a>
+            <a href="security.html">Обеспечение</a>
+            <a href="comparison.html">Сравнение</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Переключить тему"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1><i class="fa-solid fa-lock" style="margin-right: 20px;"></i>Обеспечение обязательств</h1>
+    <p>Залог, поручительство и долговая кабала. Публично-правовой запрет залога илку и гуманизация личной ответственности должника</p>
+</div><!-- СВИТКИ-АККОРДЕОНЫ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Виды обеспечения</h2>
+    <p class="section-intro">Нажмите на свиток, чтобы раскрыть детали каждого института</p>
+    
+    <div class="scrolls-container">
+        
+        <div class="scroll-item active">
+            <div class="scroll-header" onclick="toggleScroll(this)">
+                <h3><i class="fa-solid fa-hand-holding-dollar"></i> Долговая кабала</h3>
+                <i class="fa-solid fa-chevron-down scroll-arrow"></i>
+            </div>
+            <div class="scroll-body">
+                <p>Если должник не мог вернуть долг, он отдавал в рабство себя, жену, сына или дочь. Однако Законы Хаммурапи установили революционное ограничение: срок кабалы не мог превышать 3 года. На четвёртый год должник и его семья автоматически освобождались, независимо от размера остатка долга.</p>
+                <p>Это был первый в истории закон, защищающий личную свободу должника от бесконечной эксплуатации. До Хаммурапи кабала была пожизненной.</p>
+                <span class="scroll-article">Ст. 117 ЗХ</span>
+            </div>
+        </div>
+        
+        <div class="scroll-item">
+            <div class="scroll-header" onclick="toggleScroll(this)">
+                <h3><i class="fa-solid fa-house-chimney-crack"></i> Залог имущества</h3>
+                <i class="fa-solid fa-chevron-down scroll-arrow"></i>
+            </div>
+            <div class="scroll-body">
+                <p>Должник мог передать кредитору поле, дом, сад или раба в залог. Если долг не возвращался к сроку, кредитор получал право пользования залогом или продавал его. Однако залог не переходил в собственность кредитора автоматически — требовалось судебное решение.</p>
+                <p>Важно: военные наделы (илку) и храмовое имущество были изъяты из залога. Их нельзя было ни продать, ни заложить.</p>
+                <span class="scroll-article">Ст. 25–26, 36–38 ЗХ</span>
+            </div>
+        </div>
+        
+        <div class="scroll-item">
+            <div class="scroll-header" onclick="toggleScroll(this)">
+                <h3><i class="fa-solid fa-users"></i> Поручительство</h3>
+                <i class="fa-solid fa-chevron-down scroll-arrow"></i>
+            </div>
+            <div class="scroll-body">
+                <p>Третье лицо (обычно свидетель сделки) могло поручиться за должника. Если должник скрывался или умирал, поручитель обязан был выплатить долг полностью. Поручительство было солидарным: кредитор мог требовать исполнения как от должника, так и от поручителя.</p>
+                <p>Поручитель имел право регрессного требования к наследникам должника после исполнения обязательства.</p>
+                <span class="scroll-article">Ст. 151 ЗХ</span>
+            </div>
+        </div>
+        
+        <div class="scroll-item">
+            <div class="scroll-header" onclick="toggleScroll(this)">
+                <h3><i class="fa-solid fa-handshake-angle"></i> Задаток</h3>
+                <i class="fa-solid fa-chevron-down scroll-arrow"></i>
+            </div>
+            <div class="scroll-body">
+                <p>При заключении предварительного соглашения сторона могла внести задаток. Если сделка не состоялась по вине давшего задаток — он терял сумму. Если по вине получившего — он возвращал задаток в двойном размере.</p>
+                <p>Это стимулировало добросовестность переговоров и компенсировало упущенную выгоду другой стороне.</p>
+                <span class="scroll-article">Ст. 159–160 ЗХ (аналогия)</span>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- ШКАЛА ГУМАНИЗАЦИИ -->
+<section class="fade-in-section">
+    <div class="humanity-scale">
+        <h2 class="scale-title">Эволюция защиты должника</h2>
+        
+        <div class="scale-bar-container">
+            <div class="scale-bar-fill"></div>
+        </div>
+        
+        <div class="scale-markers">
+            <div class="scale-marker">Ранние<br>кодексы<br>(пожизненная<br>кабала)</div>
+            <div class="scale-marker active">Законы<br>Хаммурапи<br>(макс. 3 года)</div>
+            <div class="scale-marker">Современное<br>право<br>(запрет<br>кабалы)</div>
+        </div>
+        
+        <p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: var(--black-text); opacity: 0.9;">
+            Ст. 117 ЗХ впервые ограничила срок долговой кабалы тремя годами — это был революционный шаг к защите прав человека в частном праве.
+        </p>
+    </div>
+</section>
+
+<!-- ЗАПРЕЩЁННЫЕ АКТИВЫ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Изъято из оборота</h2>
+    <p class="section-intro">Имущество, которое нельзя было ни продать, ни заложить</p>
+    
+    <div class="forbidden-assets">
+        <div class="forbidden-card">
+            <div class="forbidden-stamp">ЗАПРЕЩЕНО</div>
+            <h3><i class="fa-solid fa-shield-halved"></i> Илку (военный надел)</h3>
+            <p>Земля, выданная воину (редуму или баируму) за несение военной службы. Запрет на отчуждение обеспечивал обороноспособность государства: воин всегда должен иметь средства к существованию.</p>
+            <span class="forbidden-article">Ст. 36–38 ЗХ</span>
+        </div>
+        
+        <div class="forbidden-card">
+            <div class="forbidden-stamp">ЗАПРЕЩЕНО</div>
+            <h3><i class="fa-solid fa-place-of-worship"></i> Храмовое имущество</h3>
+            <p>Земли, скот и инвентарь, принадлежащие храмам богов. Священное имущество считалось собственностью божества, а не людей. Любая сделка с ним была святотатством.</p>
+            <span class="forbidden-article">Ст. 39–41 ЗХ</span>
+        </div>
+        
+        <div class="forbidden-card">
+            <div class="forbidden-stamp">ЗАПРЕЩЕНО</div>
+            <h3><i class="fa-solid fa-crown"></i> Царское имущество</h3>
+            <p>Дворцовые земли и ресурсы. Государственная собственность была неприкосновенной. Чиновник, распорядившийся царским имуществом без разрешения, подлежал смертной казни.</p>
+            <span class="forbidden-article">Ст. 26–27 ЗХ</span>
+        </div>
+    </div>
+</section>
+
+<!-- ТАБЛИЦА БАЛАНСА ПРАВ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Весы правосудия: Должник vs Кредитор</h2>
+    <p class="section-intro">Баланс интересов в системе обеспечения обязательств</p>
+    
+    <table class="balance-table">
+        <thead>
+            <tr>
+                <th>Право / Обязанность</th>
+                <th>Должник</th>
+                <th>Кредитор</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Срок кабалы</strong></td>
+                <td>Максимум 3 года (ст. 117 ЗХ). Автоматическое освобождение.</td>
+                <td>Не может удерживать должника дольше 3 лет, даже если долг не погашен.</td>
+            </tr>
+            <tr>
+                <td><strong>Залог</strong></td>
+                <td>Может заложить движимое/недвижимое имущество (кроме илку).</td>
+                <td>Пользуется залогом, но не становится собственником без суда.</td>
+            </tr>
+            <tr>
+                <td><strong>Форс-мажор</strong></td>
+                <td>При неурожае проценты аннулируются, табличка «смачивается» (ст. 48 ЗХ).</td>
+                <td>Теряет проценты, но сохраняет право на возврат основного долга.</td>
+            </tr>
+            <tr>
+                <td><strong>Поручитель</strong></td>
+                <td>Может привлечь поручителя для получения кредита.</td>
+                <td>Может требовать исполнения от поручителя, если должник скрылся.</td>
+            </tr>
+            <tr>
+                <td><strong>Смерть должника</strong></td>
+                <td>Долг переходит к наследникам в пределах наследства.</td>
+                <td>Может требовать исполнения с наследников, но не более стоимости наследства.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<footer>
+    <div class="footer-signature">
+        <p>© 1755 г. до н.э. Канцелярия царя Хаммурапи</p>
+        <p>Подготовлено студентами 1 курса юридического факультета • 2026</p>
+    </div>
+</footer>
+
+<script>
+    // === АККОРДЕОН СВИТКОВ ===
+    function toggleScroll(header) {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Закрываем все свитки
+        document.querySelectorAll('.scroll-item').forEach(scroll => {
+            scroll.classList.remove('active');
+        });
+        
+        // Открываем текущий, если он был закрыт
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    }
+
+    // === ТЕМА ===
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+    
+    // === АНИМАЦИЯ ПОЯВЛЕНИЯ СЕКЦИЙ ===
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
