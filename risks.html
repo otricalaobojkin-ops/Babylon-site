@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Судебные риски | Эсагила-Договоръ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+        --bg-sand: #E6DCC8;
+        --card-white: #F9F7F2;
+        --brown-dark: #4A3B2A;
+        --black-text: #1A1A1A;
+        --gold-antique: #C5A059;
+        --gold-hover: #d4af37;
+        --red-clay: #b85450;
+        --shadow: rgba(74, 59, 42, 0.1);
+        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .dark-mode {
+        --bg-sand: #1a1a1a;
+        --card-white: #2d2d2d;
+        --brown-dark: #e6dcc8;
+        --black-text: #f5f0e1;
+        --gold-antique: #c5a059;
+        --gold-hover: #d4af37;
+        --red-clay: #c96b67;
+        --shadow: rgba(0, 0, 0, 0.4);
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+        font-family: 'Lora', serif;
+        background: var(--bg-sand);
+        color: var(--black-text);
+        line-height: 1.8;
+        overflow-x: hidden;
+        transition: var(--transition);
+    }
+
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+
+    nav {
+        position: fixed; top: 0; left: 0; right: 0;
+        background: var(--brown-dark);
+        backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+        color: var(--card-white); padding: 22px 50px;
+        z-index: 1000; 
+        box-shadow: 0 4px 40px rgba(74, 59, 42, 0.3);
+        border-bottom: 2px solid var(--gold-antique);
+        transition: var(--transition);
+    }
+    
+    .nav-container {
+        max-width: 1500px; margin: 0 auto;
+        display: flex; justify-content: space-between; align-items: center;
+        flex-wrap: wrap; gap: 25px;
+    }
+    
+    .logo {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.5em; font-weight: 700;
+        color: var(--gold-antique);
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .logo i {
+        color: var(--gold-antique);
+        margin-right: 12px;
+        font-size: 1.1em;
+    }
+    
+    .nav-links { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; }
+    
+    .nav-links a {
+        color: var(--card-white); text-decoration: none;
+        font-size: 0.95em; font-weight: 500;
+        transition: var(--transition); padding: 8px 14px;
+        border-radius: 8px; position: relative;
+        letter-spacing: 0.5px;
+    }
+    
+    .nav-links a::before {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 0; height: 2px;
+        background: var(--gold-antique);
+        transition: width 0.4s;
+    }
+    
+    .nav-links a:hover::before { width: 70%; }
+    .nav-links a:hover { color: var(--gold-antique); transform: translateY(-2px); }
+    
+    .theme-toggle {
+        background: rgba(197, 160, 89, 0.15);
+        border: 2px solid var(--gold-antique);
+        color: var(--gold-antique); padding: 8px 14px; border-radius: 20px;
+        cursor: pointer; font-size: 1.1em; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .theme-toggle:hover { background: rgba(197, 160, 89, 0.3); transform: scale(1.1); }/* ✅ ИСПРАВЛЕННЫЙ ОТСТУП HERO */
+    .page-header {
+        background: linear-gradient(135deg, var(--brown-dark) 0%, #3a2e20 50%, var(--brown-dark) 100%);
+        color: var(--card-white); padding: 240px 40px 100px;
+        text-align: center; position: relative; overflow: hidden;
+    }
+    
+    .page-header::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(197, 160, 89, 0.05) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    
+    .page-header h1 {
+        font-family: 'Unbounded', sans-serif; font-size: 3.5em;
+        color: var(--gold-antique); text-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
+        margin-bottom: 20px; position: relative; z-index: 1;
+        letter-spacing: 2px; font-weight: 700;
+    }
+    
+    .page-header p {
+        font-size: 1.3em; font-style: italic; max-width: 800px;
+        margin: 0 auto; opacity: 0.9; position: relative; z-index: 1;
+        font-weight: 400; letter-spacing: 0.5px;
+    }
+
+    section { max-width: 1500px; margin: 0 auto; padding: 100px 50px; }
+    
+    .section-title {
+        font-family: 'Unbounded', sans-serif; font-size: 2.8em;
+        color: var(--brown-dark); text-align: center; margin-bottom: 25px;
+        position: relative; padding-bottom: 25px;
+        font-weight: 700; letter-spacing: 1px;
+    }
+    .section-title::after {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 120px; height: 4px;
+        background: linear-gradient(90deg, transparent, var(--gold-antique), transparent);
+    }
+    
+    .section-intro {
+        text-align: center; font-size: 1.3em; max-width: 900px;
+        margin: 0 auto 60px; color: var(--brown-dark); font-style: italic; opacity: 0.85;
+        font-weight: 500; letter-spacing: 0.5px;
+    }
+
+    /* === ДОСЬЕ СУДЕБНОГО РИСКА === */
+    .risk-dossier {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 30px;
+        margin: 60px 0;
+    }
+    
+    .dossier-card {
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        padding: 0;
+        overflow: hidden;
+        transition: var(--transition);
+        position: relative;
+    }
+    
+    .dossier-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px var(--shadow);
+        border-color: var(--red-clay);
+    }
+    
+    .dossier-header {
+        background: var(--brown-dark);
+        color: var(--card-white);
+        padding: 25px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .dossier-header h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.4em;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .dossier-header h3 i {
+        color: var(--gold-antique);
+    }
+    
+    .danger-level {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.75em;
+        font-weight: 700;
+        padding: 6px 14px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .danger-low { background: #4caf50; color: white; }
+    .danger-medium { background: var(--gold-antique); color: var(--brown-dark); }
+    .danger-high { background: #ff9800; color: var(--brown-dark); }
+    .danger-critical { background: var(--red-clay); color: white; }
+    
+    .dossier-body {
+        padding: 30px;
+    }
+    
+    .dossier-body p {
+        font-size: 1.05em;
+        color: var(--black-text);
+        line-height: 1.7;
+        margin-bottom: 20px;
+        opacity: 0.9;
+    }
+    
+    .dossier-verdict {
+        background: var(--bg-sand);
+        border-left: 4px solid var(--red-clay);
+        padding: 20px;
+        border-radius: 0 8px 8px 0;
+        margin-top: 20px;
+    }
+    
+    .dossier-verdict h4 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.9em;
+        color: var(--red-clay);
+        margin-bottom: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .dossier-verdict p {
+        font-size: 1em;
+        color: var(--black-text);
+        margin-bottom: 0;
+        font-weight: 500;
+    }
+    
+    .dossier-article {
+        display: inline-block;
+        background: var(--brown-dark);
+        color: var(--card-white);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: 600;
+        margin-top: 20px;
+        font-family: 'Unbounded', sans-serif;
+    }
+
+    /* === ЦИТАТА-ПРИГОВОР === */
+    .verdict-quote {
+        background: var(--brown-dark);
+        color: var(--card-white);
+        padding: 60px 50px;
+        border-radius: 12px;
+        margin: 60px 0;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(74, 59, 42, 0.3);
+        text-align: center;
+    }
+    
+    .verdict-quote::before {
+        content: '\2696';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20em;
+        color: var(--gold-antique);
+        opacity: 0.05;
+    }
+    
+    .verdict-quote blockquote {
+        font-family: 'Lora', serif;
+        font-size: 1.8em;
+        font-style: italic;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .verdict-quote cite {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.9em;
+        color: var(--gold-antique);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: block;
+    }
+
+    /* === БЛОК «ЗНАЕТЕ ЛИ ВЫ?» === */
+    .did-you-know {
+        background: linear-gradient(135deg, var(--red-clay), #c96b67);
+        color: var(--card-white);
+        padding: 50px;
+        border-radius: 12px;
+        margin: 60px 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        box-shadow: 0 15px 40px rgba(184, 84, 80, 0.3);
+    }
+    
+    .did-you-know-icon {
+        font-size: 3em;
+        flex-shrink: 0;
+    }
+    
+    .did-you-know h3 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        font-weight: 800;
+    }
+    
+    .did-you-know p {
+        font-size: 1.1em;
+        line-height: 1.7;
+        font-weight: 500;
+    }/* === ТАБЛИЦА ОТВЕТСТВЕННОСТИ СУДЬИ === */
+    .judge-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 40px 0;
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px var(--shadow);
+    }
+    
+    .judge-table th {
+        background: var(--brown-dark);
+        color: var(--gold-antique);
+        padding: 20px;
+        text-align: left;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.1em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    
+    .judge-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(74, 59, 42, 0.1);
+        font-size: 1.05em;
+        color: var(--black-text);
+        line-height: 1.6;
+        vertical-align: top;
+    }
+    
+    .judge-table tr:last-child td { border-bottom: none; }
+    .judge-table tr:hover td { background: var(--bg-sand); }
+
+    footer {
+        background: var(--brown-dark);
+        color: var(--card-white); padding: 70px 50px 40px;
+        margin-top: 100px; text-align: center;
+        border-top: 4px solid var(--gold-antique);
+    }
+    .footer-signature {
+        margin-top: 40px; padding-top: 30px;
+        border-top: 2px solid rgba(197, 160, 89, 0.4);
+        font-style: italic; color: var(--gold-antique); font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .fade-in-section { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+        .page-header { padding: 200px 25px 80px; }
+        .page-header h1 { font-size: 2.2em; letter-spacing: 1px; }
+        .page-header p { font-size: 1.1em; }
+        .section-title { font-size: 1.8em; }
+        .risk-dossier { grid-template-columns: 1fr; gap: 20px; }
+        .dossier-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+        .verdict-quote { padding: 40px 30px; }
+        .verdict-quote blockquote { font-size: 1.3em; }
+        .did-you-know { flex-direction: column; padding: 35px 30px; }
+        nav { padding: 18px 25px; }
+        .nav-links { gap: 12px; }
+        .nav-links a { font-size: 0.85em; padding: 6px 10px; }
+        section { padding: 70px 25px; }
+        .judge-table { font-size: 0.9em; display: block; overflow-x: auto; }
+        .judge-table th, .judge-table td { padding: 12px 15px; white-space: nowrap; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><i class="fa-solid fa-landmark"></i> ЭСАГИЛА-ДОГОВОРЪ</a>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="contracts.html">Виды сделок</a>
+            <a href="requirements.html">Требования</a>
+            <a href="witnesses.html">Свидетели</a>
+            <a href="expenses.html">Издержки</a>
+            <a href="risks.html">Риски</a>
+            <a href="security.html">Обеспечение</a>
+            <a href="comparison.html">Сравнение</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Переключить тему"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1><i class="fa-solid fa-gavel" style="margin-right: 20px;"></i>Судебные риски</h1>
+    <p>Презумпция невиновности vs ордалия. Злоупотребление правом и первый в истории институт ответственности судьи</p>
+</div><!-- ДОСЬЕ СУДЕБНЫХ РИСКОВ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Досье судебных рисков</h2>
+    <p class="section-intro">Каждое обращение в суд несло угрозу для всех участников процесса</p>
+    
+    <div class="risk-dossier">
+        
+        <!-- РИСК 1: ЛОЖНОЕ ОБВИНЕНИЕ -->
+        <div class="dossier-card">
+            <div class="dossier-header">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Ложное обвинение</h3>
+                <span class="danger-level danger-critical">Критический</span>
+            </div>
+            <div class="dossier-body">
+                <p>Если истец не мог доказать своё обвинение, он сам подвергался тому наказанию, которое требовал для ответчика. Это принцип талиона в процессуальном праве: цена ошибки равна цене победы.</p>
+                
+                <div class="dossier-verdict">
+                    <h4>Приговор</h4>
+                    <p>Смертная казнь (если обвинение было в убийстве или колдовстве). Штраф в размере иска (по имущественным делам).</p>
+                </div>
+                <span class="dossier-article">Ст. 1–3 ЗХ</span>
+            </div>
+        </div>
+        
+        <!-- РИСК 2: ОРДАЛИЯ -->
+        <div class="dossier-card">
+            <div class="dossier-header">
+                <h3><i class="fa-solid fa-water"></i> Ордалия (Божий суд)</h3>
+                <span class="danger-level danger-critical">Критический</span>
+            </div>
+            <div class="dossier-body">
+                <p>При отсутствии доказательств обвиняемого погружали в реку. Утонул = виновен (боги приняли его). Выжил = невиновен, а обвинитель казнился за ложное обвинение. Доказывание заменялось испытанием.</p>
+                
+                <div class="dossier-verdict">
+                    <h4>Приговор</h4>
+                    <p>Смерть от утопления или казнь обвинителя. Имущество утонувшего переходило истцу.</p>
+                </div>
+                <span class="dossier-article">Ст. 2, 132 ЗХ</span>
+            </div>
+        </div>
+        
+        <!-- РИСК 3: ОШИБКА СУДЬИ -->
+        <div class="dossier-card">
+            <div class="dossier-header">
+                <h3><i class="fa-solid fa-user-tie"></i> Судебная ошибка</h3>
+                <span class="danger-level danger-high">Высокий</span>
+            </div>
+            <div class="dossier-body">
+                <p>Судья, изменивший своё решение после вынесения приговора, считался взяточником или некомпетентным. Первый в истории институт ответственности судей за неправосудное решение.</p>
+                
+                <div class="dossier-verdict">
+                    <h4>Приговор</h4>
+                    <p>Штраф в 12-кратном размере иска. Пожизненное отстранение от должности. Запрет заседать с другими судьями.</p>
+                </div>
+                <span class="dossier-article">Ст. 5 ЗХ</span>
+            </div>
+        </div>
+        
+        <!-- РИСК 4: КРАЖА ДЕТЕЙ -->
+        <div class="dossier-card">
+            <div class="dossier-header">
+                <h3><i class="fa-solid fa-child-reaching"></i> Кража малолетних</h3>
+                <span class="danger-level danger-critical">Критический</span>
+            </div>
+            <div class="dossier-body">
+                <p>Похищение чужого ребёнка (сына авилума) приравнивалось к государственной измене. Ребёнок был не просто имуществом, а продолжением рода и носителем правового статуса семьи.</p>
+                
+                <div class="dossier-verdict">
+                    <h4>Приговор</h4>
+                    <p>Смертная казнь без права на выкуп или помилование. Конфискация имущества похитителя.</p>
+                </div>
+                <span class="dossier-article">Ст. 6 ЗХ</span>
+            </div>
+        </div>
+        
+        <!-- РИСК 5: ПОМОЩЬ РАБУ В ПОБЕГЕ -->
+        <div class="dossier-card">
+            <div class="dossier-header">
+                <h3><i class="fa-solid fa-person-running"></i> Укрывательство беглого раба</h3>
+                <span class="danger-level danger-high">Высокий</span>
+            </div>
+            <div class="dossier-body">
+                <p>Лицо, укрывшее беглого раба и не вернувшее его хозяину, становилось соучастником побега. Рабство было основой экономики, поэтому защита института рабства была приоритетом государства.</p>
+                
+                <div class="dossier-verdict">
+                    <h4>Приговор</h4>
+                    <p>Смертная казнь. Семья укрывателя также могла быть привлечена к ответственности.</p>
+                </div>
+                <span class="dossier-article">Ст. 16–20 ЗХ</span>
+            </div>
+        </div>
+        
+        <!-- РИСК 6: НЕВЕРНЫЕ ПОКАЗАНИЯ ВРАЧА -->
+        <div class="dossier-card">
+            <div class="dossier-header">
+                <h3><i class="fa-solid fa-user-doctor"></i> Врачебная халатность</h3>
+                <span class="danger-level danger-critical">Критический</span>
+            </div>
+            <div class="dossier-body">
+                <p>Если врач причинил смерть свободному человеку бронзовым ножом или повредил глаз при операции, ему отрубали кисть руки. Профессиональная ошибка приравнивалась к умышленному вреду.</p>
+                
+                <div class="dossier-verdict">
+                    <h4>Приговор</h4>
+                    <p>Отсечение кисти руки (принцип талиона: «рука за руку»). Если погиб раб — врач возмещал стоимость раба.</p>
+                </div>
+                <span class="dossier-article">Ст. 218–220 ЗХ</span>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- ЦИТАТА-ПРИГОВОР -->
+<section class="fade-in-section">
+    <div class="verdict-quote">
+        <blockquote>
+            Если судья постановил решение, вынес приговор и скрепил его своей печатью, а затем изменил своё решение — этого судью следует подвергнуть штрафу в двенадцатикратном размере иска.
+        </blockquote>
+        <cite>— Статья 5, Законы Хаммурапи</cite>
+    </div>
+</section>
+
+<!-- ЗНАЕТЕ ЛИ ВЫ? -->
+<section class="fade-in-section">
+    <div class="did-you-know">
+        <div class="did-you-know-icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <div>
+            <h3>Знаете ли вы?</h3>
+            <p>Принцип талиона в процессуальном праве (ст. 1–3 ЗХ) — это древнейший аналог современной нормы о злоупотреблении правом (ст. 10 ГК РФ). Вавилоняне понимали: если человек подаёт иск без оснований, он злоупотребляет правом на обращение в суд. Наказание должно быть соразмерно тому ущербу, который он пытался причинить другому. Эта идея жива уже 3800 лет!</p>
+        </div>
+    </div>
+</section>
+
+<!-- ТАБЛИЦА ОТВЕТСТВЕННОСТИ СУДЬИ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Ответственность судьи</h2>
+    <p class="section-intro">Первый в истории механизм контроля над судебной властью</p>
+    
+    <table class="judge-table">
+        <thead>
+            <tr>
+                <th>Нарушение</th>
+                <th>Санкция по ЗХ</th>
+                <th>Современный аналог</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Изменение решения после оглашения</strong></td>
+                <td>Штраф 12x от суммы иска + пожизненная дисквалификация</td>
+                <td>Ст. 111 ГПК РФ: штраф за злоупотребление процессуальными правами</td>
+            </tr>
+            <tr>
+                <td><strong>Неправосудный приговор</strong></td>
+                <td>Отстранение от должности + запрет заседать с коллегами</td>
+                <td>Дисциплинарная ответственность судей (Закон о статусе судей)</td>
+            </tr>
+            <tr>
+                <td><strong>Взяточничество</strong></td>
+                <td>Смертная казнь + конфискация имущества</td>
+                <td>Ст. 290 УК РФ: лишение свободы до 15 лет</td>
+            </tr>
+            <tr>
+                <td><strong>Принятие дела без проверки доказательств</strong></td>
+                <td>Штраф + обязанность возместить ущерб стороне</td>
+                <td>Ст. 10 ГК РФ: возмещение убытков от злоупотребления правом</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<footer>
+    <div class="footer-signature">
+        <p>© 1755 г. до н.э. Канцелярия царя Хаммурапи</p>
+        <p>Подготовлено студентами 1 курса юридического факультета • 2026</p>
+    </div>
+</footer>
+
+<script>
+    // === ТЕМА ===
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+    
+    // === АНИМАЦИЯ ПОЯВЛЕНИЯ СЕКЦИЙ ===
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
