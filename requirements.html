@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Требования к договорам | Эсагила-Договоръ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+        --bg-sand: #E6DCC8;
+        --card-white: #F9F7F2;
+        --brown-dark: #4A3B2A;
+        --black-text: #1A1A1A;
+        --gold-antique: #C5A059;
+        --gold-hover: #d4af37;
+        --shadow: rgba(74, 59, 42, 0.1);
+        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .dark-mode {
+        --bg-sand: #1a1a1a;
+        --card-white: #2d2d2d;
+        --brown-dark: #e6dcc8;
+        --black-text: #f5f0e1;
+        --gold-antique: #c5a059;
+        --gold-hover: #d4af37;
+        --shadow: rgba(0, 0, 0, 0.4);
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+        font-family: 'Lora', serif;
+        background: var(--bg-sand);
+        color: var(--black-text);
+        line-height: 1.8;
+        overflow-x: hidden;
+        transition: var(--transition);
+    }
+
+    .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+
+    nav {
+        position: fixed; top: 0; left: 0; right: 0;
+        background: var(--brown-dark);
+        backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+        color: var(--card-white); padding: 22px 50px;
+        z-index: 1000; 
+        box-shadow: 0 4px 40px rgba(74, 59, 42, 0.3);
+        border-bottom: 2px solid var(--gold-antique);
+        transition: var(--transition);
+    }
+    
+    .nav-container {
+        max-width: 1500px; margin: 0 auto;
+        display: flex; justify-content: space-between; align-items: center;
+        flex-wrap: wrap; gap: 25px;
+    }
+    
+    .logo {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.5em; font-weight: 700;
+        color: var(--gold-antique);
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .logo i {
+        color: var(--gold-antique);
+        margin-right: 12px;
+        font-size: 1.1em;
+    }
+    
+    .nav-links { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; }
+    
+    .nav-links a {
+        color: var(--card-white); text-decoration: none;
+        font-size: 0.95em; font-weight: 500;
+        transition: var(--transition); padding: 8px 14px;
+        border-radius: 8px; position: relative;
+        letter-spacing: 0.5px;
+    }
+    
+    .nav-links a::before {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 0; height: 2px;
+        background: var(--gold-antique);
+        transition: width 0.4s;
+    }
+    
+    .nav-links a:hover::before { width: 70%; }
+    .nav-links a:hover { color: var(--gold-antique); transform: translateY(-2px); }
+    
+    .theme-toggle {
+        background: rgba(197, 160, 89, 0.15);
+        border: 2px solid var(--gold-antique);
+        color: var(--gold-antique); padding: 8px 14px; border-radius: 20px;
+        cursor: pointer; font-size: 1.1em; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .theme-toggle:hover { background: rgba(197, 160, 89, 0.3); transform: scale(1.1); }/* ✅ ИСПРАВЛЕННЫЙ ОТСТУП HERO */
+    .page-header {
+        background: linear-gradient(135deg, var(--brown-dark) 0%, #3a2e20 50%, var(--brown-dark) 100%);
+        color: var(--card-white); padding: 240px 40px 100px;
+        text-align: center; position: relative; overflow: hidden;
+    }
+    
+    .page-header::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(197, 160, 89, 0.05) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    
+    .page-header h1 {
+        font-family: 'Unbounded', sans-serif; font-size: 3.5em;
+        color: var(--gold-antique); text-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
+        margin-bottom: 20px; position: relative; z-index: 1;
+        letter-spacing: 2px; font-weight: 700;
+    }
+    
+    .page-header p {
+        font-size: 1.3em; font-style: italic; max-width: 800px;
+        margin: 0 auto; opacity: 0.9; position: relative; z-index: 1;
+        font-weight: 400; letter-spacing: 0.5px;
+    }
+
+    section { max-width: 1500px; margin: 0 auto; padding: 100px 50px; }
+    
+    .section-title {
+        font-family: 'Unbounded', sans-serif; font-size: 2.8em;
+        color: var(--brown-dark); text-align: center; margin-bottom: 25px;
+        position: relative; padding-bottom: 25px;
+        font-weight: 700; letter-spacing: 1px;
+    }
+    .section-title::after {
+        content: ''; position: absolute; bottom: 0; left: 50%;
+        transform: translateX(-50%); width: 120px; height: 4px;
+        background: linear-gradient(90deg, transparent, var(--gold-antique), transparent);
+    }
+    
+    .section-intro {
+        text-align: center; font-size: 1.3em; max-width: 900px;
+        margin: 0 auto 60px; color: var(--brown-dark); font-style: italic; opacity: 0.85;
+        font-weight: 500; letter-spacing: 0.5px;
+    }
+
+    /* === КАРТОЧКИ ТРЕБОВАНИЙ === */
+    .requirements-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 35px; margin-top: 50px;
+    }
+    
+    .requirement-card {
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        padding: 40px 35px; 
+        box-shadow: 0 8px 30px var(--shadow);
+        transition: var(--transition); position: relative; overflow: hidden;
+        display: flex; flex-direction: column;
+    }
+    
+    .requirement-card::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+        background: linear-gradient(90deg, var(--gold-antique), var(--gold-hover), var(--gold-antique));
+        transform: scaleX(0); transform-origin: left; transition: transform 0.5s;
+    }
+    .requirement-card:hover::before { transform: scaleX(1); }
+    .requirement-card:hover {
+        transform: translateY(-10px); 
+        box-shadow: 0 20px 50px var(--shadow);
+        border-color: var(--gold-antique);
+    }
+    
+    .requirement-card h3 {
+        font-family: 'Unbounded', sans-serif; color: var(--brown-dark);
+        font-size: 1.6em; margin-bottom: 15px; display: flex; align-items: center; gap: 15px;
+        font-weight: 700; letter-spacing: 0.5px;
+    }
+    
+    .requirement-icon { color: var(--gold-antique); font-size: 1.4em; }
+    
+    .requirement-type {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.8em; font-weight: 600;
+        color: var(--gold-antique); letter-spacing: 1px;
+        text-transform: uppercase; margin-bottom: 15px; display: block;
+    }
+    
+    .requirement-card p { 
+        color: var(--black-text); line-height: 1.8; font-size: 1.05em; opacity: 0.9;
+        font-weight: 500; margin-bottom: 15px; flex-grow: 1;
+    }
+    
+    .requirement-details {
+        background: var(--bg-sand);
+        border-left: 3px solid var(--gold-antique);
+        padding: 15px 20px;
+        border-radius: 0 8px 8px 0;
+        margin-top: 20px;
+    }
+    
+    .requirement-details h4 {
+        font-family: 'Unbounded', sans-serif;
+        font-size: 0.9em; color: var(--brown-dark);
+        margin-bottom: 8px; font-weight: 700;
+    }
+    
+    .requirement-details ul { list-style: none; padding: 0; }
+    
+    .requirement-details li {
+        font-size: 0.95em; color: var(--black-text);
+        padding: 4px 0; padding-left: 20px; position: relative; opacity: 0.85;
+    }
+    .requirement-details li::before {
+        content: '•'; color: var(--gold-antique);
+        position: absolute; left: 0; font-weight: bold;
+    }
+    
+    .article-ref {
+        display: inline-block;
+        background: var(--brown-dark);
+        color: var(--card-white);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        font-weight: 600;
+        margin-top: 20px;
+        font-family: 'Unbounded', sans-serif;
+        align-self: flex-start;
+    }
+
+    /* === ТАБЛИЦА СТРУКТУРЫ ТАБЛИЧКИ === */
+    .structure-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 40px 0;
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px var(--shadow);
+    }
+    
+    .structure-table th {
+        background: var(--brown-dark);
+        color: var(--gold-antique);
+        padding: 20px;
+        text-align: left;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.1em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    
+    .structure-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(74, 59, 42, 0.1);
+        font-size: 1.05em;
+        color: var(--black-text);
+        line-height: 1.6;
+        vertical-align: top;
+    }
+    
+    .structure-table tr:last-child td { border-bottom: none; }
+    .structure-table tr:hover td { background: var(--bg-sand); }
+
+    /* === ТАБЛИЦА ПОРОКОВ СДЕЛКИ === */
+    .defects-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 40px 0;
+        background: var(--card-white);
+        border: 2px solid var(--brown-dark);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px var(--shadow);
+    }
+    
+    .defects-table th {
+        background: var(--brown-dark);
+        color: var(--gold-antique);
+        padding: 20px;
+        text-align: left;
+        font-family: 'Unbounded', sans-serif;
+        font-size: 1.1em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    
+    .defects-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(74, 59, 42, 0.1);
+        font-size: 1.05em;
+        color: var(--black-text);
+        line-height: 1.6;
+        vertical-align: top;
+    }
+    
+    .defects-table tr:last-child td { border-bottom: none; }
+    .defects-table tr:hover td { background: var(--bg-sand); }/* === ГАЛЕРЕЯ КАК В INDEX.HTML (АДАПТИВНАЯ СЕТКА) === */
+    .gallery-grid {
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px; margin-top: 60px;
+    }
+    
+    .gallery-item {
+        position: relative; border-radius: 12px; overflow: hidden;
+        aspect-ratio: 4/3; cursor: pointer; 
+        box-shadow: 0 8px 25px var(--shadow);
+        transition: var(--transition);
+        border: 3px solid var(--brown-dark);
+        background: var(--brown-dark);
+    }
+    .gallery-item:hover { 
+        transform: scale(1.02); 
+        box-shadow: 0 15px 40px var(--shadow);
+        border-color: var(--gold-antique);
+    }
+    
+    .gallery-item img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.8s;
+    }
+    .gallery-item:hover img { transform: scale(1.1); }
+    
+    .gallery-overlay {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        background: linear-gradient(to top, rgba(74, 59, 42, 0.95), transparent);
+        padding: 30px 25px 25px; color: var(--card-white);
+        transform: translateY(100%); transition: transform 0.5s;
+    }
+    .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+    
+    .gallery-overlay h4 { 
+        font-family: 'Unbounded', sans-serif; 
+        font-size: 1.3em; margin-bottom: 8px;
+        color: var(--gold-antique); letter-spacing: 0.5px;
+    }
+    .gallery-overlay p { font-size: 1em; opacity: 0.95; }
+
+    /* === МОДАЛЬНОЕ ОКНО === */
+    .modal {
+        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(74, 59, 42, 0.95); z-index: 10000;
+        justify-content: center; align-items: center; padding: 30px;
+    }
+    .modal.active { display: flex; animation: fadeIn 0.4s; }
+    .modal-content {
+        max-width: 90vw; max-height: 90vh; position: relative;
+        border-radius: 12px; overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        border: 3px solid var(--gold-antique);
+        background: var(--bg-sand);
+    }
+    .modal-content img { max-width: 100%; max-height: 85vh; display: block; }
+    .modal-close {
+        position: absolute; top: 25px; right: 25px;
+        background: var(--gold-antique); border: 2px solid var(--brown-dark); color: var(--brown-dark);
+        width: 50px; height: 50px; border-radius: 50%; font-size: 1.3em;
+        cursor: pointer; transition: var(--transition);
+        display: flex; align-items: center; justify-content: center;
+        z-index: 10;
+    }
+    .modal-close:hover { background: var(--gold-hover); transform: rotate(90deg) scale(1.1); }
+    .modal-caption {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        background: rgba(74, 59, 42, 0.9); color: var(--gold-antique); 
+        padding: 25px; text-align: center; 
+        font-family: 'Lora', serif; font-size: 1.1em;
+    }
+
+    footer {
+        background: var(--brown-dark);
+        color: var(--card-white); padding: 70px 50px 40px;
+        margin-top: 100px; text-align: center;
+        border-top: 4px solid var(--gold-antique);
+    }
+    .footer-signature {
+        margin-top: 40px; padding-top: 30px;
+        border-top: 2px solid rgba(197, 160, 89, 0.4);
+        font-style: italic; color: var(--gold-antique); font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .fade-in-section { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+        .page-header { padding: 200px 25px 80px; }
+        .page-header h1 { font-size: 2.2em; letter-spacing: 1px; }
+        .page-header p { font-size: 1.1em; }
+        .section-title { font-size: 1.8em; }
+        .requirements-grid, .gallery-grid { grid-template-columns: 1fr; gap: 25px; }
+        nav { padding: 18px 25px; }
+        .nav-links { gap: 12px; }
+        .nav-links a { font-size: 0.85em; padding: 6px 10px; }
+        section { padding: 70px 25px; }
+        .requirement-card { padding: 30px 25px; }
+        .structure-table, .defects-table { font-size: 0.9em; display: block; overflow-x: auto; }
+        .structure-table th, .structure-table td,
+        .defects-table th, .defects-table td { padding: 12px 15px; white-space: nowrap; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><i class="fa-solid fa-landmark"></i> ЭСАГИЛА-ДОГОВОРЪ</a>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О проекте</a>
+            <a href="contracts.html">Виды сделок</a>
+            <a href="requirements.html">Требования</a>
+            <a href="witnesses.html">Свидетели</a>
+            <a href="expenses.html">Издержки</a>
+            <a href="risks.html">Риски</a>
+            <a href="security.html">Обеспечение</a>
+            <a href="comparison.html">Сравнение</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Переключить тему"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1><i class="fa-solid fa-clipboard-check" style="margin-right: 20px;"></i>Требования к договорам</h1>
+    <p>Юридический формализм как элемент действительности сделки в Древнем Вавилоне</p>
+</div><section class="fade-in-section">
+    <h2 class="section-title">Обязательные требования</h2>
+    <p class="section-intro">Без соблюдения всех требований сделка признавалась юридически ничтожной, а её участники несли уголовную ответственность</p>
+    
+    <div class="requirements-grid">
+        
+        <div class="requirement-card">
+            <span class="requirement-type">[ПИСЬМЕННАЯ ФОРМА]</span>
+            <h3><span class="requirement-icon"><i class="fa-solid fa-scroll"></i></span> Глиняная табличка</h3>
+            <p>Любая сделка должна была быть зафиксирована на глиняной табличке клинописью. Устные договорённости не имели юридической силы.</p>
+            
+            <div class="requirement-details">
+                <h4>Требования к форме:</h4>
+                <ul>
+                    <li>Материал: обожжённая или сырая глина</li>
+                    <li>Язык: аккадский (вавилонский диалект)</li>
+                    <li>Письменность: клинопись</li>
+                    <li>Авторство: профессиональный писец (тупшаррум)</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 7, 122–123 ЗХ ↔ Ст. 160–162 ГК РФ</span>
+        </div>
+        
+        <div class="requirement-card">
+            <span class="requirement-type">[СВИДЕТЕЛИ]</span>
+            <h3><span class="requirement-icon"><i class="fa-solid fa-users"></i></span> Присутствие свидетелей</h3>
+            <p>Свидетели были обязательным элементом любой сделки. Их отсутствие приравнивалось к краже и каралось смертной казнью (ст. 7 ЗХ).</p>
+            
+            <div class="requirement-details">
+                <h4>Требования к свидетелям:</h4>
+                <ul>
+                    <li>Количество: обычно 2–8 человек</li>
+                    <li>Статус: свободные люди (авилумы)</li>
+                    <li>Обязанность: поставить цилиндрическую печать</li>
+                    <li>Ответственность: за ложные показания — смерть</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 7, 9–12, 122–123 ЗХ ↔ Ст. 162 ГК РФ</span>
+        </div>
+        
+        <div class="requirement-card">
+            <span class="requirement-type">[ПЕЧАТИ]</span>
+            <h3><span class="requirement-icon"><i class="fa-solid fa-stamp"></i></span> Цилиндрические печати</h3>
+            <p>Каждый участник сделки должен был поставить оттиск своей цилиндрической печати. Печать служила аналогом современной подписи.</p>
+            
+            <div class="requirement-details">
+                <h4>Требования к печатям:</h4>
+                <ul>
+                    <li>Материал: камень, лазурит, сердолик</li>
+                    <li>Форма: цилиндр с гравировкой</li>
+                    <li>Применение: раскатка по влажной глине</li>
+                    <li>Уникальность: индивидуальный узор владельца</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 7, 122–123 ЗХ ↔ Ст. 160 ГК РФ</span>
+        </div>
+        
+        <div class="requirement-card">
+            <span class="requirement-type">[ЭСКАТОКОЛ]</span>
+            <h3><span class="requirement-icon"><i class="fa-solid fa-signature"></i></span> Заключительная часть</h3>
+            <p>Эсхатокол — обязательная заключительная часть таблички, содержащая имена свидетелей, имя писца, дату и место составления.</p>
+            
+            <div class="requirement-details">
+                <h4>Содержание эсхатокола:</h4>
+                <ul>
+                    <li>Имена свидетелей (полный список)</li>
+                    <li>Оттиски цилиндрических печатей</li>
+                    <li>Имя писца (тупшаррума)</li>
+                    <li>Дата и место составления</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 7, 122–123 ЗХ ↔ Ст. 160 ГК РФ</span>
+        </div>
+        
+        <div class="requirement-card">
+            <span class="requirement-type">[ПРАВОСПОСОБНОСТЬ]</span>
+            <h3><span class="requirement-icon"><i class="fa-solid fa-user-check"></i></span> Дееспособность сторон</h3>
+            <p>Сторонами сделки могли быть только дееспособные лица. Правоспособность зависела от социального статуса.</p>
+            
+            <div class="requirement-details">
+                <h4>Требования к субъектам:</h4>
+                <ul>
+                    <li>Авилум: полная правоспособность</li>
+                    <li>Мушкенум: сделки с разрешения господина</li>
+                    <li>Вардум: не мог быть стороной сделки</li>
+                    <li>Женщины: ограниченная правоспособность</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 7, 15–20 ЗХ ↔ Ст. 21 ГК РФ</span>
+        </div>
+        
+        <div class="requirement-card">
+            <span class="requirement-type">[ЗАКОННОСТЬ ОБЪЕКТА]</span>
+            <h3><span class="requirement-icon"><i class="fa-solid fa-scale-balanced"></i></span> Правомерность объекта</h3>
+            <p>Объект сделки должен быть законным. Некоторые вещи были изъяты из оборота: военные наделы (илку), храмовое имущество.</p>
+            
+            <div class="requirement-details">
+                <h4>Запрещённые объекты:</h4>
+                <ul>
+                    <li>Илку (военный надел) — ст. 36–38 ЗХ</li>
+                    <li>Храмовое имущество</li>
+                    <li>Государственная собственность</li>
+                    <li>Украденные вещи</li>
+                </ul>
+            </div>
+            <span class="article-ref">Ст. 7–13, 36–38 ЗХ ↔ Ст. 168–169 ГК РФ</span>
+        </div>
+        
+    </div>
+</section>
+
+<!-- ТАБЛИЦА СТРУКТУРЫ ТАБЛИЧКИ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Структура глиняной таблички</h2>
+    <p class="section-intro">Каждый договор состоял из трёх обязательных частей</p>
+    
+    <table class="structure-table">
+        <thead>
+            <tr>
+                <th>Часть таблички</th>
+                <th>Содержание</th>
+                <th>Аналог в современном праве</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Протокол (начало)</strong></td>
+                <td>Имена сторон сделки, их социальный статус, отцовские имена, род занятий.</td>
+                <td>Преамбула договора, реквизиты сторон (ст. 432 ГК РФ)</td>
+            </tr>
+            <tr>
+                <td><strong>Текст (середина)</strong></td>
+                <td>Суть сделки: объект, цена, сроки, условия исполнения, права и обязанности сторон.</td>
+                <td>Предмет договора, существенные условия (ст. 432 ГК РФ)</td>
+            </tr>
+            <tr>
+                <td><strong>Эсхатокол (конец)</strong></td>
+                <td>Имена свидетелей, оттиски печатей, имя писца, дата, место составления.</td>
+                <td>Подписи сторон, дата заключения, место (ст. 160 ГК РФ)</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- ТАБЛИЦА ПОРОКОВ СДЕЛКИ -->
+<section class="fade-in-section">
+    <h2 class="section-title">Пороки сделки</h2>
+    <p class="section-intro">Дефекты, делающие сделку недействительной</p>
+    
+    <table class="defects-table">
+        <thead>
+            <tr>
+                <th>Порок</th>
+                <th>Проявление</th>
+                <th>Последствия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Отсутствие письменной формы</strong></td>
+                <td>Устная договорённость без таблички</td>
+                <td>Сделка ничтожна. Требование не принимается судом (ст. 122–123 ЗХ).</td>
+            </tr>
+            <tr>
+                <td><strong>Отсутствие свидетелей</strong></td>
+                <td>Сделка совершена без свидетелей</td>
+                <td>Приравнивается к краже. Смертная казнь (ст. 7 ЗХ).</td>
+            </tr>
+            <tr>
+                <td><strong>Отсутствие печатей</strong></td>
+                <td>Нет оттисков цилиндрических печатей</td>
+                <td>Сделка ничтожна. Документ считается подделкой.</td>
+            </tr>
+            <tr>
+                <td><strong>Недееспособность стороны</strong></td>
+                <td>Участие раба или мушкенума без разрешения</td>
+                <td>Сделка ничтожна. Уголовная ответственность.</td>
+            </tr>
+            <tr>
+                <td><strong>Незаконный объект</strong></td>
+                <td>Продажа илку, храмового имущества</td>
+                <td>Конфискация + штраф. Сделка ничтожна (ст. 36–38 ЗХ).</td>
+            </tr>
+            <tr>
+                <td><strong>Принуждение</strong></td>
+                <td>Сделка совершена под угрозой</td>
+                <td>Сделка оспорима. Возврат имущества.</td>
+            </tr>
+            <tr>
+                <td><strong>Обман</strong></td>
+                <td>Сокрытие дефектов вещи, ложные показания</td>
+                <td>Сделка оспорима. Штраф + компенсация.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- ГАЛЕРЕЯ (ОБНОВЛЕННАЯ: УБРАН ПУСТОЙ СЛОТ) -->
+<section class="fade-in-section">
+    <h2 class="section-title">Материальные свидетельства</h2>
+    <p class="section-intro">Артефакты, иллюстрирующие требования к договорам</p>
+    
+    <div class="gallery-grid">
+        
+        <!-- ЦИЛИНДРИЧЕСКАЯ ПЕЧАТЬ -->
+        <div class="gallery-item" onclick="openModal(this)" data-caption="Цилиндрическая печать из лазурита. Использовалась для заверения документов оттиском на глине.">
+            <img src="images/cylinder-seal.jpg" alt="Цилиндрическая печать" loading="lazy">
+            <div class="gallery-overlay">
+                <h4>Цилиндрическая печать</h4>
+                <p>Аналог электронной подписи</p>
+            </div>
+        </div>
+        
+        <!-- ПЕЧАТИ СВИДЕТЕЛЕЙ -->
+        <div class="gallery-item" onclick="openModal(this)" data-caption="Оттиски печатей свидетелей на глиняной табличке. Каждый оттиск — индивидуальная гарантия.">
+            <img src="images/witness-seals.jpg" alt="Печати свидетелей" loading="lazy">
+            <div class="gallery-overlay">
+                <h4>Печати свидетелей</h4>
+                <p>Коллективная гарантия</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<div class="modal" id="galleryModal" onclick="closeModal(event)">
+    <button class="modal-close" onclick="closeModalBtn()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+</div><footer>
+    <div class="footer-signature">
+        <p>© 1755 г. до н.э. Канцелярия царя Хаммурапи</p>
+        <p>Подготовлено студентами 1 курса юридического факультета • 2026</p>
+    </div>
+</footer>
+
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+    
+    function openModal(item) {
+        const modal = document.getElementById('galleryModal');
+        const img = item.querySelector('img');
+        const caption = item.getAttribute('data-caption');
+        
+        if (img.complete && img.naturalHeight !== 0) {
+            document.getElementById('modalImage').src = img.src;
+            document.getElementById('modalCaption').textContent = caption;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        } else {
+            alert('Изображение временно недоступно. Пожалуйста, проверьте подключение к интернету или загрузите файлы в папку images/.');
+        }
+    }
+    
+    function closeModal(e) {
+        if (e.target === document.getElementById('galleryModal')) { closeModalBtn(); }
+    }
+    
+    function closeModalBtn() {
+        document.getElementById('galleryModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
